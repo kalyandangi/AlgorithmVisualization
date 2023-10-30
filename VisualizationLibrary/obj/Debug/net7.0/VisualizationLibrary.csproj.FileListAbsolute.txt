@@ -1,0 +1,11 @@
+E:\dotNetDemo\VisualizationLibrary\bin\Debug\net7.0\VisualizationLibrary.deps.json
+E:\dotNetDemo\VisualizationLibrary\bin\Debug\net7.0\VisualizationLibrary.dll
+E:\dotNetDemo\VisualizationLibrary\bin\Debug\net7.0\VisualizationLibrary.pdb
+E:\dotNetDemo\VisualizationLibrary\obj\Debug\net7.0\VisualizationLibrary.GeneratedMSBuildEditorConfig.editorconfig
+E:\dotNetDemo\VisualizationLibrary\obj\Debug\net7.0\VisualizationLibrary.AssemblyInfoInputs.cache
+E:\dotNetDemo\VisualizationLibrary\obj\Debug\net7.0\VisualizationLibrary.AssemblyInfo.cs
+E:\dotNetDemo\VisualizationLibrary\obj\Debug\net7.0\VisualizationLibrary.csproj.CoreCompileInputs.cache
+E:\dotNetDemo\VisualizationLibrary\obj\Debug\net7.0\VisualizationLibrary.dll
+E:\dotNetDemo\VisualizationLibrary\obj\Debug\net7.0\refint\VisualizationLibrary.dll
+E:\dotNetDemo\VisualizationLibrary\obj\Debug\net7.0\VisualizationLibrary.pdb
+E:\dotNetDemo\VisualizationLibrary\obj\Debug\net7.0\ref\VisualizationLibrary.dll

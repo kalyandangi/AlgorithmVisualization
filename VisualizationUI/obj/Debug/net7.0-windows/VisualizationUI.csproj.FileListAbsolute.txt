@@ -1,0 +1,16 @@
+E:\dotNetDemo\VisualizationUI\bin\Debug\net7.0-windows\VisualizationUI.exe
+E:\dotNetDemo\VisualizationUI\bin\Debug\net7.0-windows\VisualizationUI.deps.json
+E:\dotNetDemo\VisualizationUI\bin\Debug\net7.0-windows\VisualizationUI.runtimeconfig.json
+E:\dotNetDemo\VisualizationUI\bin\Debug\net7.0-windows\VisualizationUI.dll
+E:\dotNetDemo\VisualizationUI\bin\Debug\net7.0-windows\VisualizationUI.pdb
+E:\dotNetDemo\VisualizationUI\obj\Debug\net7.0-windows\VisualizationUI.Form1.resources
+E:\dotNetDemo\VisualizationUI\obj\Debug\net7.0-windows\VisualizationUI.csproj.GenerateResource.cache
+E:\dotNetDemo\VisualizationUI\obj\Debug\net7.0-windows\VisualizationUI.GeneratedMSBuildEditorConfig.editorconfig
+E:\dotNetDemo\VisualizationUI\obj\Debug\net7.0-windows\VisualizationUI.AssemblyInfoInputs.cache
+E:\dotNetDemo\VisualizationUI\obj\Debug\net7.0-windows\VisualizationUI.AssemblyInfo.cs
+E:\dotNetDemo\VisualizationUI\obj\Debug\net7.0-windows\VisualizationUI.csproj.CoreCompileInputs.cache
+E:\dotNetDemo\VisualizationUI\obj\Debug\net7.0-windows\VisualizationUI.dll
+E:\dotNetDemo\VisualizationUI\obj\Debug\net7.0-windows\refint\VisualizationUI.dll
+E:\dotNetDemo\VisualizationUI\obj\Debug\net7.0-windows\VisualizationUI.pdb
+E:\dotNetDemo\VisualizationUI\obj\Debug\net7.0-windows\VisualizationUI.genruntimeconfig.cache
+E:\dotNetDemo\VisualizationUI\obj\Debug\net7.0-windows\ref\VisualizationUI.dll
