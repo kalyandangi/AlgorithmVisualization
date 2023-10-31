@@ -15,11 +15,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\dotNetDemo\\AlgorithmVisualization\\VisualizationLibrary\\VisualizationLibrary.csproj",
+      "projectUniqueName": "E:\\dotNetDemo\\VisualizationLibrary\\VisualizationLibrary.csproj",
       "projectName": "VisualizationLibrary",
-      "projectPath": "E:\\dotNetDemo\\AlgorithmVisualization\\VisualizationLibrary\\VisualizationLibrary.csproj",
+      "projectPath": "E:\\dotNetDemo\\VisualizationLibrary\\VisualizationLibrary.csproj",
       "packagesPath": "C:\\Users\\dangi\\.nuget\\packages\\",
-      "outputPath": "E:\\dotNetDemo\\AlgorithmVisualization\\VisualizationLibrary\\obj\\",
+      "outputPath": "E:\\dotNetDemo\\VisualizationLibrary\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
