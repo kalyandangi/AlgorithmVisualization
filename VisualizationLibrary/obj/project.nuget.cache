@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "6RLoTX177IZRpByT6Ezc8YxvDmjgET8NzLeeDeOpry3LvrkgZLYyHbrg1gZghHPxZmxuvRuKaeozZbA5jCI/NQ==",
+  "dgSpecHash": "xWLem8QWzbD22EgTXzt3GGKjz8GRuQFjRf9ZEUta7Rjd2yts/Uw2Krp7CfSxM864hBwZo4Iw/ZwFdyzqF02Wiw==",
   "success": true,
-  "projectFilePath": "E:\\dotNetDemo\\VisualizationLibrary\\VisualizationLibrary.csproj",
+  "projectFilePath": "E:\\dotNetDemo\\AlgorithmVisualization\\VisualizationLibrary\\VisualizationLibrary.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

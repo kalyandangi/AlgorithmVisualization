@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "b6ZU2P/JLRa29f+4ASPdIzLoQrYzXHvoHxCp/dk1PgNNnEJwlONcyUyO6ZaiPpOdyAKUqgPyuWPMD9GKNQkAYA==",
+  "dgSpecHash": "O+vKvH/yzpX7L5rSDTYzJYoJsMEhsgvG07ZHdRNXAA07ygKEuzgByX4E+uySjDy0dumNQuE6bYSPNXEXCAY6Zg==",
   "success": true,
-  "projectFilePath": "E:\\dotNetDemo\\VisualizationUI\\VisualizationUI.csproj",
+  "projectFilePath": "E:\\dotNetDemo\\AlgorithmVisualization\\VisualizationUI\\VisualizationUI.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }
