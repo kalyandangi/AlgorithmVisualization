@@ -1,4 +1,7 @@
-﻿namespace VisualizationUI
+﻿using System.Drawing;
+using System.Windows.Forms;
+
+namespace VisualizationUI
 {
     partial class Dashboard
     {
@@ -47,6 +50,7 @@
             sortingButton.TabIndex = 0;
             sortingButton.Text = "Sorting";
             sortingButton.UseVisualStyleBackColor = true;
+            sortingButton.Click += sortingButton_Click;
             // 
             // searchingButton
             // 

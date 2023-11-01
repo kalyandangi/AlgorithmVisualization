@@ -25,5 +25,12 @@ namespace VisualizationUI
         private void recursionButton_Click(object sender, EventArgs e)
         {
         }
+
+        private void sortingButton_Click(object sender, EventArgs e)
+        {
+            BubbleSortForm bubbleSort = new BubbleSortForm();
+            bubbleSort.Show();
+
+        }
     }
 }
