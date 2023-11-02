@@ -7,6 +7,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VisualizationLibrary", "Vis
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VisualizationUI", "VisualizationUI\VisualizationUI.csproj", "{251034FC-DD59-4372-AAB7-E557186BD0EC}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SortingTest", "BubbleSortTest\SortingTest.csproj", "{AA7814B0-5930-4094-873A-BFB56F2EFE76}"
+	ProjectSection(ProjectDependencies) = postProject
+		{251034FC-DD59-4372-AAB7-E557186BD0EC} = {251034FC-DD59-4372-AAB7-E557186BD0EC}
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +26,10 @@ Global
 		{251034FC-DD59-4372-AAB7-E557186BD0EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{251034FC-DD59-4372-AAB7-E557186BD0EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{251034FC-DD59-4372-AAB7-E557186BD0EC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AA7814B0-5930-4094-873A-BFB56F2EFE76}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AA7814B0-5930-4094-873A-BFB56F2EFE76}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AA7814B0-5930-4094-873A-BFB56F2EFE76}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AA7814B0-5930-4094-873A-BFB56F2EFE76}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
