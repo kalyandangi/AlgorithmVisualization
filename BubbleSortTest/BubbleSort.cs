@@ -1,4 +1,6 @@
 
+using VisualizationUI;
+
 namespace BubbleSort
 {
     [TestClass]

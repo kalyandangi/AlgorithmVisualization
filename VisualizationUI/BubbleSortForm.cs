@@ -20,10 +20,10 @@ namespace VisualizationUI
             sortingTimer.Tick += SortStep;
         }
 
-        int[]? data;
+        public int[]? data;
         private Random random = new Random();
 
-        private void GenerateRandomNumbers()
+        public void GenerateRandomNumbers()
         {
             int arraySize = givenNumberPanel.Width;
             data = new int[arraySize];
@@ -33,7 +33,7 @@ namespace VisualizationUI
                 data[i] = random.Next(givenNumberPanel.Height);
             }
         }
-        private void GenerateDrawData()
+        public void GenerateDrawData()
         {
             if (data == null) return;
             using (Graphics g = givenNumberPanel.CreateGraphics())
@@ -51,7 +51,7 @@ namespace VisualizationUI
             }
 
         }
-        private void ResultDrawData()
+        public void ResultDrawData()
         {
             if (data == null) return;
             using (Graphics g = resultPanel.CreateGraphics())
@@ -73,7 +73,7 @@ namespace VisualizationUI
         private Timer sortingTimer = new Timer();
         private int currentIndex = 0;
         private bool isSorting = false;
-        private void SortStep(object sender, EventArgs e)
+        public void SortStep(object sender, EventArgs e)
 
         {
 
@@ -101,7 +101,7 @@ namespace VisualizationUI
             ResultDrawData();
         }
 
-        private bool BubbleSortStep()
+        public bool BubbleSortStep()
         {
             bool swapped = false;
             for (int i = 0; i < data?.Length - 1; i++)
