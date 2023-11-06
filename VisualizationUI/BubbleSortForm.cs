@@ -18,10 +18,10 @@ namespace VisualizationUI
         VisualizationLibrary.Models.BubbleSortModel bubbleSortModel = new VisualizationLibrary.Models.BubbleSortModel();
         public VisualizationLibrary.Models.BubbleSortModel BubbleSortModel
         {
-        get { return bubbleSortModel; }
-        set { bubbleSortModel = value; }
+            get { return bubbleSortModel; }
+            set { bubbleSortModel = value; }
         }
-       // public Panel givenNumberPanel = new Panel();
+
 
         public BubbleSortForm()
         {
