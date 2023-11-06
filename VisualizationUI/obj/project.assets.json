@@ -1,11 +1,30 @@
 {
   "version": 3,
   "targets": {
-    "net7.0-windows7.0": {}
+    "net7.0-windows7.0": {
+      "VisualizationLibrary/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
+        "compile": {
+          "bin/placeholder/VisualizationLibrary.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/VisualizationLibrary.dll": {}
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "VisualizationLibrary/1.0.0": {
+      "type": "project",
+      "path": "../VisualizationLibrary/VisualizationLibrary.csproj",
+      "msbuildProject": "../VisualizationLibrary/VisualizationLibrary.csproj"
+    }
+  },
   "projectFileDependencyGroups": {
-    "net7.0-windows7.0": []
+    "net7.0-windows7.0": [
+      "VisualizationLibrary >= 1.0.0"
+    ]
   },
   "packageFolders": {
     "C:\\Users\\dangi\\.nuget\\packages\\": {},
@@ -41,7 +60,11 @@
       "frameworks": {
         "net7.0-windows7.0": {
           "targetAlias": "net7.0-windows",
-          "projectReferences": {}
+          "projectReferences": {
+            "E:\\dotNetDemo\\AlgorithmVisualization\\VisualizationLibrary\\VisualizationLibrary.csproj": {
+              "projectPath": "E:\\dotNetDemo\\AlgorithmVisualization\\VisualizationLibrary\\VisualizationLibrary.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

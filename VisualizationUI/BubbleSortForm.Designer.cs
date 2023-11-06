@@ -31,12 +31,14 @@ namespace VisualizationUI
         /// </summary>
         public void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             givenNubmerLabel = new Label();
             bubbleSortLabel = new Label();
             givenNumberPanel = new Panel();
             resultPanel = new Panel();
             generateButton = new Button();
             sortButton = new Button();
+            contextMenuStrip1 = new ContextMenuStrip(components);
             SuspendLayout();
             // 
             // givenNubmerLabel
@@ -61,14 +63,14 @@ namespace VisualizationUI
             // 
             givenNumberPanel.Location = new Point(41, 100);
             givenNumberPanel.Name = "givenNumberPanel";
-            givenNumberPanel.Size = new Size(300, 303);
+            givenNumberPanel.Size = new Size(300, 300);
             givenNumberPanel.TabIndex = 4;
             // 
             // resultPanel
             // 
             resultPanel.Location = new Point(395, 100);
             resultPanel.Name = "resultPanel";
-            resultPanel.Size = new Size(300, 303);
+            resultPanel.Size = new Size(300, 300);
             resultPanel.TabIndex = 5;
             // 
             // generateButton
@@ -91,6 +93,12 @@ namespace VisualizationUI
             sortButton.UseVisualStyleBackColor = true;
             sortButton.Click += sortButton_Click;
             // 
+            // contextMenuStrip1
+            // 
+            contextMenuStrip1.ImageScalingSize = new Size(24, 24);
+            contextMenuStrip1.Name = "contextMenuStrip1";
+            contextMenuStrip1.Size = new Size(61, 4);
+            // 
             // BubbleSortForm
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
@@ -112,9 +120,10 @@ namespace VisualizationUI
         #endregion
         private Label givenNubmerLabel;
         private Label bubbleSortLabel;
-        private Panel givenNumberPanel;
+        public Panel givenNumberPanel;
         private Panel resultPanel;
         private Button generateButton;
         private Button sortButton;
+        private ContextMenuStrip contextMenuStrip1;
     }
 }
