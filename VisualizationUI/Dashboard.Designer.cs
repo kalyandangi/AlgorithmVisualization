@@ -96,7 +96,6 @@ namespace VisualizationUI
             recursionButton.TabIndex = 5;
             recursionButton.Text = "Recursion";
             recursionButton.UseVisualStyleBackColor = true;
-            recursionButton.Click += recursionButton_Click;
             // 
             // stringAlgorithmButton
             // 
@@ -106,7 +105,6 @@ namespace VisualizationUI
             stringAlgorithmButton.TabIndex = 6;
             stringAlgorithmButton.Text = "String Algorithm";
             stringAlgorithmButton.UseVisualStyleBackColor = true;
-            stringAlgorithmButton.Click += button1_Click;
             // 
             // geomatircAlgorithmButton
             // 
@@ -141,6 +139,7 @@ namespace VisualizationUI
             Controls.Add(searchingButton);
             Controls.Add(sortingButton);
             Name = "Dashboard";
+            StartPosition = FormStartPosition.CenterParent;
             Text = "Dashboard";
             ResumeLayout(false);
         }

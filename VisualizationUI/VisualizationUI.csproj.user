@@ -7,5 +7,11 @@
     <Compile Update="Dashboard.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="SelectionSort.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="SortingDashboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
 </Project>

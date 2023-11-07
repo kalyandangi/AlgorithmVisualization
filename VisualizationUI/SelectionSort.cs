@@ -10,18 +10,11 @@ using System.Windows.Forms;
 
 namespace VisualizationUI
 {
-    public partial class Dashboard : Form
+    public partial class SelectionSort : Form
     {
-        public Dashboard()
+        public SelectionSort()
         {
             InitializeComponent();
-        }
-
-        private void sortingButton_Click(object sender, EventArgs e)
-        {
-            SortingDashboard sortingDashboard = new SortingDashboard();
-            sortingDashboard.Show();
-           // this.Close();
         }
     }
 }

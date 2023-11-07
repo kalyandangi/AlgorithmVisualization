@@ -25,6 +25,7 @@ namespace VisualizationUI
 
         public BubbleSortForm()
         {
+         
             InitializeComponent();
             sortingTimer.Interval = 1; // Adjust the timer interval as needed
             sortingTimer.Tick += SortStep;
