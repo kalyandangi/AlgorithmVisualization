@@ -1,16 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Compile Update="BubbleSortForm.cs">
+    <Compile Update="Sorting\BubbleSortForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Dashboard.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="SelectionSort.cs">
+    <Compile Update="Sorting\SelectionSortForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="SortingDashboard.cs">
+    <Compile Update="Sorting\SortingDashboard.cs">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>

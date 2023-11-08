@@ -1,6 +1,6 @@
 ﻿namespace VisualizationUI
 {
-    partial class SelectionSort
+    partial class SelectionSortForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,25 +28,25 @@
         /// </summary>
         private void InitializeComponent()
         {
-            selectionSortGenerateInputPanel = new System.Windows.Forms.Panel();
-            selectionSortOuputPanel = new System.Windows.Forms.Panel();
+            givenNumberPanel = new System.Windows.Forms.Panel();
+            resultPanel = new System.Windows.Forms.Panel();
             selectionSortGenerateInputButton = new System.Windows.Forms.Button();
             selectionSortOutputButton = new System.Windows.Forms.Button();
             SuspendLayout();
             // 
-            // selectionSortGenerateInputPanel
+            // givenNumberPanel
             // 
-            selectionSortGenerateInputPanel.Location = new System.Drawing.Point(60, 66);
-            selectionSortGenerateInputPanel.Name = "selectionSortGenerateInputPanel";
-            selectionSortGenerateInputPanel.Size = new System.Drawing.Size(300, 300);
-            selectionSortGenerateInputPanel.TabIndex = 0;
+            givenNumberPanel.Location = new System.Drawing.Point(60, 66);
+            givenNumberPanel.Name = "givenNumberPanel";
+            givenNumberPanel.Size = new System.Drawing.Size(300, 300);
+            givenNumberPanel.TabIndex = 0;
             // 
-            // selectionSortOuputPanel
+            // resultPanel
             // 
-            selectionSortOuputPanel.Location = new System.Drawing.Point(440, 66);
-            selectionSortOuputPanel.Name = "selectionSortOuputPanel";
-            selectionSortOuputPanel.Size = new System.Drawing.Size(300, 300);
-            selectionSortOuputPanel.TabIndex = 1;
+            resultPanel.Location = new System.Drawing.Point(440, 66);
+            resultPanel.Name = "resultPanel";
+            resultPanel.Size = new System.Drawing.Size(300, 300);
+            resultPanel.TabIndex = 1;
             // 
             // selectionSortGenerateInputButton
             // 
@@ -56,6 +56,7 @@
             selectionSortGenerateInputButton.TabIndex = 2;
             selectionSortGenerateInputButton.Text = "Generate";
             selectionSortGenerateInputButton.UseVisualStyleBackColor = true;
+            selectionSortGenerateInputButton.Click += selectionSortGenerateInputButton_Click;
             // 
             // selectionSortOutputButton
             // 
@@ -65,25 +66,26 @@
             selectionSortOutputButton.TabIndex = 3;
             selectionSortOutputButton.Text = "Sort";
             selectionSortOutputButton.UseVisualStyleBackColor = true;
+            selectionSortOutputButton.Click += selectionSortOutputButton_Click;
             // 
-            // SelectionSort
+            // SelectionSortForm
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             ClientSize = new System.Drawing.Size(800, 450);
             Controls.Add(selectionSortOutputButton);
             Controls.Add(selectionSortGenerateInputButton);
-            Controls.Add(selectionSortOuputPanel);
-            Controls.Add(selectionSortGenerateInputPanel);
-            Name = "SelectionSort";
+            Controls.Add(resultPanel);
+            Controls.Add(givenNumberPanel);
+            Name = "SelectionSortForm";
             Text = "SelectionSort";
             ResumeLayout(false);
         }
 
         #endregion
 
-        private System.Windows.Forms.Panel selectionSortGenerateInputPanel;
-        private System.Windows.Forms.Panel selectionSortOuputPanel;
+        public System.Windows.Forms.Panel givenNumberPanel;
+        private System.Windows.Forms.Panel resultPanel;
         private System.Windows.Forms.Button selectionSortGenerateInputButton;
         private System.Windows.Forms.Button selectionSortOutputButton;
     }

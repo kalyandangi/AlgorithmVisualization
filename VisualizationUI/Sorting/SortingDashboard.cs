@@ -29,7 +29,7 @@ namespace VisualizationUI
         private void selectionSortSelectionButton_Click(object sender, EventArgs e)
         {
             
-            SelectionSort selectionSort = new SelectionSort();
+            SelectionSortForm selectionSort = new SelectionSortForm();
             selectionSort.Show();
             this.Close();
 
