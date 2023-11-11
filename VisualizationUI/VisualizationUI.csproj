@@ -7,7 +7,9 @@
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>disable</ImplicitUsings>
   </PropertyGroup>
-	<ItemGroup>
-		<ProjectReference Include="..\VisualizationLibrary\VisualizationLibrary.csproj" />
-	</ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\VisualizationLibrary\VisualizationLibrary.csproj" />
+  </ItemGroup>
+	
 </Project>

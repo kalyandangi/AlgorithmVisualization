@@ -1,7 +1,4 @@
-﻿using System.Drawing;
-using System.Windows.Forms;
-
-namespace VisualizationUI
+﻿namespace VisualizationUI.Sorting
 {
     partial class BubbleSortForm
     {
@@ -29,101 +26,91 @@ namespace VisualizationUI
         /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
         /// </summary>
-        public void InitializeComponent()
+        private void InitializeComponent()
         {
-            components = new System.ComponentModel.Container();
-            givenNubmerLabel = new Label();
-            bubbleSortLabel = new Label();
-            givenNumberPanel = new Panel();
-            resultPanel = new Panel();
-            generateButton = new Button();
-            sortButton = new Button();
-            contextMenuStrip1 = new ContextMenuStrip(components);
+            sortButton = new System.Windows.Forms.Button();
+            generateNumberButton = new System.Windows.Forms.Button();
+            bubbleSortLabel = new System.Windows.Forms.Label();
+            givenNumberLabel = new System.Windows.Forms.Label();
+            resultPanel = new System.Windows.Forms.Panel();
+            givenNumberPanel = new System.Windows.Forms.Panel();
             SuspendLayout();
             // 
-            // givenNubmerLabel
+            // sortButton
             // 
-            givenNubmerLabel.AutoSize = true;
-            givenNubmerLabel.Location = new Point(132, 72);
-            givenNubmerLabel.Name = "givenNubmerLabel";
-            givenNubmerLabel.Size = new Size(126, 25);
-            givenNubmerLabel.TabIndex = 2;
-            givenNubmerLabel.Text = "Given Number";
+            sortButton.Location = new System.Drawing.Point(541, 411);
+            sortButton.Name = "sortButton";
+            sortButton.Size = new System.Drawing.Size(112, 34);
+            sortButton.TabIndex = 11;
+            sortButton.Text = "Sort";
+            sortButton.UseVisualStyleBackColor = true;
+            // 
+            // generateNumberButton
+            // 
+            generateNumberButton.Location = new System.Drawing.Point(141, 411);
+            generateNumberButton.Name = "generateNumberButton";
+            generateNumberButton.Size = new System.Drawing.Size(112, 34);
+            generateNumberButton.TabIndex = 10;
+            generateNumberButton.Text = "Generate";
+            generateNumberButton.UseVisualStyleBackColor = true;
             // 
             // bubbleSortLabel
             // 
             bubbleSortLabel.AutoSize = true;
-            bubbleSortLabel.Location = new Point(485, 72);
+            bubbleSortLabel.Location = new System.Drawing.Point(541, 77);
             bubbleSortLabel.Name = "bubbleSortLabel";
-            bubbleSortLabel.Size = new Size(105, 25);
-            bubbleSortLabel.TabIndex = 3;
+            bubbleSortLabel.Size = new System.Drawing.Size(105, 25);
+            bubbleSortLabel.TabIndex = 9;
             bubbleSortLabel.Text = "Bubble Sort";
             // 
-            // givenNumberPanel
+            // givenNumberLabel
             // 
-            givenNumberPanel.Location = new Point(41, 100);
-            givenNumberPanel.Name = "givenNumberPanel";
-            givenNumberPanel.Size = new Size(300, 300);
-            givenNumberPanel.TabIndex = 4;
+            givenNumberLabel.AutoSize = true;
+            givenNumberLabel.Location = new System.Drawing.Point(127, 77);
+            givenNumberLabel.Name = "givenNumberLabel";
+            givenNumberLabel.Size = new System.Drawing.Size(126, 25);
+            givenNumberLabel.TabIndex = 8;
+            givenNumberLabel.Text = "Given Number";
             // 
             // resultPanel
             // 
-            resultPanel.Location = new Point(395, 100);
+            resultPanel.Location = new System.Drawing.Point(444, 105);
             resultPanel.Name = "resultPanel";
-            resultPanel.Size = new Size(300, 300);
-            resultPanel.TabIndex = 5;
+            resultPanel.Size = new System.Drawing.Size(300, 300);
+            resultPanel.TabIndex = 7;
             // 
-            // generateButton
+            // givenNumberPanel
             // 
-            generateButton.Location = new Point(138, 412);
-            generateButton.Name = "generateButton";
-            generateButton.Size = new Size(112, 34);
-            generateButton.TabIndex = 6;
-            generateButton.Text = "Generate";
-            generateButton.UseVisualStyleBackColor = true;
-            generateButton.Click += generateButton_Click;
-            // 
-            // sortButton
-            // 
-            sortButton.Location = new Point(478, 409);
-            sortButton.Name = "sortButton";
-            sortButton.Size = new Size(112, 34);
-            sortButton.TabIndex = 7;
-            sortButton.Text = "Sort";
-            sortButton.UseVisualStyleBackColor = true;
-            sortButton.Click += sortButton_Click;
-            // 
-            // contextMenuStrip1
-            // 
-            contextMenuStrip1.ImageScalingSize = new Size(24, 24);
-            contextMenuStrip1.Name = "contextMenuStrip1";
-            contextMenuStrip1.Size = new Size(61, 4);
+            givenNumberPanel.Location = new System.Drawing.Point(56, 105);
+            givenNumberPanel.Name = "givenNumberPanel";
+            givenNumberPanel.Size = new System.Drawing.Size(300, 300);
+            givenNumberPanel.TabIndex = 6;
             // 
             // BubbleSortForm
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
-            AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 523);
+            AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
+            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            ClientSize = new System.Drawing.Size(800, 523);
             Controls.Add(sortButton);
-            Controls.Add(generateButton);
+            Controls.Add(generateNumberButton);
+            Controls.Add(bubbleSortLabel);
+            Controls.Add(givenNumberLabel);
             Controls.Add(resultPanel);
             Controls.Add(givenNumberPanel);
-            Controls.Add(bubbleSortLabel);
-            Controls.Add(givenNubmerLabel);
             Name = "BubbleSortForm";
-            StartPosition = FormStartPosition.CenterScreen;
-            Text = "BubbleSort";
+            Text = "BubbleSortForm";
+           // Load += BubbleSortForm_Load;
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
-        private Label givenNubmerLabel;
-        private Label bubbleSortLabel;
-        public Panel givenNumberPanel;
-        private Panel resultPanel;
-        private Button generateButton;
-        private Button sortButton;
-        private ContextMenuStrip contextMenuStrip1;
+
+        private System.Windows.Forms.Button sortButton;
+        private System.Windows.Forms.Button generateNumberButton;
+        private System.Windows.Forms.Label bubbleSortLabel;
+        private System.Windows.Forms.Label givenNumberLabel;
+        private System.Windows.Forms.Panel resultPanel;
+        public System.Windows.Forms.Panel givenNumberPanel;
     }
 }

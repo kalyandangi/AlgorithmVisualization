@@ -3,96 +3,55 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Drawing.Text;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using VisualizationLibrary;
+using VisualizationLibrary.Models;
+using VisualizationLibrary.SortVisualizer;
 
-namespace VisualizationUI
+namespace VisualizationUI.Sorting
 {
-
-    public partial class BubbleSortForm : Form
+    public partial class BubbleSortForm : Form, ISortVisualizer
     {
-        VisualizationLibrary.Models.BubbleSortModel bubbleSortModel = new VisualizationLibrary.Models.BubbleSortModel();
-        public VisualizationLibrary.Models.BubbleSortModel BubbleSortModel
+        private SortVisualizerHelper visualizerHelper = new SortVisualizerHelper();
+        private SortModel sortModel = new SortModel();
+        private Random random = new Random();
+        public Timer sortingTimer = new Timer();
+        private int currentIndex = 0;
+        public bool isSorting = false;
+
+        public SortModel SortModel
         {
-            get { return bubbleSortModel; }
-            set { bubbleSortModel = value; }
+            get { return sortModel; }
+            set { sortModel = value; }
         }
-
-
         public BubbleSortForm()
         {
-         
             InitializeComponent();
             sortingTimer.Interval = 1; // Adjust the timer interval as needed
             sortingTimer.Tick += SortStep;
         }
-        // Array to hold data for sorting
-        private Random random = new Random();
-        private Timer sortingTimer = new Timer();
-        private int currentIndex = 0;
-        private bool isSorting = false;
 
-        public void GenerateRandomNumbers(int panelWidth, int panelHeight)
+        private void sortButton_Click(object sender, EventArgs e)
         {
-            int arraySize = 100;
-            bubbleSortModel.Data = new int[arraySize];
-
-            for (int i = 0; i < arraySize; i++)
-            {
-                bubbleSortModel.Data[i] = random.Next(givenNumberPanel.Height);
-            }
-        }
-        public void GenerateDrawData()
-        {
-            if (bubbleSortModel.Data == null) return;
-            using (Graphics g = givenNumberPanel.CreateGraphics())
-            {
-                g.Clear(Color.White);
-                // Draw bars based on data values
-                for (int i = 0; i < bubbleSortModel.Data.Length; i++)
-                {
-                    int barWidth = givenNumberPanel.Width / bubbleSortModel.Data.Length;
-                    int barHeight = bubbleSortModel.Data[i];
-
-                    Rectangle bar = new Rectangle(i * barWidth, givenNumberPanel.Height - barHeight, barWidth, barHeight);
-                    g.FillRectangle(Brushes.Blue, bar);
-                }
-            }
-
-        }
-        public void ResultDrawData()
-        {
-            if (bubbleSortModel.Data == null) return;
-            using (Graphics g = resultPanel.CreateGraphics())
-            {
-                g.Clear(Color.White);
-
-                for (int i = 0; i < bubbleSortModel.Data.Length; i++)
-                {
-                    int barWidth = resultPanel.Width / bubbleSortModel.Data.Length;
-                    int barHeight = bubbleSortModel.Data[i];
-
-                    Rectangle bar = new Rectangle(i * barWidth, resultPanel.Height - barHeight, barWidth, barHeight);
-                    g.FillRectangle(Brushes.Blue, bar);
-                }
-            }
-
+            StartSorting();
         }
 
+        private void generateButton_Click(object sender, EventArgs e)
+        {
+            int panelHeight = givenNumberPanel.Height;
+            GenerateRandomNumbers(sortModel.Data, panelHeight);
+            GenerateDrawData();
+        }
         public void SortStep(object sender, EventArgs e)
         {
-            if (currentIndex < bubbleSortModel.Data?.Length - 1)
+            if (currentIndex < sortModel.Data?.Length - 1)
             {
-                if (bubbleSortModel.Data?[currentIndex] > bubbleSortModel.Data?[currentIndex + 1])
+                if (sortModel.Data?[currentIndex] > sortModel.Data?[currentIndex + 1])
                 {
-                    int temp = bubbleSortModel.Data[currentIndex];
-                    bubbleSortModel.Data[currentIndex] = bubbleSortModel.Data[currentIndex + 1];
-                    bubbleSortModel.Data[currentIndex + 1] = temp;
-                    bubbleSortModel.IsSortingInProgress = true; // Set sorting in progress
+                    SwapElements(currentIndex, currentIndex + 1);
+                    sortModel.IsSortingInProgress = true; // Set sorting in progress
                 }
                 currentIndex++;
             }
@@ -104,31 +63,74 @@ namespace VisualizationUI
                     // Sorting is complete
                     sortingTimer.Stop();
                     isSorting = false;
-                    bubbleSortModel.IsSortingInProgress = false; // Set sorting as completed
+                    sortModel.IsSortingInProgress = false; // Set sorting as completed
                 }
             }
             ResultDrawData();
         }
-
-
-        public bool BubbleSortStep()
+        private bool BubbleSortStep()
         {
             bool swapped = false;
-            for (int i = 0; i < bubbleSortModel.Data?.Length - 1; i++)
+            for (int i = 0; i < sortModel.Data?.Length - 1; i++)
             {
-                if (bubbleSortModel.Data?[i] > bubbleSortModel.Data?[i + 1])
+                if (sortModel.Data?[i] > sortModel.Data?[i + 1])
                 {
-                    int temp = bubbleSortModel.Data[i];
-                    bubbleSortModel.Data[i] = bubbleSortModel.Data[i + 1];
-                    bubbleSortModel.Data[i + 1] = temp;
+                    SwapElements(i, i + 1);
                     swapped = true;
                 }
             }
             return swapped;
         }
-        private void StartSorting()
+
+        private void SwapElements(int index1, int index2)
         {
-            if (!bubbleSortModel.IsSortingInProgress)
+            int temp = sortModel.Data[index1];
+            sortModel.Data[index1] = sortModel.Data[index2];
+            sortModel.Data[index2] = temp;
+        }
+        public void GenerateRandomNumbers(int[] data, int panelHeight)
+        {
+            for (int i = 0; i < data.Length; i++)
+            {
+                data[i] = random.Next(panelHeight);
+            }
+        }
+
+        public void GenerateDrawData()
+        {
+            int panelWidth = givenNumberPanel.Width;
+            int panelHeight = givenNumberPanel.Height;
+
+            givenNumberPanel.Refresh();
+            visualizerHelper.GenerateDrawData(sortModel.Data, givenNumberPanel.CreateGraphics(), panelWidth, panelHeight);
+        }
+
+        public void ResultDrawData()
+        {
+            int panelWidth = resultPanel.Width;
+            int panelHeight = resultPanel.Height;
+
+            resultPanel.Refresh();
+            visualizerHelper.ResultDrawData(sortModel.Data, resultPanel.CreateGraphics(), panelWidth, panelHeight);
+        }
+        public void GenerateRandomNumners(int[] data, int panelHeight)
+        {
+            GenerateRandomNumbers(data, panelHeight);
+        }
+
+        public void GenerateDrawData(int[] data, Graphics graphics, int panelWidth, int panelHeight)
+        {
+            visualizerHelper.GenerateDrawData(data, graphics, panelWidth, panelHeight);
+        }
+
+        public void ResultDrawData(int[] data, Graphics graphics, int panelWidth, int panelHeight)
+        {
+            visualizerHelper.ResultDrawData(data, graphics, panelWidth, panelHeight);
+        }
+
+        public void StartSorting()
+        {
+            if (!sortModel.IsSortingInProgress)
             {
                 isSorting = true;
                 sortingTimer.Start();
@@ -140,17 +142,7 @@ namespace VisualizationUI
                 ResultDrawData(); // Display the final result after sorting
             }
         }
-        private void sortButton_Click(object sender, EventArgs e)
-        {
-            StartSorting();
-        }
-
-        private void generateButton_Click(object sender, EventArgs e)
-        {
-           int panelWidth = givenNumberPanel.Width;
-            int panelHeight = givenNumberPanel.Height;
-            GenerateRandomNumbers(panelWidth, panelHeight);
-            GenerateDrawData();
-        }
     }
 }
+
+

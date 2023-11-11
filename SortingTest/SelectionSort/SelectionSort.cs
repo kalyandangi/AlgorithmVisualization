@@ -14,11 +14,11 @@ namespace SelectionSort
             var selectionSortForm = new SelectionSortForm();
 
             // Act
-            selectionSortForm.GenerateRandomNumbers(selectionSortForm.givenNumberPanel.Width, selectionSortForm.givenNumberPanel.Height);
+            selectionSortForm.GenerateRandomNumbers(selectionSortForm.SortModel.Data, selectionSortForm.givenNumberPanel.Height);
 
             // Assert
-            Assert.IsNotNull(selectionSortForm.SelectionSortModel.Data);
-            Assert.AreEqual(100, selectionSortForm.SelectionSortModel.Data.Length);
+            Assert.IsNotNull(selectionSortForm.SortModel.Data);
+            Assert.AreEqual(100, selectionSortForm.SortModel.Data.Length);
         }
 
         [TestMethod]
@@ -26,7 +26,7 @@ namespace SelectionSort
         {
             // Arrange
             var selectionSortForm = new SelectionSortForm();
-            selectionSortForm.SelectionSortModel.Data = new int[] { 3, 2, 1 };
+            selectionSortForm.SortModel.Data = new int[] { 3, 2, 1 };
 
             // Act
             while (selectionSortForm.SelectionSortStep())
@@ -34,7 +34,7 @@ namespace SelectionSort
             }
 
             // Assert
-            CollectionAssert.AreEqual(new int[] { 1, 2, 3 }, selectionSortForm.SelectionSortModel.Data);
+            CollectionAssert.AreEqual(new int[] { 1, 2, 3 }, selectionSortForm.SortModel.Data);
         }
 
         [TestMethod]
@@ -42,13 +42,13 @@ namespace SelectionSort
         {
             // Arrange
             var selectionSortForm = new SelectionSortForm();
-            selectionSortForm.SelectionSortModel.Data = new int[] { 3, 2, 1 }; // Reverse sorted array
+            selectionSortForm.SortModel.Data = new int[] { 3, 2, 1 }; // Reverse sorted array
 
             // Act
             var swapped = selectionSortForm.SelectionSortStep();
 
             // Assert
-            CollectionAssert.AreEqual(new int[] { 1, 2, 3 }, selectionSortForm.SelectionSortModel.Data); // One step should sort the array
+            CollectionAssert.AreEqual(new int[] { 1, 2, 3 }, selectionSortForm.SortModel.Data); // One step should sort the array
             Assert.IsTrue(swapped); // Swaps should occur in a reverse sorted array
         }
     }

@@ -1,13 +1,12 @@
 ﻿using System;
 using System.Drawing;
 using System.Windows.Forms;
-using VisualizationLibrary.Models;
 using VisualizationLibrary.SortVisualizer;
-using static System.Runtime.InteropServices.JavaScript.JSType;
+using VisualizationLibrary.Models;
 
-namespace VisualizationUI
+namespace VisualizationUI.Sorting
 {
-    public partial class SelectionSortForm : Form, ISortVisualizer
+    public partial class InsertionSortForm : Form, ISortVisualizer
     {
         private SortVisualizerHelper visualizerHelper = new SortVisualizerHelper();
         private SortModel sortModel = new SortModel();
@@ -21,7 +20,8 @@ namespace VisualizationUI
             get { return sortModel; }
             set { sortModel = value; }
         }
-        public SelectionSortForm()
+
+        public InsertionSortForm()
         {
             InitializeComponent();
             sortingTimer.Interval = 1; // Adjust the timer interval as needed
@@ -53,70 +53,32 @@ namespace VisualizationUI
             resultPanel.Refresh();
             visualizerHelper.ResultDrawData(sortModel.Data, resultPanel.CreateGraphics(), panelWidth, panelHeight);
         }
+
         public void GenerateRandomNumners(int[] data, int panelHeight)
         {
             GenerateRandomNumbers(data, panelHeight);
         }
+
         public void GenerateDrawData(int[] data, Graphics graphics, int panelWidth, int panelHeight)
         {
             visualizerHelper.GenerateDrawData(data, graphics, panelWidth, panelHeight);
         }
+
         public void ResultDrawData(int[] data, Graphics graphics, int panelWidth, int panelHeight)
         {
             visualizerHelper.ResultDrawData(data, graphics, panelWidth, panelHeight);
         }
-        public void SortStep(object sender, EventArgs e)
-        {
-            if (currentIndex < sortModel.Data?.Length - 1)
-            {
-                int minIndex = currentIndex;
-                for (int i = currentIndex + 1; i < sortModel?.Data?.Length; i++)
-                {
-                    if (sortModel.Data[i] < sortModel.Data[minIndex])
-                    {
-                        minIndex = i;
-                    }
-                }
 
-                int temp = sortModel.Data[currentIndex];
-                sortModel.Data[currentIndex] = sortModel.Data[minIndex];
-                sortModel.Data[minIndex] = temp;
-                currentIndex++;
-            }
-            else
-            {
-                currentIndex = 0;
-                if (!SelectionSortStep())
-                {
-                    sortingTimer.Stop();
-                    isSorting = false;
-                }
-            }
-            ResultDrawData();
+        private void generateNumberButton_Click(object sender, EventArgs e)
+        {
+            int panelHeight = givenNumberPanel.Height;
+            GenerateRandomNumners(sortModel.Data, panelHeight);
+            GenerateDrawData();
         }
 
-        public bool SelectionSortStep()
+        private void sortButton_Click(object sender, EventArgs e)
         {
-            if (currentIndex >= sortModel.Data.Length - 1)
-            {
-                return false; // Sorting is complete
-            }
-
-            int minIndex = currentIndex;
-            for (int i = currentIndex + 1; i < sortModel.Data.Length; i++)
-            {
-                if (sortModel.Data[i] < sortModel.Data[minIndex])
-                {
-                    minIndex = i;
-                }
-            }
-
-            int temp = sortModel.Data[currentIndex];
-            sortModel.Data[currentIndex] = sortModel.Data[minIndex];
-            sortModel.Data[minIndex] = temp;
-
-            currentIndex++;
-            return true;
+            StartSorting();
         }
 
         private void StartSorting()
@@ -134,18 +96,42 @@ namespace VisualizationUI
             }
         }
 
-        private void selectionSortGenerateInputButton_Click(object sender, EventArgs e)
+        private void SortStep(object sender, EventArgs e)
         {
-            int panelHeight = givenNumberPanel.Height;
-            GenerateRandomNumners(sortModel.Data, panelHeight);
-            GenerateDrawData();
+            if (currentIndex < sortModel.Data.Length - 1)
+            {
+                if (InsertionSortStep())
+                {
+                    ResultDrawData();
+                }
+                else
+                {
+                    sortingTimer.Stop();
+                    isSorting = false;
+                }
+            }
         }
 
-        private void selectionSortOutputButton_Click(object sender, EventArgs e)
+        private bool InsertionSortStep()
         {
-            StartSorting();
+            if (currentIndex >= sortModel.Data.Length - 1)
+            {
+                return false; // Sorting is complete
+            }
+
+            int keyIndex = currentIndex + 1;
+            int key = sortModel.Data[keyIndex];
+
+            while (currentIndex >= 0 && sortModel.Data[currentIndex] > key)
+            {
+                sortModel.Data[currentIndex + 1] = sortModel.Data[currentIndex];
+                currentIndex--;
+            }
+
+            sortModel.Data[currentIndex + 1] = key;
+            currentIndex++;
+
+            return true;
         }
     }
 }
-
-

@@ -5,7 +5,10 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>disable</Nullable>
   </PropertyGroup>
-	<ItemGroup>
-		<ProjectReference Include="..\VisualizationUI\VisualizationUI.csproj" />
-	</ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Drawing.Common" Version="8.0.0-rc.2.23479.14" />
+  </ItemGroup>
+  
+	
 </Project>
