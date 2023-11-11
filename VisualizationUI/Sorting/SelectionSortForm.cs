@@ -28,14 +28,6 @@ namespace VisualizationUI
             sortingTimer.Tick += SortStep;
         }
 
-        public void GenerateRandomNumbers(int[] data, int panelHeight)
-        {
-            for (int i = 0; i < data.Length; i++)
-            {
-                data[i] = random.Next(panelHeight);
-            }
-        }
-
         public void GenerateDrawData()
         {
             int panelWidth = givenNumberPanel.Width;
@@ -52,10 +44,6 @@ namespace VisualizationUI
 
             resultPanel.Refresh();
             visualizerHelper.ResultDrawData(sortModel.Data, resultPanel.CreateGraphics(), panelWidth, panelHeight);
-        }
-        public void GenerateRandomNumners(int[] data, int panelHeight)
-        {
-            GenerateRandomNumbers(data, panelHeight);
         }
         public void GenerateDrawData(int[] data, Graphics graphics, int panelWidth, int panelHeight)
         {
@@ -137,13 +125,19 @@ namespace VisualizationUI
         private void selectionSortGenerateInputButton_Click(object sender, EventArgs e)
         {
             int panelHeight = givenNumberPanel.Height;
-            GenerateRandomNumners(sortModel.Data, panelHeight);
+            int panelWidth = givenNumberPanel.Width;
+            GenerateRandomNumbers(panelWidth, panelHeight);
             GenerateDrawData();
         }
 
         private void selectionSortOutputButton_Click(object sender, EventArgs e)
         {
             StartSorting();
+        }
+
+        public int[] GenerateRandomNumbers(int panelWidth, int panelHeight)
+        {
+            return visualizerHelper.GenerateRandomNumbers(panelWidth, panelHeight);
         }
     }
 }

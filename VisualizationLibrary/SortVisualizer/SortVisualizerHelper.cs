@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using VisualizationLibrary.Models;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 
 namespace VisualizationLibrary.SortVisualizer
@@ -15,21 +16,26 @@ namespace VisualizationLibrary.SortVisualizer
 
         private Random random = new Random();
 
-        public void GenerateRandomNumners(int[] data, int panelHeight)
+        public int[] GenerateRandomNumbers(int panelWidth, int panelHeight)
         {
-            for(int i = 0; i<data.Length; i++)
+            int[] data = new int[panelWidth];
+
+            for (int i = 0; i < panelWidth; i++)
             {
                 data[i] = random.Next(panelHeight);
             }
-        }
 
+            return data;
+        }
         public void GenerateDrawData(int[] data, Graphics graphics, int panelWidth, int panelHeight)
         {
+            int[] Data = new int[panelWidth];
             graphics.Clear(Color.White);
-            for(int i = 0; i<data.Length; i++)
+
+            for (int i = 0; i < Data.Length; i++)
             {
-                int barWidth = panelWidth/data.Length;
-                int barHeight = data[i];
+                int barWidth = panelWidth / Data.Length;
+                int barHeight = Data[i];
 
                 Rectangle bar = new Rectangle(i * barWidth, panelHeight - barHeight, barWidth, barHeight);
                 graphics.FillRectangle(Brushes.Blue, bar);
@@ -39,15 +45,17 @@ namespace VisualizationLibrary.SortVisualizer
         public void ResultDrawData(int[] data, Graphics graphics, int panelWidth, int panelHeight)
         {
             graphics.Clear(Color.White);
-
-            for (int i = 0; i < data.Length; i++)
+            int[] Data = new int[100];
+            for (int i = 0; i < Data.Length; i++)
             {
-                int barWidth = panelWidth / data.Length;
-                int barHeight = data[i];
+                int barWidth = panelWidth / Data.Length;
+                int barHeight = Data[i];
 
                 Rectangle bar = new Rectangle(i * barWidth, panelHeight - barHeight, barWidth, barHeight);
                 graphics.FillRectangle(Brushes.Blue, bar);
             }
         }
+
+       
     }
 }

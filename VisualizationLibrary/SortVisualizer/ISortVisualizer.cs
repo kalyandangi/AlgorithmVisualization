@@ -10,7 +10,7 @@ namespace VisualizationLibrary.SortVisualizer
 {
     public interface ISortVisualizer
     {
-        void GenerateRandomNumners(int[] data, int panelHeight);
+        int [] GenerateRandomNumbers(int panelWidth, int panelHeight);
         void GenerateDrawData(int[] data, Graphics graphics, int panelWidth, int panelHeight);
         void ResultDrawData(int[] data, Graphics graphics, int panelWidth, int panelHeight);
     }

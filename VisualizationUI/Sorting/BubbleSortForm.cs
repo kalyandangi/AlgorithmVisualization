@@ -32,18 +32,6 @@ namespace VisualizationUI.Sorting
             sortingTimer.Interval = 1; // Adjust the timer interval as needed
             sortingTimer.Tick += SortStep;
         }
-
-        private void sortButton_Click(object sender, EventArgs e)
-        {
-            StartSorting();
-        }
-
-        private void generateButton_Click(object sender, EventArgs e)
-        {
-            int panelHeight = givenNumberPanel.Height;
-            GenerateRandomNumbers(sortModel.Data, panelHeight);
-            GenerateDrawData();
-        }
         public void SortStep(object sender, EventArgs e)
         {
             if (currentIndex < sortModel.Data?.Length - 1)
@@ -88,20 +76,13 @@ namespace VisualizationUI.Sorting
             sortModel.Data[index1] = sortModel.Data[index2];
             sortModel.Data[index2] = temp;
         }
-        public void GenerateRandomNumbers(int[] data, int panelHeight)
-        {
-            for (int i = 0; i < data.Length; i++)
-            {
-                data[i] = random.Next(panelHeight);
-            }
-        }
 
         public void GenerateDrawData()
         {
             int panelWidth = givenNumberPanel.Width;
             int panelHeight = givenNumberPanel.Height;
 
-            givenNumberPanel.Refresh();
+            //givenNumberPanel.Refresh();
             visualizerHelper.GenerateDrawData(sortModel.Data, givenNumberPanel.CreateGraphics(), panelWidth, panelHeight);
         }
 
@@ -112,10 +93,6 @@ namespace VisualizationUI.Sorting
 
             resultPanel.Refresh();
             visualizerHelper.ResultDrawData(sortModel.Data, resultPanel.CreateGraphics(), panelWidth, panelHeight);
-        }
-        public void GenerateRandomNumners(int[] data, int panelHeight)
-        {
-            GenerateRandomNumbers(data, panelHeight);
         }
 
         public void GenerateDrawData(int[] data, Graphics graphics, int panelWidth, int panelHeight)
@@ -141,6 +118,26 @@ namespace VisualizationUI.Sorting
                 isSorting = false;
                 ResultDrawData(); // Display the final result after sorting
             }
+        }
+
+        private void generateNumberButton_Click(object sender, EventArgs e)
+        {
+            int panelHeight = givenNumberPanel.Height;
+            int panelWidth = givenNumberPanel.Width;
+            GenerateRandomNumbers(panelWidth, panelHeight);
+            GenerateDrawData();
+
+        }
+
+        private void sortButton_Click_1(object sender, EventArgs e)
+        {
+            StartSorting();
+
+        }
+
+        public int[] GenerateRandomNumbers(int panelWidth, int panelHeight)
+        {
+            return visualizerHelper.GenerateRandomNumbers(panelWidth, panelHeight);
         }
     }
 }

@@ -44,6 +44,7 @@
             sortButton.TabIndex = 11;
             sortButton.Text = "Sort";
             sortButton.UseVisualStyleBackColor = true;
+            sortButton.Click += sortButton_Click_1;
             // 
             // generateNumberButton
             // 
@@ -53,6 +54,7 @@
             generateNumberButton.TabIndex = 10;
             generateNumberButton.Text = "Generate";
             generateNumberButton.UseVisualStyleBackColor = true;
+            generateNumberButton.Click += generateNumberButton_Click;
             // 
             // bubbleSortLabel
             // 
@@ -99,7 +101,6 @@
             Controls.Add(givenNumberPanel);
             Name = "BubbleSortForm";
             Text = "BubbleSortForm";
-           // Load += BubbleSortForm_Load;
             ResumeLayout(false);
             PerformLayout();
         }
