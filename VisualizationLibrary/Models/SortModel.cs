@@ -6,11 +6,12 @@ using System.Threading.Tasks;
 
 namespace VisualizationLibrary.Models
 {
-    public class SelectionSortModel
+    public class SortModel
     {
-        private SelectionSortModel selectionSortModel;
+        private SortModel sortModel;
         public int[] Data { get; set; }
 
         public bool IsSortingInProgress { get; set; }
+
     }
 }

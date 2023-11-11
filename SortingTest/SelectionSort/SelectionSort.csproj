@@ -18,7 +18,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\VisualizationLibrary\VisualizationLibrary.csproj" />
-    <ProjectReference Include="..\VisualizationUI\VisualizationUI.csproj" />
   </ItemGroup>
 
 </Project>

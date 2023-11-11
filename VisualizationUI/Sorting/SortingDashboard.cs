@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using VisualizationUI.Sorting;
 
 namespace VisualizationUI
 {
@@ -16,7 +17,7 @@ namespace VisualizationUI
         {
             //Dashboard dashboard = new Dashboard();
             InitializeComponent();
-              
+
         }
 
         private void bubbleSortSelectionButton_Click(object sender, EventArgs e)
@@ -28,11 +29,18 @@ namespace VisualizationUI
 
         private void selectionSortSelectionButton_Click(object sender, EventArgs e)
         {
-            
+
             SelectionSortForm selectionSort = new SelectionSortForm();
             selectionSort.Show();
             this.Close();
 
+        }
+
+        private void insertionSortSelectionButton_Click(object sender, EventArgs e)
+        {
+            InsertionSortForm insertionSort = new InsertionSortForm();
+            insertionSort.Show();
+            this.Close();
         }
     }
 }

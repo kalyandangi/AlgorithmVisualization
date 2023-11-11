@@ -65,6 +65,7 @@
             insertionSortSelectionButton.TabIndex = 2;
             insertionSortSelectionButton.Text = "Insertion Sort";
             insertionSortSelectionButton.UseVisualStyleBackColor = true;
+            insertionSortSelectionButton.Click += insertionSortSelectionButton_Click;
             // 
             // mergeSortSelectionButton
             // 

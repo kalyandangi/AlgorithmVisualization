@@ -7,6 +7,9 @@
     <Compile Update="Dashboard.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Sorting\InertionSortForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Sorting\SelectionSortForm.cs">
       <SubType>Form</SubType>
     </Compile>

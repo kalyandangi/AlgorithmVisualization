@@ -36,7 +36,7 @@ namespace VisualizationUI
         private int currentIndex = 0;
         private bool isSorting = false;
 
-        public void GenerateRandomNumbers(int panelWidth, int PanelHeight)
+        public void GenerateRandomNumbers(int panelWidth, int panelHeight)
         {
             int arraySize = 100;
             bubbleSortModel.Data = new int[arraySize];
