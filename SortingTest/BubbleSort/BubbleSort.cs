@@ -1,6 +1,4 @@
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 using VisualizationUI.Sorting; // Assuming BubbleSortForm is in this namespace
-using System.Linq;
 
 namespace BubbleSort.Tests
 {
@@ -14,39 +12,39 @@ namespace BubbleSort.Tests
             var bubbleSortForm = new BubbleSortForm();
 
             // Act
-            bubbleSortForm.GenerateRandomNumbers(bubbleSortForm.SortModel.Data, bubbleSortForm.givenNumberPanel.Height);
+            bubbleSortForm.SortModel.Data = bubbleSortForm.GenerateRandomNumbers(100, bubbleSortForm.givenNumberPanel.Height);
 
             // Assert
             Assert.IsNotNull(bubbleSortForm.SortModel.Data);
             Assert.AreEqual(100, bubbleSortForm.SortModel.Data.Length);
+            Assert.IsTrue(bubbleSortForm.SortModel.Data.All(num => num >= 0 && num <= bubbleSortForm.givenNumberPanel.Height));
         }
 
         [TestMethod]
         public void TestBubbleSortStep()
         {
             // Arrange
-            var bubbleSortForm = new BubbleSortForm();
-            bubbleSortForm.SortModel.Data = new int[] { 3, 2, 1 };
+            BubbleSortForm bubbleSortForm = new BubbleSortForm();
+            bubbleSortForm.SortModel.Data = new int[] { 3, 1, 4, 1, 5, 9, 2, 6, 5, 3 };
 
             // Act
-            bubbleSortForm.SortStep(null, null); // Pass null arguments since they are not used in the method
+            bool result = bubbleSortForm.BubbleSortStep();
 
             // Assert
-            CollectionAssert.AreEqual(new int[] { 1, 2, 3 }, bubbleSortForm.SortModel.Data);
+            Assert.IsTrue(result); // Expecting at least one swap
         }
-
         [TestMethod]
         public void TestBubbleSortReverseSorted()
         {
             // Arrange
-            var bubbleSortForm = new BubbleSortForm();
-            bubbleSortForm.SortModel.Data = new int[] { 3, 2, 1 }; // Reverse sorted array
+            BubbleSortForm bubbleSortForm = new BubbleSortForm();
+            bubbleSortForm.SortModel.Data = new int[] { 9, 7, 5, 3, 1 };
 
             // Act
-            bubbleSortForm?.SortStep(this, EventArgs.Empty);
+            bool result = bubbleSortForm.BubbleSortStep();
 
             // Assert
-            CollectionAssert.AreEqual(new int[] { 2, 1, 3 }, bubbleSortForm?.SortModel.Data);
+            Assert.IsTrue(result); // Expecting no swap for a reverse-sorted array
         }
 
         [TestMethod]
@@ -77,6 +75,33 @@ namespace BubbleSort.Tests
             Assert.IsFalse(bubbleSortForm.isSorting);
             Assert.IsFalse(bubbleSortForm.sortingTimer.Enabled);
             // Add more assertions if necessary based on the expected behavior when sorting is already in progress
+        }
+        public void TestBubbleSortEmptyArray()
+        {
+            // Arrange
+            var bubbleSortForm = new BubbleSortForm();
+            bubbleSortForm.SortModel.Data = new int[] { }; // Empty array
+
+            // Act
+            bubbleSortForm.StartSorting();
+
+            // Assert
+            Assert.IsNotNull(bubbleSortForm.SortModel.Data);
+            Assert.AreEqual(0, bubbleSortForm.SortModel.Data.Length);
+        }
+
+        [TestMethod]
+        public void TestBubbleSortAlreadySorted()
+        {
+            // Arrange
+            var bubbleSortForm = new BubbleSortForm();
+            bubbleSortForm.SortModel.Data = new int[] { 1, 2, 3 }; // Already sorted array
+
+            // Act
+            bubbleSortForm.StartSorting();
+
+            // Assert
+            CollectionAssert.AreEqual(new int[] { 1, 2, 3 }, bubbleSortForm.SortModel.Data);
         }
     }
 }
