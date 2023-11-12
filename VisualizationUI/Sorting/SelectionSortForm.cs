@@ -43,7 +43,10 @@ namespace VisualizationUI
             int panelHeight = resultPanel.Height;
 
             resultPanel.Refresh();
-            visualizerHelper.ResultDrawData(sortModel.Data, resultPanel.CreateGraphics(), panelWidth, panelHeight);
+            if (sortModel.Data != null) // Ensure Data is not null
+            {
+                visualizerHelper.ResultDrawData(sortModel.Data, resultPanel.CreateGraphics(), panelWidth, panelHeight);
+            }
         }
         public void GenerateDrawData(int[] data, Graphics graphics, int panelWidth, int panelHeight)
         {
@@ -52,6 +55,10 @@ namespace VisualizationUI
         public void ResultDrawData(int[] data, Graphics graphics, int panelWidth, int panelHeight)
         {
             visualizerHelper.ResultDrawData(data, graphics, panelWidth, panelHeight);
+        }
+        public int[] GenerateRandomNumbers(int panelWidth, int panelHeight)
+        {
+            return visualizerHelper.GenerateRandomNumbers(panelWidth, panelHeight);
         }
         public void SortStep(object sender, EventArgs e)
         {
@@ -126,7 +133,7 @@ namespace VisualizationUI
         {
             int panelHeight = givenNumberPanel.Height;
             int panelWidth = givenNumberPanel.Width;
-            GenerateRandomNumbers(panelWidth, panelHeight);
+            sortModel.Data = GenerateRandomNumbers(panelWidth, panelHeight);
             GenerateDrawData();
         }
 
@@ -135,10 +142,6 @@ namespace VisualizationUI
             StartSorting();
         }
 
-        public int[] GenerateRandomNumbers(int panelWidth, int panelHeight)
-        {
-            return visualizerHelper.GenerateRandomNumbers(panelWidth, panelHeight);
-        }
     }
 }
 

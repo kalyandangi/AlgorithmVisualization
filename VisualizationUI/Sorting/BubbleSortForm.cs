@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using VisualizationLibrary.Models;
 using VisualizationLibrary.SortVisualizer;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace VisualizationUI.Sorting
 {
@@ -40,6 +41,7 @@ namespace VisualizationUI.Sorting
                 {
                     SwapElements(currentIndex, currentIndex + 1);
                     sortModel.IsSortingInProgress = true; // Set sorting in progress
+                    ResultDrawData(); // Update UI after each swap
                 }
                 currentIndex++;
             }
@@ -52,23 +54,27 @@ namespace VisualizationUI.Sorting
                     sortingTimer.Stop();
                     isSorting = false;
                     sortModel.IsSortingInProgress = false; // Set sorting as completed
+                    ResultDrawData(); // Update UI after the last pass
                 }
             }
-            ResultDrawData();
         }
-        private bool BubbleSortStep()
+        public bool BubbleSortStep()
         {
             bool swapped = false;
-            for (int i = 0; i < sortModel.Data?.Length - 1; i++)
+
+            for (int i = 0; i < sortModel?.Data.Length - 1; i++)
             {
-                if (sortModel.Data?[i] > sortModel.Data?[i + 1])
+                if (sortModel?.Data[i] > sortModel?.Data[i + 1])
                 {
                     SwapElements(i, i + 1);
                     swapped = true;
                 }
             }
+
+            // Reset the swapped flag for the next pass
             return swapped;
         }
+ 
 
         private void SwapElements(int index1, int index2)
         {
@@ -82,7 +88,7 @@ namespace VisualizationUI.Sorting
             int panelWidth = givenNumberPanel.Width;
             int panelHeight = givenNumberPanel.Height;
 
-            //givenNumberPanel.Refresh();
+            givenNumberPanel.Refresh();
             visualizerHelper.GenerateDrawData(sortModel.Data, givenNumberPanel.CreateGraphics(), panelWidth, panelHeight);
         }
 
@@ -92,7 +98,10 @@ namespace VisualizationUI.Sorting
             int panelHeight = resultPanel.Height;
 
             resultPanel.Refresh();
-            visualizerHelper.ResultDrawData(sortModel.Data, resultPanel.CreateGraphics(), panelWidth, panelHeight);
+            if (sortModel.Data != null) // Ensure Data is not null
+            {
+                visualizerHelper.ResultDrawData(sortModel.Data, resultPanel.CreateGraphics(), panelWidth, panelHeight);
+            }
         }
 
         public void GenerateDrawData(int[] data, Graphics graphics, int panelWidth, int panelHeight)
@@ -124,12 +133,12 @@ namespace VisualizationUI.Sorting
         {
             int panelHeight = givenNumberPanel.Height;
             int panelWidth = givenNumberPanel.Width;
-            GenerateRandomNumbers(panelWidth, panelHeight);
+            sortModel.Data = GenerateRandomNumbers(panelWidth, panelHeight);
             GenerateDrawData();
 
         }
 
-        private void sortButton_Click_1(object sender, EventArgs e)
+        public void sortButton_Click_1(object sender, EventArgs e)
         {
             StartSorting();
 

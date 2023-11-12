@@ -29,13 +29,13 @@ namespace VisualizationLibrary.SortVisualizer
         }
         public void GenerateDrawData(int[] data, Graphics graphics, int panelWidth, int panelHeight)
         {
-            int[] Data = new int[panelWidth];
+           // int[] Data = new int[panelWidth];
             graphics.Clear(Color.White);
 
-            for (int i = 0; i < Data.Length; i++)
+            for (int i = 0; i < data.Length; i++)
             {
-                int barWidth = panelWidth / Data.Length;
-                int barHeight = Data[i];
+                int barWidth = panelWidth / data.Length;
+                int barHeight = data[i];
 
                 Rectangle bar = new Rectangle(i * barWidth, panelHeight - barHeight, barWidth, barHeight);
                 graphics.FillRectangle(Brushes.Blue, bar);
@@ -45,11 +45,11 @@ namespace VisualizationLibrary.SortVisualizer
         public void ResultDrawData(int[] data, Graphics graphics, int panelWidth, int panelHeight)
         {
             graphics.Clear(Color.White);
-            int[] Data = new int[100];
-            for (int i = 0; i < Data.Length; i++)
+           // int[] Data = new int[100];
+            for (int i = 0; i < data.Length; i++)
             {
-                int barWidth = panelWidth / Data.Length;
-                int barHeight = Data[i];
+                int barWidth = panelWidth / data.Length;
+                int barHeight = data[i];
 
                 Rectangle bar = new Rectangle(i * barWidth, panelHeight - barHeight, barWidth, barHeight);
                 graphics.FillRectangle(Brushes.Blue, bar);
