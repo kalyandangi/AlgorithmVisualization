@@ -42,6 +42,7 @@
             givenNumberPanel.Name = "givenNumberPanel";
             givenNumberPanel.Size = new System.Drawing.Size(300, 300);
             givenNumberPanel.TabIndex = 0;
+         //   givenNumberPanel.Paint += givenNumberPanel_Paint;
             // 
             // resultPanel
             // 
@@ -107,8 +108,8 @@
 
         #endregion
 
-        private System.Windows.Forms.Panel givenNumberPanel;
-        private System.Windows.Forms.Panel resultPanel;
+        public System.Windows.Forms.Panel givenNumberPanel;
+        public System.Windows.Forms.Panel resultPanel;
         private System.Windows.Forms.Label givenNumberLabel;
         private System.Windows.Forms.Label insertionSortLabel;
         private System.Windows.Forms.Button generateNumberButton;

@@ -108,7 +108,7 @@ namespace VisualizationUI.Sorting
             }
         }
 
-        private bool InsertionSortStep()
+        public bool InsertionSortStep()
         {
             if (currentIndex >= sortModel.Data.Length - 1)
             {
@@ -129,6 +129,7 @@ namespace VisualizationUI.Sorting
 
             return true;
         }
+
 
         int[] ISortVisualizer.GenerateRandomNumbers(int panelWidth, int panelHeight)
         {

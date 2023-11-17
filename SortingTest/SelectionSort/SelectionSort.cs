@@ -14,7 +14,7 @@ namespace SelectionSort
             var selectionSortForm = new SelectionSortForm();
 
             // Act
-            selectionSortForm.GenerateRandomNumbers(selectionSortForm.SortModel.Data, selectionSortForm.givenNumberPanel.Height);
+            selectionSortForm.GenerateRandomNumbers(100, selectionSortForm.givenNumberPanel.Height);
 
             // Assert
             Assert.IsNotNull(selectionSortForm.SortModel.Data);

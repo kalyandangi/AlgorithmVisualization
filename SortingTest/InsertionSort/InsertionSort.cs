@@ -27,7 +27,7 @@ namespace InsertionSort.Tests
 
             Assert.IsTrue(result);
         }
-        public void TestBubbleSortReverseSorted()
+        public void TestInsertionSortReverseSorted()
         {
             // Arrange
             InsertionSortForm insertionSortForm = new InsertionSortForm();

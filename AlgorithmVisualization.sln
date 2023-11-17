@@ -18,6 +18,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		.editorconfig = .editorconfig
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InsertionSort", "SortingTest\InsertionSort\InsertionSort.csproj", "{8C3967B7-372D-4F8D-8BA5-3B3334823CD6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -40,6 +42,10 @@ Global
 		{83C3C79D-BC91-4FF9-A744-E75D4F65FCA9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{83C3C79D-BC91-4FF9-A744-E75D4F65FCA9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{83C3C79D-BC91-4FF9-A744-E75D4F65FCA9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8C3967B7-372D-4F8D-8BA5-3B3334823CD6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8C3967B7-372D-4F8D-8BA5-3B3334823CD6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8C3967B7-372D-4F8D-8BA5-3B3334823CD6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8C3967B7-372D-4F8D-8BA5-3B3334823CD6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -47,6 +53,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{9FF0AD69-D230-4A78-AFEE-92B6CF6A2B99} = {D81C7AC4-C966-453B-9ACD-D6CD4081389E}
 		{83C3C79D-BC91-4FF9-A744-E75D4F65FCA9} = {D81C7AC4-C966-453B-9ACD-D6CD4081389E}
+		{8C3967B7-372D-4F8D-8BA5-3B3334823CD6} = {D81C7AC4-C966-453B-9ACD-D6CD4081389E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6AD075F9-A15C-4736-8E62-C597673DA8A4}
