@@ -77,7 +77,6 @@ namespace VisualizationUI.Sorting
                 result[k++] = rightArray[j++];
             }
         }
-        // Helper method to check if an array is sorted
         public bool IsSorted(int[] array)
         {
             for (int i = 0; i < array.Length - 1; i++)
