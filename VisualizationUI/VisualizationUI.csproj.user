@@ -10,6 +10,9 @@
     <Compile Update="Sorting\InsertionSortForm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Sorting\MergeSortForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Sorting\SelectionSortForm.cs">
       <SubType>Form</SubType>
     </Compile>

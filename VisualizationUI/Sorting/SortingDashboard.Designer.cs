@@ -75,6 +75,7 @@
             mergeSortSelectionButton.TabIndex = 3;
             mergeSortSelectionButton.Text = "Merge Sort";
             mergeSortSelectionButton.UseVisualStyleBackColor = true;
+            mergeSortSelectionButton.Click += mergeSortSelectionButton_Click;
             // 
             // quickSortSelectionButton
             // 

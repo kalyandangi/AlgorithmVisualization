@@ -42,5 +42,12 @@ namespace VisualizationUI
             insertionSort.Show();
             this.Close();
         }
+
+        private void mergeSortSelectionButton_Click(object sender, EventArgs e)
+        {
+            MergeSortForm mergeSortForm = new MergeSortForm();
+            mergeSortForm.Show();
+            this.Close();
+        }
     }
 }
