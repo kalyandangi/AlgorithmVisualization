@@ -13,6 +13,9 @@
     <Compile Update="Sorting\MergeSortForm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Sorting\QuickSortForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Sorting\SelectionSortForm.cs">
       <SubType>Form</SubType>
     </Compile>

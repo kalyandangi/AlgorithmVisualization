@@ -85,6 +85,7 @@
             quickSortSelectionButton.TabIndex = 4;
             quickSortSelectionButton.Text = "Quick Sort";
             quickSortSelectionButton.UseVisualStyleBackColor = true;
+            quickSortSelectionButton.Click += quickSortSelectionButton_Click;
             // 
             // radixSortSelectionButton
             // 

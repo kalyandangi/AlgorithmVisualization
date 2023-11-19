@@ -49,5 +49,12 @@ namespace VisualizationUI
             mergeSortForm.Show();
             this.Close();
         }
+
+        private void quickSortSelectionButton_Click(object sender, EventArgs e)
+        {
+            QuickSortForm quickSortForm = new QuickSortForm();
+            quickSortForm.Show();
+            this.Close();
+        }
     }
 }
