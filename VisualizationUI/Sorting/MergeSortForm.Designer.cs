@@ -28,38 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
-            sortButton = new System.Windows.Forms.Button();
-            generateNumberButton = new System.Windows.Forms.Button();
             MergeSortLabel = new System.Windows.Forms.Label();
             givenNumberLabel = new System.Windows.Forms.Label();
+            givenNumberRichTextBox = new System.Windows.Forms.RichTextBox();
+            sortRichTextBox = new System.Windows.Forms.RichTextBox();
+            sortButton = new System.Windows.Forms.Button();
+            generateNumberButton = new System.Windows.Forms.Button();
             resultPanel = new System.Windows.Forms.Panel();
             givenNumberPanel = new System.Windows.Forms.Panel();
             SuspendLayout();
             // 
-            // sortButton
-            // 
-            sortButton.Location = new System.Drawing.Point(541, 375);
-            sortButton.Name = "sortButton";
-            sortButton.Size = new System.Drawing.Size(112, 34);
-            sortButton.TabIndex = 17;
-            sortButton.Text = "Sort";
-            sortButton.UseVisualStyleBackColor = true;
-            sortButton.Click += sortButton_Click;
-            // 
-            // generateNumberButton
-            // 
-            generateNumberButton.Location = new System.Drawing.Point(141, 375);
-            generateNumberButton.Name = "generateNumberButton";
-            generateNumberButton.Size = new System.Drawing.Size(112, 34);
-            generateNumberButton.TabIndex = 16;
-            generateNumberButton.Text = "Generate";
-            generateNumberButton.UseVisualStyleBackColor = true;
-            generateNumberButton.Click += generateNumberButton_Click;
-            // 
             // MergeSortLabel
             // 
             MergeSortLabel.AutoSize = true;
-            MergeSortLabel.Location = new System.Drawing.Point(541, 41);
+            MergeSortLabel.Location = new System.Drawing.Point(725, 91);
             MergeSortLabel.Name = "MergeSortLabel";
             MergeSortLabel.Size = new System.Drawing.Size(101, 25);
             MergeSortLabel.TabIndex = 15;
@@ -68,37 +50,75 @@
             // givenNumberLabel
             // 
             givenNumberLabel.AutoSize = true;
-            givenNumberLabel.Location = new System.Drawing.Point(127, 41);
+            givenNumberLabel.Location = new System.Drawing.Point(195, 91);
             givenNumberLabel.Name = "givenNumberLabel";
             givenNumberLabel.Size = new System.Drawing.Size(126, 25);
             givenNumberLabel.TabIndex = 14;
             givenNumberLabel.Text = "Given Number";
             // 
+            // givenNumberRichTextBox
+            // 
+            givenNumberRichTextBox.Location = new System.Drawing.Point(121, 128);
+            givenNumberRichTextBox.Name = "givenNumberRichTextBox";
+            givenNumberRichTextBox.Size = new System.Drawing.Size(296, 87);
+            givenNumberRichTextBox.TabIndex = 44;
+            givenNumberRichTextBox.Text = "";
+            // 
+            // sortRichTextBox
+            // 
+            sortRichTextBox.Location = new System.Drawing.Point(623, 128);
+            sortRichTextBox.Name = "sortRichTextBox";
+            sortRichTextBox.Size = new System.Drawing.Size(296, 87);
+            sortRichTextBox.TabIndex = 45;
+            sortRichTextBox.Text = "";
+            // 
+            // sortButton
+            // 
+            sortButton.Location = new System.Drawing.Point(714, 527);
+            sortButton.Name = "sortButton";
+            sortButton.Size = new System.Drawing.Size(112, 34);
+            sortButton.TabIndex = 43;
+            sortButton.Text = "Sort";
+            sortButton.UseVisualStyleBackColor = true;
+            sortButton.Click += sortButton_Click_1;
+            // 
+            // generateNumberButton
+            // 
+            generateNumberButton.Location = new System.Drawing.Point(181, 527);
+            generateNumberButton.Name = "generateNumberButton";
+            generateNumberButton.Size = new System.Drawing.Size(112, 34);
+            generateNumberButton.TabIndex = 42;
+            generateNumberButton.Text = "Generate";
+            generateNumberButton.UseVisualStyleBackColor = true;
+            generateNumberButton.Click += generateNumberButton_Click_1;
+            // 
             // resultPanel
             // 
-            resultPanel.Location = new System.Drawing.Point(444, 69);
+            resultPanel.Location = new System.Drawing.Point(619, 221);
             resultPanel.Name = "resultPanel";
             resultPanel.Size = new System.Drawing.Size(300, 300);
-            resultPanel.TabIndex = 13;
+            resultPanel.TabIndex = 41;
             // 
             // givenNumberPanel
             // 
-            givenNumberPanel.Location = new System.Drawing.Point(56, 69);
+            givenNumberPanel.Location = new System.Drawing.Point(121, 221);
             givenNumberPanel.Name = "givenNumberPanel";
             givenNumberPanel.Size = new System.Drawing.Size(300, 300);
-            givenNumberPanel.TabIndex = 12;
+            givenNumberPanel.TabIndex = 40;
             // 
             // MergeSortForm
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            ClientSize = new System.Drawing.Size(800, 523);
+            ClientSize = new System.Drawing.Size(1037, 681);
+            Controls.Add(givenNumberRichTextBox);
+            Controls.Add(sortRichTextBox);
             Controls.Add(sortButton);
             Controls.Add(generateNumberButton);
-            Controls.Add(MergeSortLabel);
-            Controls.Add(givenNumberLabel);
             Controls.Add(resultPanel);
             Controls.Add(givenNumberPanel);
+            Controls.Add(MergeSortLabel);
+            Controls.Add(givenNumberLabel);
             Name = "MergeSortForm";
             Text = "MergeSortForm";
             ResumeLayout(false);
@@ -106,11 +126,12 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Button sortButton;
-        private System.Windows.Forms.Button generateNumberButton;
         private System.Windows.Forms.Label MergeSortLabel;
         private System.Windows.Forms.Label givenNumberLabel;
+        private System.Windows.Forms.RichTextBox givenNumberRichTextBox;
+        private System.Windows.Forms.RichTextBox sortRichTextBox;
+        private System.Windows.Forms.Button sortButton;
+        private System.Windows.Forms.Button generateNumberButton;
         private System.Windows.Forms.Panel resultPanel;
         public System.Windows.Forms.Panel givenNumberPanel;
     }

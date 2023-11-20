@@ -70,7 +70,7 @@
             // givenNumberLabel
             // 
             givenNumberLabel.AutoSize = true;
-            givenNumberLabel.Location = new System.Drawing.Point(127, 77);
+            givenNumberLabel.Location = new System.Drawing.Point(112, 77);
             givenNumberLabel.Name = "givenNumberLabel";
             givenNumberLabel.Size = new System.Drawing.Size(126, 25);
             givenNumberLabel.TabIndex = 20;
@@ -92,7 +92,7 @@
             // 
             // givenNumberRichTextBox
             // 
-            givenNumberRichTextBox.Location = new System.Drawing.Point(56, 124);
+            givenNumberRichTextBox.Location = new System.Drawing.Point(52, 124);
             givenNumberRichTextBox.Name = "givenNumberRichTextBox";
             givenNumberRichTextBox.Size = new System.Drawing.Size(296, 87);
             givenNumberRichTextBox.TabIndex = 26;
@@ -111,8 +111,8 @@
             AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             ClientSize = new System.Drawing.Size(1037, 681);
-            Controls.Add(sortRichTextBox);
             Controls.Add(givenNumberRichTextBox);
+            Controls.Add(sortRichTextBox);
             Controls.Add(sortButton);
             Controls.Add(generateNumberButton);
             Controls.Add(RadixSortLabel);

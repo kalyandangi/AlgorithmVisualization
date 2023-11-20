@@ -35,7 +35,7 @@ namespace VisualizationUI.Sorting
         }
         private void SortStep(object sender, EventArgs e)
         {
-            if(sortModel.Data.Length <= 1)
+            if (sortModel.Data.Length <= 1)
             {
                 return;
             }
@@ -43,7 +43,7 @@ namespace VisualizationUI.Sorting
             int[] leftArray = new int[middle];
             int[] rightArray = new int[sortModel.Data.Length - middle];
 
-            Array.Copy(sortModel.Data,0,leftArray,0,middle);
+            Array.Copy(sortModel.Data, 0, leftArray, 0, middle);
             Array.Copy(sortModel.Data, middle, rightArray, 0, sortModel.Data.Length - middle);
 
 
@@ -95,6 +95,8 @@ namespace VisualizationUI.Sorting
 
             givenNumberPanel.Refresh();
             visualizerHelper.GenerateDrawData(sortModel.Data, givenNumberPanel.CreateGraphics(), panelWidth, panelHeight);
+            // Display the generated data in the givennumbergroupbox
+            DisplayGeneratedData(sortModel.Data);
         }
 
         public void GenerateDrawData(int[] data, Graphics graphics, int panelWidth, int panelHeight)
@@ -115,6 +117,8 @@ namespace VisualizationUI.Sorting
             if (sortModel.Data != null) // Ensure Data is not null
             {
                 visualizerHelper.ResultDrawData(sortModel.Data, resultPanel.CreateGraphics(), panelWidth, panelHeight);
+                // Append the sorted data to the sortRichTextBox
+                DisplaySortedData(sortModel.Data);
             }
         }
         public void ResultDrawData(int[] data, Graphics graphics, int panelWidth, int panelHeight)
@@ -135,7 +139,30 @@ namespace VisualizationUI.Sorting
                 ResultDrawData(); // Display the final result after sorting
             }
         }
-        private void generateNumberButton_Click(object sender, EventArgs e)
+        private void DisplayGeneratedData(int[] data)
+        {
+            // Clear the existing text
+            givenNumberRichTextBox.Clear();
+
+            // Display the generated random numbers in the richTextBox
+            foreach (var number in data)
+            {
+                givenNumberRichTextBox.AppendText(number.ToString() + " ");
+            }
+        }
+        private void DisplaySortedData(int[] data)
+        {
+            // Clear the existing text
+            sortRichTextBox.Clear();
+
+            // Display the generated random numbers in the richTextBox
+            foreach (var number in data)
+            {
+                sortRichTextBox.AppendText(number.ToString() + " ");
+            }
+        }
+
+        private void generateNumberButton_Click_1(object sender, EventArgs e)
         {
             int panelHeight = givenNumberPanel.Height;
             int panelWidth = givenNumberPanel.Width;
@@ -143,9 +170,18 @@ namespace VisualizationUI.Sorting
             GenerateDrawData();
         }
 
-        private void sortButton_Click(object sender, EventArgs e)
+        private void sortButton_Click_1(object sender, EventArgs e)
         {
             StartSorting();
+        }
+        public void DisplayGeneratedData(int[] data, System.Windows.Controls.RichTextBox richTextBox)
+        {
+            visualizerHelper.DisplayGeneratedData(data, richTextBox);
+        }
+
+        public void DisplaySortedData(int[] data, System.Windows.Controls.RichTextBox richTextBox)
+        {
+            visualizerHelper.DisplaySortedData(data, richTextBox);
         }
     }
 }

@@ -28,65 +28,112 @@
         /// </summary>
         private void InitializeComponent()
         {
-            givenNumberPanel = new System.Windows.Forms.Panel();
+            givenNumberRichTextBox = new System.Windows.Forms.RichTextBox();
+            sortRichTextBox = new System.Windows.Forms.RichTextBox();
+            sortButton = new System.Windows.Forms.Button();
+            generateNumberButton = new System.Windows.Forms.Button();
             resultPanel = new System.Windows.Forms.Panel();
-            selectionSortGenerateInputButton = new System.Windows.Forms.Button();
-            selectionSortOutputButton = new System.Windows.Forms.Button();
+            givenNumberPanel = new System.Windows.Forms.Panel();
+            selectionSortLabel = new System.Windows.Forms.Label();
+            givenNumberLabel = new System.Windows.Forms.Label();
             SuspendLayout();
             // 
-            // givenNumberPanel
+            // givenNumberRichTextBox
             // 
-            givenNumberPanel.Location = new System.Drawing.Point(60, 66);
-            givenNumberPanel.Name = "givenNumberPanel";
-            givenNumberPanel.Size = new System.Drawing.Size(300, 300);
-            givenNumberPanel.TabIndex = 0;
+            givenNumberRichTextBox.Location = new System.Drawing.Point(121, 142);
+            givenNumberRichTextBox.Name = "givenNumberRichTextBox";
+            givenNumberRichTextBox.Size = new System.Drawing.Size(296, 87);
+            givenNumberRichTextBox.TabIndex = 40;
+            givenNumberRichTextBox.Text = "";
+            // 
+            // sortRichTextBox
+            // 
+            sortRichTextBox.Location = new System.Drawing.Point(615, 133);
+            sortRichTextBox.Name = "sortRichTextBox";
+            sortRichTextBox.Size = new System.Drawing.Size(296, 87);
+            sortRichTextBox.TabIndex = 41;
+            sortRichTextBox.Text = "";
+            // 
+            // sortButton
+            // 
+            sortButton.Location = new System.Drawing.Point(714, 532);
+            sortButton.Name = "sortButton";
+            sortButton.Size = new System.Drawing.Size(112, 34);
+            sortButton.TabIndex = 39;
+            sortButton.Text = "Sort";
+            sortButton.UseVisualStyleBackColor = true;
+            sortButton.Click += sortButton_Click;
+            // 
+            // generateNumberButton
+            // 
+            generateNumberButton.Location = new System.Drawing.Point(181, 541);
+            generateNumberButton.Name = "generateNumberButton";
+            generateNumberButton.Size = new System.Drawing.Size(112, 34);
+            generateNumberButton.TabIndex = 38;
+            generateNumberButton.Text = "Generate";
+            generateNumberButton.UseVisualStyleBackColor = true;
+            generateNumberButton.Click += generateNumberButton_Click;
             // 
             // resultPanel
             // 
-            resultPanel.Location = new System.Drawing.Point(440, 66);
+            resultPanel.Location = new System.Drawing.Point(615, 226);
             resultPanel.Name = "resultPanel";
             resultPanel.Size = new System.Drawing.Size(300, 300);
-            resultPanel.TabIndex = 1;
+            resultPanel.TabIndex = 37;
             // 
-            // selectionSortGenerateInputButton
+            // givenNumberPanel
             // 
-            selectionSortGenerateInputButton.Location = new System.Drawing.Point(140, 381);
-            selectionSortGenerateInputButton.Name = "selectionSortGenerateInputButton";
-            selectionSortGenerateInputButton.Size = new System.Drawing.Size(112, 34);
-            selectionSortGenerateInputButton.TabIndex = 2;
-            selectionSortGenerateInputButton.Text = "Generate";
-            selectionSortGenerateInputButton.UseVisualStyleBackColor = true;
-            selectionSortGenerateInputButton.Click += selectionSortGenerateInputButton_Click;
+            givenNumberPanel.Location = new System.Drawing.Point(121, 235);
+            givenNumberPanel.Name = "givenNumberPanel";
+            givenNumberPanel.Size = new System.Drawing.Size(300, 300);
+            givenNumberPanel.TabIndex = 36;
             // 
-            // selectionSortOutputButton
+            // selectionSortLabel
             // 
-            selectionSortOutputButton.Location = new System.Drawing.Point(511, 381);
-            selectionSortOutputButton.Name = "selectionSortOutputButton";
-            selectionSortOutputButton.Size = new System.Drawing.Size(112, 34);
-            selectionSortOutputButton.TabIndex = 3;
-            selectionSortOutputButton.Text = "Sort";
-            selectionSortOutputButton.UseVisualStyleBackColor = true;
-            selectionSortOutputButton.Click += selectionSortOutputButton_Click;
+            selectionSortLabel.AutoSize = true;
+            selectionSortLabel.Location = new System.Drawing.Point(693, 105);
+            selectionSortLabel.Name = "selectionSortLabel";
+            selectionSortLabel.Size = new System.Drawing.Size(121, 25);
+            selectionSortLabel.TabIndex = 35;
+            selectionSortLabel.Text = "Selection Sort";
+            // 
+            // givenNumberLabel
+            // 
+            givenNumberLabel.AutoSize = true;
+            givenNumberLabel.Location = new System.Drawing.Point(196, 105);
+            givenNumberLabel.Name = "givenNumberLabel";
+            givenNumberLabel.Size = new System.Drawing.Size(126, 25);
+            givenNumberLabel.TabIndex = 34;
+            givenNumberLabel.Text = "Given Number";
             // 
             // SelectionSortForm
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            ClientSize = new System.Drawing.Size(800, 450);
-            Controls.Add(selectionSortOutputButton);
-            Controls.Add(selectionSortGenerateInputButton);
+            ClientSize = new System.Drawing.Size(1037, 681);
+            Controls.Add(givenNumberRichTextBox);
+            Controls.Add(sortRichTextBox);
+            Controls.Add(sortButton);
+            Controls.Add(generateNumberButton);
             Controls.Add(resultPanel);
             Controls.Add(givenNumberPanel);
+            Controls.Add(selectionSortLabel);
+            Controls.Add(givenNumberLabel);
             Name = "SelectionSortForm";
             Text = "SelectionSort";
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
 
-        public System.Windows.Forms.Panel givenNumberPanel;
+        private System.Windows.Forms.RichTextBox givenNumberRichTextBox;
+        private System.Windows.Forms.RichTextBox sortRichTextBox;
+        private System.Windows.Forms.Button sortButton;
+        private System.Windows.Forms.Button generateNumberButton;
         private System.Windows.Forms.Panel resultPanel;
-        private System.Windows.Forms.Button selectionSortGenerateInputButton;
-        private System.Windows.Forms.Button selectionSortOutputButton;
+        public System.Windows.Forms.Panel givenNumberPanel;
+        private System.Windows.Forms.Label selectionSortLabel;
+        private System.Windows.Forms.Label givenNumberLabel;
     }
 }

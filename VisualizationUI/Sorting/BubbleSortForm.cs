@@ -30,7 +30,7 @@ namespace VisualizationUI.Sorting
         public BubbleSortForm()
         {
             InitializeComponent();
-            sortingTimer.Interval = 1; // Adjust the timer interval as needed
+            sortingTimer.Interval = 100; // Adjust the timer interval as needed
             sortingTimer.Tick += SortStep;
         }
         public void SortStep(object sender, EventArgs e)
@@ -74,7 +74,7 @@ namespace VisualizationUI.Sorting
             // Reset the swapped flag for the next pass
             return swapped;
         }
- 
+
 
         private void SwapElements(int index1, int index2)
         {
@@ -90,6 +90,8 @@ namespace VisualizationUI.Sorting
 
             givenNumberPanel.Refresh();
             visualizerHelper.GenerateDrawData(sortModel.Data, givenNumberPanel.CreateGraphics(), panelWidth, panelHeight);
+            // Display the generated data in the givennumbergroupbox
+            DisplayGeneratedData(sortModel.Data);
         }
 
         public void ResultDrawData()
@@ -101,7 +103,10 @@ namespace VisualizationUI.Sorting
             if (sortModel.Data != null) // Ensure Data is not null
             {
                 visualizerHelper.ResultDrawData(sortModel.Data, resultPanel.CreateGraphics(), panelWidth, panelHeight);
+                // Append the sorted data to the sortRichTextBox
+                DisplaySortedData(sortModel.Data);
             }
+            
         }
 
         public void GenerateDrawData(int[] data, Graphics graphics, int panelWidth, int panelHeight)
@@ -126,27 +131,59 @@ namespace VisualizationUI.Sorting
                 sortingTimer.Stop();
                 isSorting = false;
                 ResultDrawData(); // Display the final result after sorting
+            
             }
-        }
-
-        private void generateNumberButton_Click(object sender, EventArgs e)
-        {
-            int panelHeight = givenNumberPanel.Height;
-            int panelWidth = givenNumberPanel.Width;
-            sortModel.Data = GenerateRandomNumbers(panelWidth, panelHeight);
-            GenerateDrawData();
-
-        }
-
-        public void sortButton_Click_1(object sender, EventArgs e)
-        {
-            StartSorting();
-
         }
 
         public int[] GenerateRandomNumbers(int panelWidth, int panelHeight)
         {
             return visualizerHelper.GenerateRandomNumbers(panelWidth, panelHeight);
+        }
+
+        private void generateNumberButton_Click_1(object sender, EventArgs e)
+        {
+            int panelHeight = givenNumberPanel.Height;
+            int panelWidth = givenNumberPanel.Width;
+            sortModel.Data = GenerateRandomNumbers(panelWidth, panelHeight);
+            GenerateDrawData();
+           
+        }
+        private void DisplayGeneratedData(int[] data)
+        {
+            // Clear the existing text
+            givenNumberRichTextBox.Clear();
+
+            // Display the generated random numbers in the richTextBox
+            foreach (var number in data)
+            {
+                givenNumberRichTextBox.AppendText(number.ToString() + " ");
+            }
+        }
+        private void DisplaySortedData(int[] data)
+        {
+            // Clear the existing text
+            sortRichTextBox.Clear();
+
+            // Display the generated random numbers in the richTextBox
+            foreach (var number in data)
+            {
+                sortRichTextBox.AppendText(number.ToString() + " ");
+            }
+        }
+
+        private void sortButton_Click(object sender, EventArgs e)
+        {
+            StartSorting();
+        }
+
+        public void DisplayGeneratedData(int[] data, System.Windows.Controls.RichTextBox richTextBox)
+        {
+            visualizerHelper.DisplayGeneratedData(data, richTextBox);
+        }
+
+        public void DisplaySortedData(int[] data, System.Windows.Controls.RichTextBox richTextBox)
+        {
+            visualizerHelper.DisplaySortedData(data, richTextBox);
         }
     }
 }

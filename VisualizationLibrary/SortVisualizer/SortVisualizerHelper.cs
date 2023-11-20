@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Drawing;
+using System.Windows.Controls;
 using System.Windows.Forms;
-using VisualizationLibrary.Models;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 
 
 namespace VisualizationLibrary.SortVisualizer
@@ -27,11 +21,8 @@ namespace VisualizationLibrary.SortVisualizer
 
             return data;
         }
-        public void GenerateDrawData(int[] data, Graphics graphics, int panelWidth, int panelHeight)
+        private void DrawData(int[] data, Graphics graphics, int panelWidth, int panelHeight)
         {
-           // int[] Data = new int[panelWidth];
-            graphics.Clear(Color.White);
-
             for (int i = 0; i < data.Length; i++)
             {
                 int barWidth = panelWidth / data.Length;
@@ -40,22 +31,42 @@ namespace VisualizationLibrary.SortVisualizer
                 Rectangle bar = new Rectangle(i * barWidth, panelHeight - barHeight, barWidth, barHeight);
                 graphics.FillRectangle(Brushes.Blue, bar);
             }
+        }
+        public void GenerateDrawData(int[] data, Graphics graphics, int panelWidth, int panelHeight)
+        {
+            graphics.Clear(Color.White);
+            DrawData(data, graphics, panelWidth, panelHeight);
         }
 
         public void ResultDrawData(int[] data, Graphics graphics, int panelWidth, int panelHeight)
         {
             graphics.Clear(Color.White);
-           // int[] Data = new int[100];
-            for (int i = 0; i < data.Length; i++)
-            {
-                int barWidth = panelWidth / data.Length;
-                int barHeight = data[i];
+            DrawData(data, graphics, panelWidth, panelHeight);
+        }
+       
 
-                Rectangle bar = new Rectangle(i * barWidth, panelHeight - barHeight, barWidth, barHeight);
-                graphics.FillRectangle(Brushes.Blue, bar);
+        public void DisplayGeneratedData(int[] data, RichTextBox richTextBox)
+        {
+            // Clear the existing text
+            richTextBox.Document.Blocks.Clear();
+
+            // Display the generated random numbers in the richTextBox
+            foreach (var number in data)
+            {
+                richTextBox.AppendText(number.ToString() + " ");
             }
         }
 
-        
+        public void DisplaySortedData(int[] data, RichTextBox richTextBox)
+        {
+            // Clear the existing text
+            richTextBox.Document.Blocks.Clear();
+
+            // Display the generated random numbers in the richTextBox
+            foreach (var number in data)
+            {
+                richTextBox.AppendText(number.ToString() + " ");
+            }
+        }
     }
 }

@@ -41,6 +41,9 @@ namespace VisualizationUI.Sorting
 
             givenNumberPanel.Refresh();
             visualizerHelper.GenerateDrawData(sortModel.Data, givenNumberPanel.CreateGraphics(), panelWidth, panelHeight);
+
+            // Display the generated data in the givennumbergroupbox
+            DisplayGeneratedData(sortModel.Data);
         }
         public void GenerateDrawData(int[] data, Graphics graphics, int panelWidth, int panelHeight)
         {
@@ -65,7 +68,8 @@ namespace VisualizationUI.Sorting
             if (sortModel.Data != null) // Ensure Data is not null
             {
                 visualizerHelper.ResultDrawData(sortModel.Data, resultPanel.CreateGraphics(), panelWidth, panelHeight);
-                
+                DisplaySortedData(sortModel.Data);
+
             }
         }
 
@@ -76,8 +80,6 @@ namespace VisualizationUI.Sorting
             sortModel.Data = GenerateRandomNumbers(panelWidth, panelHeight);
             GenerateDrawData();
 
-            // Display the generated data in the givennumbergroupbox
-            DisplayGeneratedData(sortModel.Data);
         }
         private void DisplayGeneratedData(int[] data)
         {
@@ -107,27 +109,7 @@ namespace VisualizationUI.Sorting
                 sortRichTextBox.AppendText(number.ToString() + " ");
             }
         }
-        private void AppendSortedDataToRichTextBox(int[] data)
-        {
-            // Append the sorted data to the richTextBox
-            sortRichTextBox.AppendText("Step: " + currentExp.ToString() + "\n");
-            foreach (var number in data)
-            {
-                sortRichTextBox.AppendText(number.ToString() + " ");
-            }
-            sortRichTextBox.AppendText("\n\n");
-        }
-        private void DisplaySortedDataInRichTextBox(int[] data)
-        {
-            // Clear the existing text
-            sortRichTextBox.Clear();
-
-            // Display the final sorted data in the richTextBox
-            foreach (var number in data)
-            {
-                sortRichTextBox.AppendText(number.ToString() + " ");
-            }
-        }
+        
         private void StartSorting()
         {
             if (!isSorting)
@@ -141,7 +123,6 @@ namespace VisualizationUI.Sorting
                 sortingTimer.Stop();
                 isSorting = false;
                 ResultDrawData();
-                DisplaySortedData(sortModel.Data);
             }
         }
 
@@ -151,19 +132,12 @@ namespace VisualizationUI.Sorting
             {
                 RadixSortStep();
                 ResultDrawData();
-                DisplaySortedData(sortModel.Data);
-
-                // Append the sorted data to the sortRichTextBox
-                AppendSortedDataToRichTextBox(sortModel.Data);
-
                 currentExp *= 10; // Move to the next radix
             }
             else
             {
                 sortingTimer.Stop();
                 ResultDrawData();
-                DisplaySortedData(sortModel.Data);
-                DisplaySortedDataInRichTextBox(sortModel.Data); // Display the final sorted data in the richTextBox
             }
         }
 
@@ -203,6 +177,16 @@ namespace VisualizationUI.Sorting
         private int GetMax(int[] array)
         {
             return array.Max();
+        }
+
+        public void DisplayGeneratedData(int[] data, System.Windows.Controls.RichTextBox richTextBox)
+        {
+            visualizerHelper.DisplayGeneratedData(data, richTextBox);
+        }
+
+        public void DisplaySortedData(int[] data, System.Windows.Controls.RichTextBox richTextBox)
+        {
+            visualizerHelper.DisplaySortedData(data, richTextBox);
         }
     }
 }

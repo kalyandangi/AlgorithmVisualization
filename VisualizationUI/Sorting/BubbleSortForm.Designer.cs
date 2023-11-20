@@ -28,38 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
-            sortButton = new System.Windows.Forms.Button();
-            generateNumberButton = new System.Windows.Forms.Button();
             bubbleSortLabel = new System.Windows.Forms.Label();
             givenNumberLabel = new System.Windows.Forms.Label();
+            givenNumberRichTextBox = new System.Windows.Forms.RichTextBox();
+            sortRichTextBox = new System.Windows.Forms.RichTextBox();
+            sortButton = new System.Windows.Forms.Button();
+            generateNumberButton = new System.Windows.Forms.Button();
             resultPanel = new System.Windows.Forms.Panel();
             givenNumberPanel = new System.Windows.Forms.Panel();
             SuspendLayout();
             // 
-            // sortButton
-            // 
-            sortButton.Location = new System.Drawing.Point(541, 411);
-            sortButton.Name = "sortButton";
-            sortButton.Size = new System.Drawing.Size(112, 34);
-            sortButton.TabIndex = 11;
-            sortButton.Text = "Sort";
-            sortButton.UseVisualStyleBackColor = true;
-            sortButton.Click += sortButton_Click_1;
-            // 
-            // generateNumberButton
-            // 
-            generateNumberButton.Location = new System.Drawing.Point(141, 411);
-            generateNumberButton.Name = "generateNumberButton";
-            generateNumberButton.Size = new System.Drawing.Size(112, 34);
-            generateNumberButton.TabIndex = 10;
-            generateNumberButton.Text = "Generate";
-            generateNumberButton.UseVisualStyleBackColor = true;
-            generateNumberButton.Click += generateNumberButton_Click;
-            // 
             // bubbleSortLabel
             // 
             bubbleSortLabel.AutoSize = true;
-            bubbleSortLabel.Location = new System.Drawing.Point(541, 77);
+            bubbleSortLabel.Location = new System.Drawing.Point(693, 91);
             bubbleSortLabel.Name = "bubbleSortLabel";
             bubbleSortLabel.Size = new System.Drawing.Size(105, 25);
             bubbleSortLabel.TabIndex = 9;
@@ -68,37 +50,75 @@
             // givenNumberLabel
             // 
             givenNumberLabel.AutoSize = true;
-            givenNumberLabel.Location = new System.Drawing.Point(127, 77);
+            givenNumberLabel.Location = new System.Drawing.Point(196, 91);
             givenNumberLabel.Name = "givenNumberLabel";
             givenNumberLabel.Size = new System.Drawing.Size(126, 25);
             givenNumberLabel.TabIndex = 8;
             givenNumberLabel.Text = "Given Number";
             // 
+            // givenNumberRichTextBox
+            // 
+            givenNumberRichTextBox.Location = new System.Drawing.Point(121, 128);
+            givenNumberRichTextBox.Name = "givenNumberRichTextBox";
+            givenNumberRichTextBox.Size = new System.Drawing.Size(296, 87);
+            givenNumberRichTextBox.TabIndex = 32;
+            givenNumberRichTextBox.Text = "";
+            // 
+            // sortRichTextBox
+            // 
+            sortRichTextBox.Location = new System.Drawing.Point(619, 119);
+            sortRichTextBox.Name = "sortRichTextBox";
+            sortRichTextBox.Size = new System.Drawing.Size(296, 87);
+            sortRichTextBox.TabIndex = 33;
+            sortRichTextBox.Text = "";
+            // 
+            // sortButton
+            // 
+            sortButton.Location = new System.Drawing.Point(714, 518);
+            sortButton.Name = "sortButton";
+            sortButton.Size = new System.Drawing.Size(112, 34);
+            sortButton.TabIndex = 31;
+            sortButton.Text = "Sort";
+            sortButton.UseVisualStyleBackColor = true;
+            sortButton.Click += sortButton_Click;
+            // 
+            // generateNumberButton
+            // 
+            generateNumberButton.Location = new System.Drawing.Point(181, 527);
+            generateNumberButton.Name = "generateNumberButton";
+            generateNumberButton.Size = new System.Drawing.Size(112, 34);
+            generateNumberButton.TabIndex = 30;
+            generateNumberButton.Text = "Generate";
+            generateNumberButton.UseVisualStyleBackColor = true;
+            generateNumberButton.Click += generateNumberButton_Click_1;
+            // 
             // resultPanel
             // 
-            resultPanel.Location = new System.Drawing.Point(444, 105);
+            resultPanel.Location = new System.Drawing.Point(615, 212);
             resultPanel.Name = "resultPanel";
             resultPanel.Size = new System.Drawing.Size(300, 300);
-            resultPanel.TabIndex = 7;
+            resultPanel.TabIndex = 29;
             // 
             // givenNumberPanel
             // 
-            givenNumberPanel.Location = new System.Drawing.Point(56, 105);
+            givenNumberPanel.Location = new System.Drawing.Point(121, 221);
             givenNumberPanel.Name = "givenNumberPanel";
             givenNumberPanel.Size = new System.Drawing.Size(300, 300);
-            givenNumberPanel.TabIndex = 6;
+            givenNumberPanel.TabIndex = 28;
             // 
             // BubbleSortForm
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            ClientSize = new System.Drawing.Size(800, 523);
+            ClientSize = new System.Drawing.Size(1037, 681);
+            Controls.Add(givenNumberRichTextBox);
+            Controls.Add(sortRichTextBox);
             Controls.Add(sortButton);
             Controls.Add(generateNumberButton);
-            Controls.Add(bubbleSortLabel);
-            Controls.Add(givenNumberLabel);
             Controls.Add(resultPanel);
             Controls.Add(givenNumberPanel);
+            Controls.Add(bubbleSortLabel);
+            Controls.Add(givenNumberLabel);
             Name = "BubbleSortForm";
             Text = "BubbleSortForm";
             ResumeLayout(false);
@@ -106,11 +126,12 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Button sortButton;
-        private System.Windows.Forms.Button generateNumberButton;
         private System.Windows.Forms.Label bubbleSortLabel;
         private System.Windows.Forms.Label givenNumberLabel;
+        private System.Windows.Forms.RichTextBox givenNumberRichTextBox;
+        private System.Windows.Forms.RichTextBox sortRichTextBox;
+        private System.Windows.Forms.Button sortButton;
+        private System.Windows.Forms.Button generateNumberButton;
         private System.Windows.Forms.Panel resultPanel;
         public System.Windows.Forms.Panel givenNumberPanel;
     }
