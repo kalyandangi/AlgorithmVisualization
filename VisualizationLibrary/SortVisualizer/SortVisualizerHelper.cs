@@ -56,6 +56,6 @@ namespace VisualizationLibrary.SortVisualizer
             }
         }
 
-       
+        
     }
 }

@@ -95,6 +95,7 @@
             radixSortSelectionButton.TabIndex = 5;
             radixSortSelectionButton.Text = "Radix Sort";
             radixSortSelectionButton.UseVisualStyleBackColor = true;
+            radixSortSelectionButton.Click += radixSortSelectionButton_Click;
             // 
             // heapSortSelectionButton
             // 
@@ -104,6 +105,7 @@
             heapSortSelectionButton.TabIndex = 6;
             heapSortSelectionButton.Text = "Heap Sort";
             heapSortSelectionButton.UseVisualStyleBackColor = true;
+            heapSortSelectionButton.Click += heapSortSelectionButton_Click;
             // 
             // SortingDashboard
             // 

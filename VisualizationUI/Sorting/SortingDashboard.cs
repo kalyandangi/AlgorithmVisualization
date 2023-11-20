@@ -56,5 +56,19 @@ namespace VisualizationUI
             quickSortForm.Show();
             this.Close();
         }
+
+        private void radixSortSelectionButton_Click(object sender, EventArgs e)
+        {
+            RadixSortForm radixSortForm = new RadixSortForm();
+            radixSortForm.Show();
+            this.Close();
+        }
+
+        private void heapSortSelectionButton_Click(object sender, EventArgs e)
+        {
+            HeapSortForm heapSortForm = new HeapSortForm(); 
+            heapSortForm.Show();
+            this.Close();
+        }
     }
 }
