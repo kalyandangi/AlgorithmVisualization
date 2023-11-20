@@ -1,19 +1,19 @@
-# Algorithm Visualization - Bubble Sort
+# Algorithm Visualization 
 
 ## Overview
 
-Algorithm Visualization is a C# Windows Forms application that provides a visual representation of the Bubble Sort algorithm. This project focuses on visualizing the inner workings of the Bubble Sort algorithm, making it easier to understand how this sorting technique operates.
+Algorithm Visualization is a C# Windows Forms application that provides a visual representation of the Bubble Sort algorithm. This project focuses on visualizing the inner workings of the Sort algorithm, making it easier to understand how this sorting technique operates.
 
 **Key Features:**
 
-- **Random Number Generation:** You can generate a list of random numbers to be sorted using the Bubble Sort algorithm.
+- **Random Number Generation:** You can generate a list of random numbers to be sorted using the Sort algorithm.
 
-- **Step-by-Step Visualization:** The application enables you to step through the Bubble Sort algorithm, visually illustrating how elements are compared and swapped.
+- **Step-by-Step Visualization:** The application enables you to step through the Sort algorithm, visually illustrating how elements are compared and swapped.
 
-- **Reverse Sorted Array:** You can observe the Bubble Sort algorithm in action on a reverse-sorted array.
+- **Reverse Sorted Array:** You can observe the Sort algorithm in action on a reverse-sorted array.
   
 - **Unit Tests:**
-This project includes unit tests for the Bubble Sort algorithm using MSTest. The tests ensure the correctness of the Bubble Sort algorithm implementation. You can extend these tests if you wish to cover more scenarios.
+This project includes unit tests for the Sort algorithm using MSTest. The tests ensure the correctness of the Bubble Sort algorithm implementation. You can extend these tests if you wish to cover more scenarios.
 
 ## Getting Started
 
