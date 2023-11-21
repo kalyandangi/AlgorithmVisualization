@@ -34,17 +34,6 @@ namespace VisualizationUI.Sorting
             sortingTimer.Interval = 1000; // Adjust the timer interval as needed
             sortingTimer.Tick += SortStep;
         }
-        public void GenerateDrawData()
-        {
-            int panelWidth = givenNumberPanel.Width;
-            int panelHeight = givenNumberPanel.Height;
-
-            givenNumberPanel.Refresh();
-            visualizerHelper.GenerateDrawData(sortModel.Data, givenNumberPanel.CreateGraphics(), panelWidth, panelHeight);
-
-            // Display the generated data in the givennumbergroupbox
-            DisplayGeneratedData(sortModel.Data);
-        }
         public void GenerateDrawData(int[] data, Graphics graphics, int panelWidth, int panelHeight)
         {
             visualizerHelper.GenerateDrawData(data, graphics, panelWidth, panelHeight);
@@ -59,55 +48,22 @@ namespace VisualizationUI.Sorting
         {
             visualizerHelper.ResultDrawData(data, graphics, panelWidth, panelHeight);
         }
-        public void ResultDrawData()
-        {
-            int panelWidth = resultPanel.Width;
-            int panelHeight = resultPanel.Height;
-
-            resultPanel.Refresh();
-            if (sortModel.Data != null) // Ensure Data is not null
-            {
-                visualizerHelper.ResultDrawData(sortModel.Data, resultPanel.CreateGraphics(), panelWidth, panelHeight);
-                DisplaySortedData(sortModel.Data);
-
-            }
-        }
 
         private void generateNumberButton_Click(object sender, EventArgs e)
         {
             int panelHeight = givenNumberPanel.Height;
             int panelWidth = givenNumberPanel.Width;
             sortModel.Data = GenerateRandomNumbers(panelWidth, panelHeight);
-            GenerateDrawData();
+            GenerateDrawData(sortModel.Data, givenNumberPanel.CreateGraphics(), givenNumberPanel.Width, givenNumberPanel.Height);
+            // Convert array to string and set it to WinForms RichTextBox
+            givenNumberRichTextBox.Text = string.Join(" ", sortModel.Data);
 
-        }
-        private void DisplayGeneratedData(int[] data)
-        {
-            // Clear the existing text
-            givenNumberRichTextBox.Clear();
-
-            // Display the generated random numbers in the richTextBox
-            foreach (var number in data)
-            {
-                givenNumberRichTextBox.AppendText(number.ToString() + " ");
-            }
         }
 
         private void sortButton_Click(object sender, EventArgs e)
         {
             StartSorting();
 
-        }
-        private void DisplaySortedData(int[] data)
-        {
-            // Clear the existing text
-            sortRichTextBox.Clear();
-
-            // Display the generated random numbers in the richTextBox
-            foreach (var number in data)
-            {
-                sortRichTextBox.AppendText(number.ToString() + " ");
-            }
         }
         
         private void StartSorting()
@@ -122,7 +78,10 @@ namespace VisualizationUI.Sorting
             {
                 sortingTimer.Stop();
                 isSorting = false;
-                ResultDrawData();
+                ResultDrawData(sortModel.Data, resultPanel.CreateGraphics(), resultPanel.Width, resultPanel.Height);
+
+                // Convert array to string and set it to WinForms RichTextBox
+                sortRichTextBox.Text = string.Join(" ", sortModel.Data);
             }
         }
 
@@ -131,13 +90,19 @@ namespace VisualizationUI.Sorting
             if (currentExp <= GetMax(sortModel.Data))
             {
                 RadixSortStep();
-                ResultDrawData();
+                ResultDrawData(sortModel.Data, resultPanel.CreateGraphics(), resultPanel.Width, resultPanel.Height);
+
+                // Convert array to string and set it to WinForms RichTextBox
+                sortRichTextBox.Text = string.Join(" ", sortModel.Data);
                 currentExp *= 10; // Move to the next radix
             }
             else
             {
                 sortingTimer.Stop();
-                ResultDrawData();
+                ResultDrawData(sortModel.Data, resultPanel.CreateGraphics(), resultPanel.Width, resultPanel.Height);
+
+                // Convert array to string and set it to WinForms RichTextBox
+                sortRichTextBox.Text = string.Join(" ", sortModel.Data);
             }
         }
 

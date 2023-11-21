@@ -49,7 +49,10 @@ namespace VisualizationUI.Sorting
 
             MergeSortStep(sortModel.Data, leftArray, rightArray);
 
-            ResultDrawData(); // Update UI after each swap
+            ResultDrawData(sortModel.Data, resultPanel.CreateGraphics(), resultPanel.Width, resultPanel.Height);
+
+            // Convert array to string and set it to WinForms RichTextBox
+            sortRichTextBox.Text = string.Join(" ", sortModel.Data);
 
         }
         public void MergeSortStep(int[] result, int[] leftArray, int[] rightArray)
@@ -88,16 +91,6 @@ namespace VisualizationUI.Sorting
             }
             return true;
         }
-        public void GenerateDrawData()
-        {
-            int panelWidth = givenNumberPanel.Width;
-            int panelHeight = givenNumberPanel.Height;
-
-            givenNumberPanel.Refresh();
-            visualizerHelper.GenerateDrawData(sortModel.Data, givenNumberPanel.CreateGraphics(), panelWidth, panelHeight);
-            // Display the generated data in the givennumbergroupbox
-            DisplayGeneratedData(sortModel.Data);
-        }
 
         public void GenerateDrawData(int[] data, Graphics graphics, int panelWidth, int panelHeight)
         {
@@ -107,19 +100,6 @@ namespace VisualizationUI.Sorting
         public int[] GenerateRandomNumbers(int panelWidth, int panelHeight)
         {
             return visualizerHelper.GenerateRandomNumbers(panelWidth, panelHeight);
-        }
-        public void ResultDrawData()
-        {
-            int panelWidth = resultPanel.Width;
-            int panelHeight = resultPanel.Height;
-
-            resultPanel.Refresh();
-            if (sortModel.Data != null) // Ensure Data is not null
-            {
-                visualizerHelper.ResultDrawData(sortModel.Data, resultPanel.CreateGraphics(), panelWidth, panelHeight);
-                // Append the sorted data to the sortRichTextBox
-                DisplaySortedData(sortModel.Data);
-            }
         }
         public void ResultDrawData(int[] data, Graphics graphics, int panelWidth, int panelHeight)
         {
@@ -136,29 +116,10 @@ namespace VisualizationUI.Sorting
             {
                 sortingTimer.Stop();
                 isSorting = false;
-                ResultDrawData(); // Display the final result after sorting
-            }
-        }
-        private void DisplayGeneratedData(int[] data)
-        {
-            // Clear the existing text
-            givenNumberRichTextBox.Clear();
+                ResultDrawData(sortModel.Data, resultPanel.CreateGraphics(), resultPanel.Width, resultPanel.Height);
 
-            // Display the generated random numbers in the richTextBox
-            foreach (var number in data)
-            {
-                givenNumberRichTextBox.AppendText(number.ToString() + " ");
-            }
-        }
-        private void DisplaySortedData(int[] data)
-        {
-            // Clear the existing text
-            sortRichTextBox.Clear();
-
-            // Display the generated random numbers in the richTextBox
-            foreach (var number in data)
-            {
-                sortRichTextBox.AppendText(number.ToString() + " ");
+                // Convert array to string and set it to WinForms RichTextBox
+                sortRichTextBox.Text = string.Join(" ", sortModel.Data);
             }
         }
 
@@ -167,7 +128,9 @@ namespace VisualizationUI.Sorting
             int panelHeight = givenNumberPanel.Height;
             int panelWidth = givenNumberPanel.Width;
             sortModel.Data = GenerateRandomNumbers(panelWidth, panelHeight);
-            GenerateDrawData();
+            GenerateDrawData(sortModel.Data, givenNumberPanel.CreateGraphics(), givenNumberPanel.Width, givenNumberPanel.Height);
+            // Convert array to string and set it to WinForms RichTextBox
+            givenNumberRichTextBox.Text = string.Join(" ", sortModel.Data);
         }
 
         private void sortButton_Click_1(object sender, EventArgs e)

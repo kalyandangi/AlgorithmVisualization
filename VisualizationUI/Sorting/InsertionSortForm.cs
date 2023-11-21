@@ -3,6 +3,11 @@ using System.Drawing;
 using System.Windows.Forms;
 using VisualizationLibrary.SortVisualizer;
 using VisualizationLibrary.Models;
+using System.Windows.Controls;
+using System.Windows.Documents;
+using System.Windows.Markup;
+using Timer = System.Windows.Forms.Timer;
+
 
 namespace VisualizationUI.Sorting
 {
@@ -28,32 +33,6 @@ namespace VisualizationUI.Sorting
             sortingTimer.Tick += SortStep;
         }
 
-        public void GenerateDrawData()
-        {
-            int panelWidth = givenNumberPanel.Width;
-            int panelHeight = givenNumberPanel.Height;
-
-            givenNumberPanel.Refresh();
-            visualizerHelper.GenerateDrawData(sortModel.Data, givenNumberPanel.CreateGraphics(), panelWidth, panelHeight);
-            // Display the generated data in the givennumbergroupbox
-           // DisplayGeneratedData(sortModel.Data);
-        }
-
-        public void ResultDrawData()
-        {
-            int panelWidth = resultPanel.Width;
-            int panelHeight = resultPanel.Height;
-
-            resultPanel.Refresh();
-            if (sortModel.Data != null) // Ensure Data is not null
-            {
-                visualizerHelper.ResultDrawData(sortModel.Data, resultPanel.CreateGraphics(), panelWidth, panelHeight);
-                // Append the sorted data to the sortRichTextBox
-               // DisplaySortedData(sortModel.Data);
-            }
-        }
-
-
         public void GenerateDrawData(int[] data, Graphics graphics, int panelWidth, int panelHeight)
         {
             visualizerHelper.GenerateDrawData(data, graphics, panelWidth, panelHeight);
@@ -67,22 +46,24 @@ namespace VisualizationUI.Sorting
         {
             return visualizerHelper.GenerateRandomNumbers(panelWidth, panelHeight);
         }
+        int[] ISortVisualizer.GenerateRandomNumbers(int panelWidth, int panelHeight)
+        {
+            return visualizerHelper.GenerateRandomNumbers(panelWidth, panelHeight);
+        }
 
-        
+        public void DisplayGeneratedData(int[] data, System.Windows.Controls.RichTextBox richTextBox)
+        {
+            visualizerHelper.DisplayGeneratedData(data, richTextBox);
+        }
+
+        public void DisplaySortedData(int[] data, System.Windows.Controls.RichTextBox richTextBox)
+        {
+            visualizerHelper.DisplaySortedData(data, richTextBox);
+        }
 
         private void StartSorting()
         {
-            if (!isSorting)
-            {
-                isSorting = true;
-                sortingTimer.Start();
-            }
-            else
-            {
-                sortingTimer.Stop();
-                isSorting = false;
-                ResultDrawData();
-            }
+            visualizerHelper.StartSorting(sortModel.Data, resultPanel.CreateGraphics(), resultPanel.Width, resultPanel.Height);
         }
 
         private void SortStep(object sender, EventArgs e)
@@ -91,11 +72,13 @@ namespace VisualizationUI.Sorting
             {
                 if (InsertionSortStep())
                 {
-                    ResultDrawData();
+                    ResultDrawData(sortModel.Data, resultPanel.CreateGraphics(), resultPanel.Width, resultPanel.Height);
+                    // Convert array to string and set it to WinForms RichTextBox
+                    sortRichTextBox.Text = string.Join(" ", sortModel.Data);
                 }
                 else
                 {
-                    sortingTimer.Stop();
+                    sortingTimer.Enabled = false;
                     isSorting = false;
                 }
             }
@@ -128,50 +111,16 @@ namespace VisualizationUI.Sorting
             int panelHeight = givenNumberPanel.Height;
             int panelWidth = givenNumberPanel.Width;
             sortModel.Data = GenerateRandomNumbers(panelWidth, panelHeight);
-            GenerateDrawData();
-            
+            GenerateDrawData(sortModel.Data, givenNumberPanel.CreateGraphics(), givenNumberPanel.Width, givenNumberPanel.Height);
+            // Convert array to string and set it to WinForms RichTextBox
+            givenNumberRichTextBox.Text = string.Join(" ", sortModel.Data); 
         }
 
         private void sortButton_Click_1(object sender, EventArgs e)
         {
             StartSorting();
         }
-        //private void DisplayGeneratedData(int[] data)
-        //{
-        //    // Clear the existing text
-        //    givenNumberRichTextBox.Clear();
 
-        //    // Display the generated random numbers in the richTextBox
-        //    foreach (var number in data)
-        //    {
-        //        givenNumberRichTextBox.AppendText(number.ToString() + " ");
-        //    }
-        //}
-        //private void DisplaySortedData(int[] data)
-        //{
-        //    // Clear the existing text
-        //    sortRichTextBox.Clear();
-
-        //    // Display the generated random numbers in the richTextBox
-        //    foreach (var number in data)
-        //    {
-        //        sortRichTextBox.AppendText(number.ToString() + " ");
-        //    }
-        //}
-
-        int[] ISortVisualizer.GenerateRandomNumbers(int panelWidth, int panelHeight)
-        {
-            return visualizerHelper.GenerateRandomNumbers(panelWidth, panelHeight);
-        }
-
-        public void DisplayGeneratedData(int[] data, System.Windows.Controls.RichTextBox richTextBox)
-        {
-            visualizerHelper.DisplayGeneratedData(data, richTextBox);
-        }
-
-        public void DisplaySortedData(int[] data, System.Windows.Controls.RichTextBox richTextBox)
-        {
-            visualizerHelper.DisplaySortedData(data, richTextBox);
-        }
+       
     }
 }
