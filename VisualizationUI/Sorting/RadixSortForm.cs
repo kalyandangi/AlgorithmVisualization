@@ -1,52 +1,66 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using VisualizationLibrary.Models;
 using VisualizationLibrary.SortVisualizer;
+using VisualizationLibrary.Models;
+using System.Linq;
 
 namespace VisualizationUI.Sorting
 {
     public partial class RadixSortForm : Form, ISortVisualizer
     {
-
         private SortVisualizerHelper visualizerHelper = new SortVisualizerHelper();
-        private SortModel sortModel = new SortModel();
         private Random random = new Random();
-        int currentExp = 1; //// Added to keep track of the current radix
         private Timer sortingTimer = new Timer();
-        private bool isSorting = false;
+        private int currentIndex = 0;
+        private int currentExp = 1;
+        public SortModel sortModel { get; set; } = new SortModel();
 
-
-        public SortModel SortModel
-        {
-            get { return sortModel; }
-            set { sortModel = value; }
-        }
         public RadixSortForm()
         {
             InitializeComponent();
-            sortingTimer.Interval = 1000; // Adjust the timer interval as needed
-            sortingTimer.Tick += SortStep;
+            InitializeSortingTimer();
+
         }
+        private void InitializeSortingTimer()
+        {
+            sortingTimer.Interval = 1;
+            sortingTimer.Tick += Timer_Tick;
+            sortingTimer.Enabled = false;
+        }
+        private void Timer_Tick(object sender, EventArgs e)
+        {
+            SortStep(sender, e);
+        }
+
         public void GenerateDrawData(int[] data, Graphics graphics, int panelWidth, int panelHeight)
         {
             visualizerHelper.GenerateDrawData(data, graphics, panelWidth, panelHeight);
         }
 
+        public void ResultDrawData(int[] data, Graphics graphics, int panelWidth, int panelHeight)
+        {
+            visualizerHelper.ResultDrawData(data, graphics, panelWidth, panelHeight);
+        }
         public int[] GenerateRandomNumbers(int panelWidth, int panelHeight)
         {
             return visualizerHelper.GenerateRandomNumbers(panelWidth, panelHeight);
         }
 
-        public void ResultDrawData(int[] data, Graphics graphics, int panelWidth, int panelHeight)
+
+        public void DisplayGeneratedData(int[] data, System.Windows.Controls.RichTextBox richTextBox)
         {
-            visualizerHelper.ResultDrawData(data, graphics, panelWidth, panelHeight);
+            visualizerHelper.DisplayGeneratedData(data, richTextBox);
+        }
+
+        public void DisplaySortedData(int[] data, System.Windows.Controls.RichTextBox richTextBox)
+        {
+            visualizerHelper.DisplaySortedData(data, richTextBox);
+        }
+
+        private void StartSorting()
+        {
+            visualizerHelper.StartSorting(sortModel.Data, resultPanel.CreateGraphics(), resultPanel.Width, resultPanel.Height, SortStep);
         }
 
         private void generateNumberButton_Click(object sender, EventArgs e)
@@ -62,28 +76,13 @@ namespace VisualizationUI.Sorting
 
         private void sortButton_Click(object sender, EventArgs e)
         {
+            currentIndex = 0; // Reset current index
             StartSorting();
+            sortingTimer.Enabled = true;
 
         }
         
-        private void StartSorting()
-        {
-            if (!isSorting)
-            {
-                currentExp = 1; // Reset the radix for a new sort
-                isSorting = true;
-                sortingTimer.Start();
-            }
-            else
-            {
-                sortingTimer.Stop();
-                isSorting = false;
-                ResultDrawData(sortModel.Data, resultPanel.CreateGraphics(), resultPanel.Width, resultPanel.Height);
-
-                // Convert array to string and set it to WinForms RichTextBox
-                sortRichTextBox.Text = string.Join(" ", sortModel.Data);
-            }
-        }
+      
 
         private void SortStep(object sender, EventArgs e)
         {
@@ -144,15 +143,7 @@ namespace VisualizationUI.Sorting
             return array.Max();
         }
 
-        public void DisplayGeneratedData(int[] data, System.Windows.Controls.RichTextBox richTextBox)
-        {
-            visualizerHelper.DisplayGeneratedData(data, richTextBox);
-        }
-
-        public void DisplaySortedData(int[] data, System.Windows.Controls.RichTextBox richTextBox)
-        {
-            visualizerHelper.DisplaySortedData(data, richTextBox);
-        }
+       
     }
 }
 

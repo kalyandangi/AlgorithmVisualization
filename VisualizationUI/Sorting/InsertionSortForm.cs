@@ -3,34 +3,32 @@ using System.Drawing;
 using System.Windows.Forms;
 using VisualizationLibrary.SortVisualizer;
 using VisualizationLibrary.Models;
-using System.Windows.Controls;
-using System.Windows.Documents;
-using System.Windows.Markup;
-using Timer = System.Windows.Forms.Timer;
-
 
 namespace VisualizationUI.Sorting
 {
     public partial class InsertionSortForm : Form, ISortVisualizer
     {
         private SortVisualizerHelper visualizerHelper = new SortVisualizerHelper();
-        private SortModel sortModel = new SortModel();
         private Random random = new Random();
         private Timer sortingTimer = new Timer();
         private int currentIndex = 0;
-        private bool isSorting = false;
-
-        public SortModel SortModel
-        {
-            get { return sortModel; }
-            set { sortModel = value; }
-        }
+        public SortModel sortModel { get; set; } = new SortModel();
 
         public InsertionSortForm()
         {
             InitializeComponent();
-            sortingTimer.Interval = 1; // Adjust the timer interval as needed
-            sortingTimer.Tick += SortStep;
+            InitializeSortingTimer();
+
+        }
+        private void InitializeSortingTimer()
+        {
+            sortingTimer.Interval = 1;
+            sortingTimer.Tick += Timer_Tick;
+            sortingTimer.Enabled = false;
+        }
+        private void Timer_Tick(object sender, EventArgs e)
+        {
+            SortStep(sender, e);
         }
 
         public void GenerateDrawData(int[] data, Graphics graphics, int panelWidth, int panelHeight)
@@ -46,10 +44,7 @@ namespace VisualizationUI.Sorting
         {
             return visualizerHelper.GenerateRandomNumbers(panelWidth, panelHeight);
         }
-        int[] ISortVisualizer.GenerateRandomNumbers(int panelWidth, int panelHeight)
-        {
-            return visualizerHelper.GenerateRandomNumbers(panelWidth, panelHeight);
-        }
+   
 
         public void DisplayGeneratedData(int[] data, System.Windows.Controls.RichTextBox richTextBox)
         {
@@ -63,9 +58,10 @@ namespace VisualizationUI.Sorting
 
         private void StartSorting()
         {
-            visualizerHelper.StartSorting(sortModel.Data, resultPanel.CreateGraphics(), resultPanel.Width, resultPanel.Height);
+            visualizerHelper.StartSorting(sortModel.Data, resultPanel.CreateGraphics(), resultPanel.Width, resultPanel.Height, SortStep);
         }
 
+        
         private void SortStep(object sender, EventArgs e)
         {
             if (currentIndex < sortModel.Data.Length - 1)
@@ -73,13 +69,14 @@ namespace VisualizationUI.Sorting
                 if (InsertionSortStep())
                 {
                     ResultDrawData(sortModel.Data, resultPanel.CreateGraphics(), resultPanel.Width, resultPanel.Height);
-                    // Convert array to string and set it to WinForms RichTextBox
                     sortRichTextBox.Text = string.Join(" ", sortModel.Data);
+                    currentIndex++;
+                    
                 }
                 else
                 {
                     sortingTimer.Enabled = false;
-                    isSorting = false;
+                    sortRichTextBox.Text = string.Join(" ", sortModel.Data);
                 }
             }
         }
@@ -93,15 +90,20 @@ namespace VisualizationUI.Sorting
 
             int keyIndex = currentIndex + 1;
             int key = sortModel.Data[keyIndex];
+            int tempIndex = currentIndex;
 
-            while (currentIndex >= 0 && sortModel.Data[currentIndex] > key)
+            while (tempIndex >= 0 && sortModel.Data[tempIndex] > key)
             {
-                sortModel.Data[currentIndex + 1] = sortModel.Data[currentIndex];
-                currentIndex--;
-            }
+                // Move the elements to visualize the insertion step
+                sortModel.Data[tempIndex + 1] = sortModel.Data[tempIndex];
+                tempIndex--;
 
-            sortModel.Data[currentIndex + 1] = key;
-            currentIndex++;
+                // Draw the current state to highlight the selected element
+                ResultDrawData(sortModel.Data, resultPanel.CreateGraphics(), resultPanel.Width, resultPanel.Height);
+                sortRichTextBox.Text = string.Join(" ", sortModel.Data);
+
+            }
+            sortModel.Data[tempIndex + 1] = key;
 
             return true;
         }
@@ -118,7 +120,11 @@ namespace VisualizationUI.Sorting
 
         private void sortButton_Click_1(object sender, EventArgs e)
         {
+
+            currentIndex = 0; // Reset current index
             StartSorting();
+            sortingTimer.Enabled = true;
+
         }
 
        

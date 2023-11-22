@@ -10,27 +10,30 @@ namespace VisualizationUI
     public partial class SelectionSortForm : Form, ISortVisualizer
     {
         private SortVisualizerHelper visualizerHelper = new SortVisualizerHelper();
-        private SortModel sortModel = new SortModel();
         private Random random = new Random();
         private Timer sortingTimer = new Timer();
         private int currentIndex = 0;
-        private bool isSorting = false;
-
-        public SortModel SortModel
-        {
-            get { return sortModel; }
-            set { sortModel = value; }
-        }
+        public SortModel sortModel { get; set; } = new SortModel();
         public SelectionSortForm()
         {
             InitializeComponent();
-            sortingTimer.Interval = 100; // Adjust the timer interval as needed
-            sortingTimer.Tick += SortStep;
+            InitializeSortingTimer();
+        }
+        private void InitializeSortingTimer()
+        {
+            sortingTimer.Interval = 1;
+            sortingTimer.Tick += Timer_Tick;
+            sortingTimer.Enabled = false;
+        }
+        private void Timer_Tick(object sender, EventArgs e)
+        {
+            SortStep(sender, e);
         }
         public void GenerateDrawData(int[] data, Graphics graphics, int panelWidth, int panelHeight)
         {
             visualizerHelper.GenerateDrawData(data, graphics, panelWidth, panelHeight);
         }
+
         public void ResultDrawData(int[] data, Graphics graphics, int panelWidth, int panelHeight)
         {
             visualizerHelper.ResultDrawData(data, graphics, panelWidth, panelHeight);
@@ -39,6 +42,7 @@ namespace VisualizationUI
         {
             return visualizerHelper.GenerateRandomNumbers(panelWidth, panelHeight);
         }
+
 
         public void DisplayGeneratedData(int[] data, System.Windows.Controls.RichTextBox richTextBox)
         {
@@ -49,6 +53,13 @@ namespace VisualizationUI
         {
             visualizerHelper.DisplaySortedData(data, richTextBox);
         }
+
+        private void StartSorting()
+        {
+            visualizerHelper.StartSorting(sortModel.Data, resultPanel.CreateGraphics(), resultPanel.Width, resultPanel.Height, SortStep);
+        }
+
+
         public void SortStep(object sender, EventArgs e)
         {
             if (currentIndex < sortModel.Data?.Length - 1)
@@ -73,7 +84,7 @@ namespace VisualizationUI
                 if (!SelectionSortStep())
                 {
                     sortingTimer.Stop();
-                    isSorting = false;
+                   // isSorting = false;
                 }
             }
             ResultDrawData(sortModel.Data, resultPanel.CreateGraphics(), resultPanel.Width, resultPanel.Height);
@@ -105,23 +116,6 @@ namespace VisualizationUI
             return true;
         }
 
-        private void StartSorting()
-        {
-            if (!isSorting)
-            {
-                isSorting = true;
-                sortingTimer.Start();
-            }
-            else
-            {
-                sortingTimer.Stop();
-                isSorting = false;
-                ResultDrawData(sortModel.Data, resultPanel.CreateGraphics(), resultPanel.Width, resultPanel.Height);
-                // Convert array to string and set it to WinForms RichTextBox
-                sortRichTextBox.Text = string.Join(" ", sortModel.Data);
-            }
-        }
-
         private void generateNumberButton_Click(object sender, EventArgs e)
         {
             int panelHeight = givenNumberPanel.Height;
@@ -135,11 +129,11 @@ namespace VisualizationUI
 
         private void sortButton_Click(object sender, EventArgs e)
         {
+            currentIndex = 0; // Reset current index
             StartSorting();
+            sortingTimer.Enabled = true;
         }
 
-        
+
     }
 }
-
-

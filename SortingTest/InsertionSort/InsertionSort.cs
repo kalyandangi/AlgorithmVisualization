@@ -9,11 +9,11 @@ namespace InsertionSort.Tests
         {
             var insertionSortForm = new InsertionSortForm();
 
-            insertionSortForm.SortModel.Data = insertionSortForm.GenerateRandomNumbers(100, insertionSortForm.givenNumberPanel.Height);
+            insertionSortForm.sortModel.Data = insertionSortForm.GenerateRandomNumbers(100, insertionSortForm.givenNumberPanel.Height);
 
-            Assert.IsNotNull(insertionSortForm.SortModel.Data);
-            Assert.AreEqual(100, insertionSortForm.SortModel.Data.Length);
-            Assert.IsTrue(insertionSortForm.SortModel.Data.All(num => num >=0 && num <= insertionSortForm.givenNumberPanel.Height));
+            Assert.IsNotNull(insertionSortForm.sortModel.Data);
+            Assert.AreEqual(100, insertionSortForm.sortModel.Data.Length);
+            Assert.IsTrue(insertionSortForm.sortModel.Data.All(num => num >=0 && num <= insertionSortForm.givenNumberPanel.Height));
         }
 
         [TestMethod]
@@ -21,7 +21,7 @@ namespace InsertionSort.Tests
         public void TestInsertionSortStep()
         {
             InsertionSortForm insertionSortForm = new InsertionSortForm();
-            insertionSortForm.SortModel.Data = new int[] { 3, 1, 4, 1, 5, 9, 1, 1, 1, 1, 3, 9, 4 };
+            insertionSortForm.sortModel.Data = new int[] { 3, 1, 4, 1, 5, 9, 1, 1, 1, 1, 3, 9, 4 };
 
             bool result = insertionSortForm.InsertionSortStep();
 
@@ -31,7 +31,7 @@ namespace InsertionSort.Tests
         {
             // Arrange
             InsertionSortForm insertionSortForm = new InsertionSortForm();
-            insertionSortForm.SortModel.Data = new int[] { 9, 7, 5, 3, 1 };
+            insertionSortForm.sortModel.Data = new int[] { 9, 7, 5, 3, 1 };
 
             // Act
             bool result = insertionSortForm.InsertionSortStep();

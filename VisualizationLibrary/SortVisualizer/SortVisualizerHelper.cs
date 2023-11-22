@@ -7,17 +7,23 @@ using System.Threading;
 
 namespace VisualizationLibrary.SortVisualizer
 {
+    public delegate void SortStepHandler(object sender, EventArgs e);
     public class SortVisualizerHelper : ISortVisualizer
     {
 
         private Random random = new Random();
         private bool isSorting = false;
-        //private Timer sortingTimer;
-
+        private Timer sortingTimer;
+        private SortStepHandler sortStepHandler;
         public Timer SortingTimer
         {
             get { return sortingTimer; }
             set { sortingTimer = value; }
+        }
+        public SortStepHandler SortStepHandler
+        {
+            get { return sortStepHandler; }
+            set { sortStepHandler = value; }
         }
 
         public int[] GenerateRandomNumbers(int panelWidth, int panelHeight)
@@ -74,14 +80,28 @@ namespace VisualizationLibrary.SortVisualizer
             DisplayData(data, richTextBox);
         }
         private int currentIndex;
-        public void StartSorting(int[] data, Graphics graphics, int panelWidth, int panelHeight)
+        private bool isTimerRunning;
+
+        private void TimerCallbackWrapper(object state)
+        {
+            if (sortStepHandler != null)
+            {
+                sortStepHandler.Invoke(this, EventArgs.Empty);
+            }
+        }
+
+
+        public void StartSorting(int[] data, Graphics graphics, int panelWidth, int panelHeight, SortStepHandler sortStepHandler)
         {
             if (!isTimerRunning)
             {
                 isTimerRunning = true;
                 isSorting = true;
                 currentIndex = 0;
-                sortingTimer.Change(0, 1); // Start the timer
+
+                sortingTimer = new Timer(new TimerCallback(TimerCallbackWrapper), null, 0, 1);
+                ResultDrawData(data, graphics, panelWidth, panelHeight);
+
             }
             else
             {
@@ -89,14 +109,10 @@ namespace VisualizationLibrary.SortVisualizer
                 sortingTimer.Change(Timeout.Infinite, Timeout.Infinite); // Stop the timer
                 isSorting = false;
                 ResultDrawData(data, graphics, panelWidth, panelHeight);
+                
+                
             }
         }
-        private bool isTimerRunning;
-        private Timer sortingTimer;
-        public SortVisualizerHelper()
-        {
-            isTimerRunning = false;
-            sortingTimer = new Timer(SortingTimerCallback, null, Timeout.Infinite, Timeout.Infinite);
-        }
+
     }
 }

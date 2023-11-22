@@ -66,7 +66,7 @@ namespace VisualizationUI
 
         private void heapSortSelectionButton_Click(object sender, EventArgs e)
         {
-            HeapSortForm heapSortForm = new HeapSortForm(); 
+            HeapSortForm heapSortForm = new HeapSortForm();
             heapSortForm.Show();
             this.Close();
         }

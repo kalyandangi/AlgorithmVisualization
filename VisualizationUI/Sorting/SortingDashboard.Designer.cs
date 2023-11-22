@@ -53,7 +53,7 @@
             selectionSortSelectionButton.Name = "selectionSortSelectionButton";
             selectionSortSelectionButton.Size = new System.Drawing.Size(220, 34);
             selectionSortSelectionButton.TabIndex = 1;
-            selectionSortSelectionButton.Text = "Selection Button";
+            selectionSortSelectionButton.Text = "Selection Sort";
             selectionSortSelectionButton.UseVisualStyleBackColor = true;
             selectionSortSelectionButton.Click += selectionSortSelectionButton_Click;
             // 
