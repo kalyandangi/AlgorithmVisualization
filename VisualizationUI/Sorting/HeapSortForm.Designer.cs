@@ -28,75 +28,97 @@
         /// </summary>
         private void InitializeComponent()
         {
+            givenNumberLabel = new System.Windows.Forms.Label();
+            HeapSortLabel = new System.Windows.Forms.Label();
+            givenNumberRichTextBox = new System.Windows.Forms.RichTextBox();
+            sortRichTextBox = new System.Windows.Forms.RichTextBox();
             sortButton = new System.Windows.Forms.Button();
             generateNumberButton = new System.Windows.Forms.Button();
-            HeapSortLabel = new System.Windows.Forms.Label();
-            givenNumberLabel = new System.Windows.Forms.Label();
             resultPanel = new System.Windows.Forms.Panel();
             givenNumberPanel = new System.Windows.Forms.Panel();
             SuspendLayout();
             // 
-            // sortButton
-            // 
-            sortButton.Location = new System.Drawing.Point(541, 411);
-            sortButton.Name = "sortButton";
-            sortButton.Size = new System.Drawing.Size(112, 34);
-            sortButton.TabIndex = 29;
-            sortButton.Text = "Sort";
-            sortButton.UseVisualStyleBackColor = true;
-            // 
-            // generateNumberButton
-            // 
-            generateNumberButton.Location = new System.Drawing.Point(141, 411);
-            generateNumberButton.Name = "generateNumberButton";
-            generateNumberButton.Size = new System.Drawing.Size(112, 34);
-            generateNumberButton.TabIndex = 28;
-            generateNumberButton.Text = "Generate";
-            generateNumberButton.UseVisualStyleBackColor = true;
-            // 
-            // HeapSortLabel
-            // 
-            HeapSortLabel.AutoSize = true;
-            HeapSortLabel.Location = new System.Drawing.Point(541, 77);
-            HeapSortLabel.Name = "HeapSortLabel";
-            HeapSortLabel.Size = new System.Drawing.Size(92, 25);
-            HeapSortLabel.TabIndex = 27;
-            HeapSortLabel.Text = "Heap Sort";
-            // 
             // givenNumberLabel
             // 
             givenNumberLabel.AutoSize = true;
-            givenNumberLabel.Location = new System.Drawing.Point(127, 77);
+            givenNumberLabel.Location = new System.Drawing.Point(209, 89);
             givenNumberLabel.Name = "givenNumberLabel";
             givenNumberLabel.Size = new System.Drawing.Size(126, 25);
             givenNumberLabel.TabIndex = 26;
             givenNumberLabel.Text = "Given Number";
             // 
+            // HeapSortLabel
+            // 
+            HeapSortLabel.AutoSize = true;
+            HeapSortLabel.Location = new System.Drawing.Point(714, 89);
+            HeapSortLabel.Name = "HeapSortLabel";
+            HeapSortLabel.Size = new System.Drawing.Size(92, 25);
+            HeapSortLabel.TabIndex = 27;
+            HeapSortLabel.Text = "Heap Sort";
+            // 
+            // givenNumberRichTextBox
+            // 
+            givenNumberRichTextBox.Location = new System.Drawing.Point(121, 128);
+            givenNumberRichTextBox.Name = "givenNumberRichTextBox";
+            givenNumberRichTextBox.Size = new System.Drawing.Size(296, 87);
+            givenNumberRichTextBox.TabIndex = 44;
+            givenNumberRichTextBox.Text = "";
+            // 
+            // sortRichTextBox
+            // 
+            sortRichTextBox.Location = new System.Drawing.Point(619, 119);
+            sortRichTextBox.Name = "sortRichTextBox";
+            sortRichTextBox.Size = new System.Drawing.Size(296, 87);
+            sortRichTextBox.TabIndex = 45;
+            sortRichTextBox.Text = "";
+            // 
+            // sortButton
+            // 
+            sortButton.Location = new System.Drawing.Point(714, 518);
+            sortButton.Name = "sortButton";
+            sortButton.Size = new System.Drawing.Size(112, 34);
+            sortButton.TabIndex = 43;
+            sortButton.Text = "Sort";
+            sortButton.UseVisualStyleBackColor = true;
+            sortButton.Click += sortButton_Click;
+            // 
+            // generateNumberButton
+            // 
+            generateNumberButton.Location = new System.Drawing.Point(181, 527);
+            generateNumberButton.Name = "generateNumberButton";
+            generateNumberButton.Size = new System.Drawing.Size(112, 34);
+            generateNumberButton.TabIndex = 42;
+            generateNumberButton.Text = "Generate";
+            generateNumberButton.UseVisualStyleBackColor = true;
+            generateNumberButton.Click += generateNumberButton_Click;
+            // 
             // resultPanel
             // 
-            resultPanel.Location = new System.Drawing.Point(444, 105);
+            resultPanel.Location = new System.Drawing.Point(615, 212);
             resultPanel.Name = "resultPanel";
             resultPanel.Size = new System.Drawing.Size(300, 300);
-            resultPanel.TabIndex = 25;
+            resultPanel.TabIndex = 41;
             // 
             // givenNumberPanel
             // 
-            givenNumberPanel.Location = new System.Drawing.Point(56, 105);
+            givenNumberPanel.Location = new System.Drawing.Point(121, 221);
             givenNumberPanel.Name = "givenNumberPanel";
             givenNumberPanel.Size = new System.Drawing.Size(300, 300);
-            givenNumberPanel.TabIndex = 24;
+            givenNumberPanel.TabIndex = 40;
             // 
             // HeapSortForm
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            ClientSize = new System.Drawing.Size(800, 523);
+            ClientSize = new System.Drawing.Size(1037, 681);
+            Controls.Add(givenNumberRichTextBox);
+            Controls.Add(sortRichTextBox);
             Controls.Add(sortButton);
             Controls.Add(generateNumberButton);
-            Controls.Add(HeapSortLabel);
-            Controls.Add(givenNumberLabel);
             Controls.Add(resultPanel);
             Controls.Add(givenNumberPanel);
+            Controls.Add(HeapSortLabel);
+            Controls.Add(givenNumberLabel);
             Name = "HeapSortForm";
             Text = "HeapSortForm";
             ResumeLayout(false);
@@ -104,11 +126,12 @@
         }
 
         #endregion
-
+        private System.Windows.Forms.Label givenNumberLabel;
+        private System.Windows.Forms.Label HeapSortLabel;
+        private System.Windows.Forms.RichTextBox givenNumberRichTextBox;
+        private System.Windows.Forms.RichTextBox sortRichTextBox;
         private System.Windows.Forms.Button sortButton;
         private System.Windows.Forms.Button generateNumberButton;
-        private System.Windows.Forms.Label HeapSortLabel;
-        private System.Windows.Forms.Label givenNumberLabel;
         private System.Windows.Forms.Panel resultPanel;
         public System.Windows.Forms.Panel givenNumberPanel;
     }
