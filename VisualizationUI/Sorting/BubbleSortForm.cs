@@ -9,7 +9,7 @@ namespace VisualizationUI.Sorting
     {
         private SortVisualizerHelper visualizerHelper = new SortVisualizerHelper();
         private Random random = new Random();
-        private Timer sortingTimer = new Timer();
+        public Timer sortingTimer = new Timer();
         private int currentIndex = 0;
         public SortModel sortModel { get; set; } = new SortModel();
 
@@ -54,8 +54,9 @@ namespace VisualizationUI.Sorting
             visualizerHelper.DisplaySortedData(data, richTextBox);
         }
 
-        private void StartSorting()
+        public void StartSorting()
         {
+            
             visualizerHelper.StartSorting(sortModel.Data, resultPanel.CreateGraphics(), resultPanel.Width, resultPanel.Height, SortStep);
         }
         public void SortStep(object sender, EventArgs e)

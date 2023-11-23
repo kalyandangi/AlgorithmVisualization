@@ -55,11 +55,11 @@ namespace VisualizationUI.Sorting
             visualizerHelper.DisplaySortedData(data, richTextBox);
         }
 
-        private void StartSorting()
+        public void StartSorting()
         {
             visualizerHelper.StartSorting(sortModel.Data, resultPanel.CreateGraphics(), resultPanel.Width, resultPanel.Height, SortStep);
         }
-        private void SortStep(object sender, EventArgs e)
+        public void SortStep(object sender, EventArgs e)
         {
             if (sortModel.Data.Length <= 1)
             {
