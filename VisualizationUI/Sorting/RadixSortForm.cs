@@ -58,7 +58,7 @@ namespace VisualizationUI.Sorting
             visualizerHelper.DisplaySortedData(data, richTextBox);
         }
 
-        private void StartSorting()
+        public void StartSorting()
         {
             visualizerHelper.StartSorting(sortModel.Data, resultPanel.CreateGraphics(), resultPanel.Width, resultPanel.Height, SortStep);
         }
@@ -105,7 +105,7 @@ namespace VisualizationUI.Sorting
             }
         }
 
-        private void RadixSortStep()
+        public bool RadixSortStep()
         {
             int n = sortModel.Data.Length;
             int[] output = new int[n];
@@ -136,6 +136,7 @@ namespace VisualizationUI.Sorting
             {
                 sortModel.Data[i] = output[i];
             }
+            return true;
         }
 
         private int GetMax(int[] array)

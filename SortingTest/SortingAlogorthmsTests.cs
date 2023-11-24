@@ -1,4 +1,4 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using VisualizationLibrary.Models;
 using VisualizationUI;
 using VisualizationUI.Sorting;
 
@@ -284,27 +284,33 @@ namespace SortingAlgorithmsTests
         public void TestMergeSortStep()
         {
             // Arrange
-            int[] testData = { 9, 7, 5, 3, 1 };
-            mergeSortForm.sortModel.Data = testData;
+            CommonInitialization(mergeSortForm, new int[] { 3, 1, 4, 1, 5, 9, 2, 6, 5, 3 });
+            int middle = mergeSortForm.sortModel.Data.Length / 2;
+            int[] leftArray = new int[middle];
+            int[] rightArray = new int[mergeSortForm.sortModel.Data.Length - middle];
 
             // Act
-            mergeSortForm.SortStep(null, null);
+            bool result = mergeSortForm.MergeSortStep(mergeSortForm.sortModel.Data, leftArray, 0, rightArray);
 
             // Assert
-            Assert.IsTrue(mergeSortForm.IsSorted(mergeSortForm.sortModel.Data));
+            Assert.IsTrue(result);
         }
+
         [TestMethod]
+
         public void TestMergeSortReverseSorted()
         {
             // Arrange
-            int[] testData = { 9, 7, 5, 3, 1 };
-            mergeSortForm.sortModel.Data = testData;
+            CommonInitialization(mergeSortForm, new int[] { 9, 7, 5, 3, 1 });
+            int middle = mergeSortForm.sortModel.Data.Length / 2;
+            int[] leftArray = new int[middle];
+            int[] rightArray = new int[mergeSortForm.sortModel.Data.Length - middle];
 
             // Act
-            mergeSortForm.SortStep(null, null);
-
+            bool result = mergeSortForm.MergeSortStep(mergeSortForm.sortModel.Data, leftArray, 0, rightArray);
+            
             // Assert
-            Assert.IsTrue(mergeSortForm.IsSorted(mergeSortForm.sortModel.Data));
+            Assert.IsTrue(result); 
         }
 
         [TestMethod]
@@ -340,6 +346,264 @@ namespace SortingAlgorithmsTests
         }
 
         private void TestGenerateRandomNumbers(MergeSortForm sortForm, int count)
+        {
+            sortForm.sortModel.Data = sortForm.GenerateRandomNumbers(count, sortForm.givenNumberPanel.Height);
+
+            Assert.IsNotNull(sortForm.sortModel.Data);
+            Assert.AreEqual(count, sortForm.sortModel.Data.Length);
+            Assert.IsTrue(sortForm.sortModel.Data.All(num => num >= 0 && num <= sortForm.givenNumberPanel.Height));
+        }
+}
+
+    [TestClass]
+    public class HeapSortFormTests
+    {
+        private HeapSortForm? heapSortForm;
+
+        [TestInitialize]
+        public void TestInitialize()
+        {
+            heapSortForm = new HeapSortForm();
+        }
+
+        [TestMethod]
+        public void TestGenerateRandomNumbers()
+        {
+            // Arrange
+            TestGenerateRandomNumbers(heapSortForm, 100);
+        }
+
+        [TestMethod]
+        public void TestHeapSortStep()
+        {
+            // Arrange
+            CommonInitialization(heapSortForm, new int[] { 3, 1, 4, 1, 5, 9, 2, 6, 5, 3 });
+
+            // Act
+            bool result = heapSortForm.HeapSortStep();
+
+            // Assert
+            Assert.IsTrue(result); // Expecting at least one swap
+        }
+
+        [TestMethod]
+        public void TestHeapSortReverseSorted()
+        {
+            // Arrange
+            CommonInitialization(heapSortForm, new int[] { 9, 7, 5, 3, 1 });
+
+            // Act
+            bool result = heapSortForm.HeapSortStep();
+
+            // Assert
+            Assert.IsTrue(result); // Expecting no swap for a reverse-sorted array
+        }
+
+        [TestMethod]
+        public void TestHeapSortEmptyArray()
+        {
+            // Arrange
+            CommonInitialization(heapSortForm, new int[] { }); // Empty array
+
+            // Act
+            heapSortForm.StartSorting();
+
+            // Assert
+            Assert.IsNotNull(heapSortForm.sortModel.Data);
+            Assert.AreEqual(0, heapSortForm.sortModel.Data.Length);
+        }
+
+        [TestMethod]
+        public void TestHeapSortAlreadySorted()
+        {
+            // Arrange
+            CommonInitialization(heapSortForm, new int[] { 1, 2, 3 }); // Already sorted array
+
+            // Act
+            heapSortForm.StartSorting();
+
+            // Assert
+            CollectionAssert.AreEqual(new int[] { 1, 2, 3 }, heapSortForm.sortModel.Data);
+        }
+
+        private void CommonInitialization(HeapSortForm sortForm, int[] testData)
+        {
+            sortForm.sortModel.Data = testData;
+        }
+
+        private void TestGenerateRandomNumbers(HeapSortForm sortForm, int count)
+        {
+            sortForm.sortModel.Data = sortForm.GenerateRandomNumbers(count, sortForm.givenNumberPanel.Height);
+
+            Assert.IsNotNull(sortForm.sortModel.Data);
+            Assert.AreEqual(count, sortForm.sortModel.Data.Length);
+            Assert.IsTrue(sortForm.sortModel.Data.All(num => num >= 0 && num <= sortForm.givenNumberPanel.Height));
+        }
+    }
+
+    [TestClass]
+    public class RadixSortFormTests
+    {
+        private RadixSortForm? radixSortForm;
+
+        [TestInitialize]
+        public void TestInitialize()
+        {
+            radixSortForm = new RadixSortForm();
+        }
+
+        [TestMethod]
+        public void TestGenerateRandomNumbers()
+        {
+            // Arrange
+            TestGenerateRandomNumbers(radixSortForm, 100);
+        }
+
+        [TestMethod]
+        public void TestRadixSortStep()
+        {
+            // Arrange
+            CommonInitialization(radixSortForm, new int[] { 3, 1, 4, 1, 5, 9, 2, 6, 5, 3 });
+
+            // Act
+            bool result = radixSortForm.RadixSortStep();
+
+            // Assert
+            Assert.IsTrue(result); // Expecting at least one swap
+        }
+
+        [TestMethod]
+        public void TestRadixSortReverseSorted()
+        {
+            // Arrange
+            CommonInitialization(radixSortForm, new int[] { 9, 7, 5, 3, 1 });
+
+            // Act
+            bool result = radixSortForm.RadixSortStep();
+
+            // Assert
+            Assert.IsTrue(result); // Expecting no swap for a reverse-sorted array
+        }
+
+        [TestMethod]
+        public void TestRadixSortEmptyArray()
+        {
+            // Arrange
+            CommonInitialization(radixSortForm, new int[] { }); // Empty array
+
+            // Act
+            radixSortForm.StartSorting();
+
+            // Assert
+            Assert.IsNotNull(radixSortForm.sortModel.Data);
+            Assert.AreEqual(0, radixSortForm.sortModel.Data.Length);
+        }
+
+        [TestMethod]
+        public void TestHeapSortAlreadySorted()
+        {
+            // Arrange
+            CommonInitialization(radixSortForm, new int[] { 1, 2, 3 }); // Already sorted array
+
+            // Act
+            radixSortForm.StartSorting();
+
+            // Assert
+            CollectionAssert.AreEqual(new int[] { 1, 2, 3 }, radixSortForm.sortModel.Data);
+        }
+
+        private void CommonInitialization(RadixSortForm sortForm, int[] testData)
+        {
+            sortForm.sortModel.Data = testData;
+        }
+
+        private void TestGenerateRandomNumbers(RadixSortForm sortForm, int count)
+        {
+            sortForm.sortModel.Data = sortForm.GenerateRandomNumbers(count, sortForm.givenNumberPanel.Height);
+
+            Assert.IsNotNull(sortForm.sortModel.Data);
+            Assert.AreEqual(count, sortForm.sortModel.Data.Length);
+            Assert.IsTrue(sortForm.sortModel.Data.All(num => num >= 0 && num <= sortForm.givenNumberPanel.Height));
+        }
+    }
+
+    [TestClass]
+    public class QuickSortFormTests
+    {
+        private QuickSortForm? quickSortForm;
+
+        [TestInitialize]
+        public void TestInitialize()
+        {
+            quickSortForm = new QuickSortForm();
+        }
+
+        [TestMethod]
+        public void TestGenerateRandomNumbers()
+        {
+            // Arrange
+            TestGenerateRandomNumbers(quickSortForm, 100);
+        }
+
+        [TestMethod]
+        public void TestQuickSortStep()
+        {
+            // Arrange
+            CommonInitialization(quickSortForm, new int[] { 3, 1, 4, 1, 5, 9, 2, 6, 5, 3 });
+
+            // Act
+            bool result = quickSortForm.QuickSortStep(0, quickSortForm.sortModel.Data.Length - 1);
+
+            // Assert
+            Assert.IsTrue(result); // Expecting at least one swap
+        }
+
+        [TestMethod]
+        public void TestQuickSortReverseSorted()
+        {
+            // Arrange
+            CommonInitialization(quickSortForm, new int[] { 9, 7, 5, 3, 1 });
+
+            // Act
+            bool result = quickSortForm.QuickSortStep(0, quickSortForm.sortModel.Data.Length - 1);
+
+            // Assert
+            Assert.IsTrue(result); // Expecting no swap for a reverse-sorted array
+        }
+
+        [TestMethod]
+        public void TestQuickSortEmptyArray()
+        {
+            // Arrange
+            CommonInitialization(quickSortForm, new int[] { }); // Empty array
+
+            // Act
+            quickSortForm.StartSorting();
+
+            // Assert
+            Assert.IsNotNull(quickSortForm.sortModel.Data);
+            Assert.AreEqual(0, quickSortForm.sortModel.Data.Length);
+        }
+
+        [TestMethod]
+        public void TestQuickSortAlreadySorted()
+        {
+            // Arrange
+            CommonInitialization(quickSortForm, new int[] { 1, 2, 3 }); // Already sorted array
+
+            // Act
+            quickSortForm.StartSorting();
+
+            // Assert
+            CollectionAssert.AreEqual(new int[] { 1, 2, 3 }, quickSortForm.sortModel.Data);
+        }
+
+        private void CommonInitialization(QuickSortForm sortForm, int[] testData)
+        {
+            sortForm.sortModel.Data = testData;
+        }
+
+        private void TestGenerateRandomNumbers(QuickSortForm sortForm, int count)
         {
             sortForm.sortModel.Data = sortForm.GenerateRandomNumbers(count, sortForm.givenNumberPanel.Height);
 

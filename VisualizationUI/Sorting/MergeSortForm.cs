@@ -73,7 +73,7 @@ namespace VisualizationUI.Sorting
             Array.Copy(sortModel.Data, middle, rightArray, 0, sortModel.Data.Length - middle);
 
 
-            MergeSortStep(sortModel.Data, leftArray, rightArray);
+            MergeSortStep(sortModel.Data, leftArray, 0, rightArray);
 
             ResultDrawData(sortModel.Data, resultPanel.CreateGraphics(), resultPanel.Width, resultPanel.Height);
 
@@ -81,7 +81,7 @@ namespace VisualizationUI.Sorting
             sortRichTextBox.Text = string.Join(" ", sortModel.Data);
 
         }
-        public void MergeSortStep(int[] result, int[] leftArray, int[] rightArray)
+        public bool MergeSortStep(int[] result, int[] leftArray, int v, int[] rightArray)
         {
             int i = 0, j = 0, k = 0;
             while (i < leftArray.Length && j < rightArray.Length)
@@ -105,6 +105,8 @@ namespace VisualizationUI.Sorting
             {
                 result[k++] = rightArray[j++];
             }
+
+            return true;
         }
         public bool IsSorted(int[] array)
         {
