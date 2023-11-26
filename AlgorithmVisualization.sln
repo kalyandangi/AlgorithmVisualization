@@ -7,14 +7,16 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VisualizationLibrary", "Vis
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VisualizationUI", "VisualizationUI\VisualizationUI.csproj", "{251034FC-DD59-4372-AAB7-E557186BD0EC}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SortingTest", "SortingTest", "{D81C7AC4-C966-453B-9ACD-D6CD4081389E}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{C8507478-EC78-4746-B18D-B0A465B260F2}"
 	ProjectSection(SolutionItems) = preProject
 		.editorconfig = .editorconfig
 	EndProjectSection
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SortingAlgorithmsTests", "SortingTest\SortingAlgorithmsTests.csproj", "{C55B88DA-6C48-48E9-A452-04B7A8098272}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Testing", "Testing", "{4EECC89D-2E5F-4294-9D8F-C61536A8BEEF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TestingSort", "TestingSort", "{8177032C-CF53-42FF-812E-0C3FAC166B2A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SortingAlgorithmsTests", "Testing\SortingTest\SortingAlgorithmsTests.csproj", "{353D7039-A6C1-40D6-A120-32772090F30F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -30,16 +32,17 @@ Global
 		{251034FC-DD59-4372-AAB7-E557186BD0EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{251034FC-DD59-4372-AAB7-E557186BD0EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{251034FC-DD59-4372-AAB7-E557186BD0EC}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C55B88DA-6C48-48E9-A452-04B7A8098272}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C55B88DA-6C48-48E9-A452-04B7A8098272}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C55B88DA-6C48-48E9-A452-04B7A8098272}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C55B88DA-6C48-48E9-A452-04B7A8098272}.Release|Any CPU.Build.0 = Release|Any CPU
+		{353D7039-A6C1-40D6-A120-32772090F30F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{353D7039-A6C1-40D6-A120-32772090F30F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{353D7039-A6C1-40D6-A120-32772090F30F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{353D7039-A6C1-40D6-A120-32772090F30F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{C55B88DA-6C48-48E9-A452-04B7A8098272} = {D81C7AC4-C966-453B-9ACD-D6CD4081389E}
+		{8177032C-CF53-42FF-812E-0C3FAC166B2A} = {4EECC89D-2E5F-4294-9D8F-C61536A8BEEF}
+		{353D7039-A6C1-40D6-A120-32772090F30F} = {8177032C-CF53-42FF-812E-0C3FAC166B2A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6AD075F9-A15C-4736-8E62-C597673DA8A4}
