@@ -60,6 +60,7 @@ namespace VisualizationUI
             searchingButton.TabIndex = 1;
             searchingButton.Text = "Search";
             searchingButton.UseVisualStyleBackColor = true;
+            searchingButton.Click += searchingButton_Click;
             // 
             // dynamicProgrammingButton
             // 

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using VisualizationUI.Searching;
 
 namespace VisualizationUI
 {
@@ -21,7 +22,14 @@ namespace VisualizationUI
         {
             SortingDashboard sortingDashboard = new SortingDashboard();
             sortingDashboard.Show();
-           // this.Close();
+            // this.Close();
+        }
+
+        private void searchingButton_Click(object sender, EventArgs e)
+        {
+            SearchingDashboard searchingDashboard = new SearchingDashboard();
+            searchingDashboard.Show();
+
         }
     }
 }
