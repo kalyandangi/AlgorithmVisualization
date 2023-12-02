@@ -19,7 +19,26 @@ namespace VisualizationUI.Searching
 
         private void breadthFirstSearchButton_Click(object sender, EventArgs e)
         {
+            BreadthFirstSearch breadthFirstSearch = new BreadthFirstSearch();
+            breadthFirstSearch.Show();
+        }
 
+        private void linearSearchButton_Click(object sender, EventArgs e)
+        {
+            LinearSearch linearSearch = new LinearSearch();
+            linearSearch.Show();
+        }
+
+        private void binarySearchButton_Click(object sender, EventArgs e)
+        {
+            BinarySearch binarySearch = new BinarySearch();
+            binarySearch.Show();
+        }
+
+        private void interpolationSearchButton_Click(object sender, EventArgs e)
+        {
+            InterpolationSearch interpolationSearch = new InterpolationSearch();
+            interpolationSearch.Show();
         }
     }
 }

@@ -20,6 +20,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SortingAlgorithmsTests", "T
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SearchingTest", "SearchingTest", "{70C2DCCC-26C3-4FF1-9FEA-0749D647CA10}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SearchingAlgorithmTests", "SearchingAlgorithmTests\SearchingAlgorithmTests.csproj", "{5583F29E-B237-4033-993C-2108A41D307B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -38,6 +40,10 @@ Global
 		{353D7039-A6C1-40D6-A120-32772090F30F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{353D7039-A6C1-40D6-A120-32772090F30F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{353D7039-A6C1-40D6-A120-32772090F30F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5583F29E-B237-4033-993C-2108A41D307B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5583F29E-B237-4033-993C-2108A41D307B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5583F29E-B237-4033-993C-2108A41D307B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5583F29E-B237-4033-993C-2108A41D307B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -46,6 +52,7 @@ Global
 		{8177032C-CF53-42FF-812E-0C3FAC166B2A} = {4EECC89D-2E5F-4294-9D8F-C61536A8BEEF}
 		{353D7039-A6C1-40D6-A120-32772090F30F} = {8177032C-CF53-42FF-812E-0C3FAC166B2A}
 		{70C2DCCC-26C3-4FF1-9FEA-0749D647CA10} = {4EECC89D-2E5F-4294-9D8F-C61536A8BEEF}
+		{5583F29E-B237-4033-993C-2108A41D307B} = {70C2DCCC-26C3-4FF1-9FEA-0749D647CA10}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6AD075F9-A15C-4736-8E62-C597673DA8A4}

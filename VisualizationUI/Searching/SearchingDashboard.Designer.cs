@@ -42,6 +42,7 @@
             linearSearchButton.TabIndex = 0;
             linearSearchButton.Text = "Linear Search";
             linearSearchButton.UseVisualStyleBackColor = true;
+            linearSearchButton.Click += linearSearchButton_Click;
             // 
             // binarySearchButton
             // 
@@ -51,6 +52,7 @@
             binarySearchButton.TabIndex = 1;
             binarySearchButton.Text = "Binary Search";
             binarySearchButton.UseVisualStyleBackColor = true;
+            binarySearchButton.Click += binarySearchButton_Click;
             // 
             // interpolationSearchButton
             // 
@@ -60,6 +62,7 @@
             interpolationSearchButton.TabIndex = 2;
             interpolationSearchButton.Text = "Interpolation Search";
             interpolationSearchButton.UseVisualStyleBackColor = true;
+            interpolationSearchButton.Click += interpolationSearchButton_Click;
             // 
             // breadthFirstSearchButton
             // 
