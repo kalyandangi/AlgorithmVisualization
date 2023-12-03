@@ -1,56 +1,74 @@
-﻿//using System;
-//using System.Collections.Generic;
-//using System.Linq;
-//using System.Windows;
-//using System.Windows.Controls;
-//using System.Windows.Media;
-//using System.Windows.Shapes;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Windows;
 
-//namespace VisualizationLibrary.SearchVisualizer
-//{
-//    public class SearchVisualizerHelper
-//    {
-//        private readonly WpfPanel panel;
-//        private readonly List<int> data;
+namespace VisualizationLibrary.SearchVisualizer
+{
+    public static class SearchVisualizerHelper
+    {
+        public static event EventHandler<DisplayDataEventArgs> DisplayDataRequested;
 
-//        public List<int> Data
-//        {
-//            get { return data; }
-//        }
+        public static void DisplaySearchResult(List<int> data, string message, List<int> positions)
+        {
+            if (positions.Count > 0)
+            {
+                string positionsStr = string.Join(", ", positions);
+                string resultMessage = $"{message}: {data[positions[0]]}\nPosition(s): {positionsStr}";
+                MessageBox.Show(resultMessage, "Search Result");
+            }
+            else
+            {
+                MessageBox.Show("Search value not found.");
+            }
+        }
 
-//        public SearchVisualizerHelper(WpfPanel panel)
-//        {
-//            this.panel = panel;
-//            data = new List<int>();
-//        }
+        public static void DisplayRepeatedNumberResult(List<int> data, Dictionary<int, List<int>> repeatedNumberPositions)
+        {
+            StringBuilder summary = new StringBuilder();
+            int totalRepeatedValues = repeatedNumberPositions.Count;
+            int totalOccurrences = repeatedNumberPositions.Values.Sum(list => list.Count);
+            summary.AppendLine($"Total Number of Repeated Values: {totalRepeatedValues}");
+            summary.AppendLine($"Total Occurrences: {totalOccurrences}");
 
-//        public void DrawDataOnPanel(List<int> data)
-//        {
-//            panel.Children.Clear();
+            StringBuilder details = new StringBuilder();
+            details.AppendLine("Repeated Numbers, Counts, and Positions:");
 
-//            if (data != null && data.Count > 0)
-//            {
-//                double barWidth = panel.ActualWidth / data.Count;
+            int count = 1;
+            foreach (var pair in repeatedNumberPositions)
+            {
+                string positions = string.Join(", ", pair.Value.Select(pos => pos.ToString()));
+                details.AppendLine($"{count++}. {pair.Key}: {pair.Value.Count} times at positions {positions}");
+            }
 
-//                for (int i = 0; i < data.Count; i++)
-//                {
-//                    double barHeight = (data[i] / (double)data.Max()) * panel.ActualHeight;
+            MessageBox.Show($"{summary}\n{details}", "Repeated Numbers Report");
+        }
 
-//                    Rectangle rectangle = new Rectangle
-//                    {
-//                        Width = barWidth,
-//                        Height = barHeight,
-//                        Fill = Brushes.Blue,
-//                        Stroke = Brushes.Black,
-//                        StrokeThickness = 1
-//                    };
 
-//                    Canvas.SetLeft(rectangle, i * barWidth);
-//                    Canvas.SetTop(rectangle, panel.ActualHeight - barHeight);
+        public static int GetSearchValue(string searchText)
+        {
+            if (int.TryParse(searchText, out int searchValue))
+            {
+                return searchValue;
+            }
+            else
+            {
+                MessageBox.Show("Please enter a valid integer for the search value.");
+                return int.MinValue;
+            }
+        }
+    }
 
-//                    panel.Children.Add(rectangle);
-//                }
-//            }
-//        }
-//    }
-//}
+    public class DisplayDataEventArgs : EventArgs
+    {
+        public int[] Data { get; }
+        public string DisplayText { get; }
+
+        public DisplayDataEventArgs(int[] data, string displayText)
+        {
+            Data = data;
+            DisplayText = displayText;
+        }
+    }
+}
