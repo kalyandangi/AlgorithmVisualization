@@ -137,6 +137,6 @@ namespace VisualizationUI.Sorting
             StartSorting();
             sortingTimer.Enabled = true;
         }
-      
+
     }
 }

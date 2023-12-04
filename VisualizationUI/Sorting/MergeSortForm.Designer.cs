@@ -58,23 +58,23 @@
             // 
             // givenNumberRichTextBox
             // 
-            givenNumberRichTextBox.Location = new System.Drawing.Point(121, 128);
+            givenNumberRichTextBox.Location = new System.Drawing.Point(59, 128);
             givenNumberRichTextBox.Name = "givenNumberRichTextBox";
-            givenNumberRichTextBox.Size = new System.Drawing.Size(296, 87);
+            givenNumberRichTextBox.Size = new System.Drawing.Size(412, 87);
             givenNumberRichTextBox.TabIndex = 44;
             givenNumberRichTextBox.Text = "";
             // 
             // sortRichTextBox
             // 
-            sortRichTextBox.Location = new System.Drawing.Point(623, 128);
+            sortRichTextBox.Location = new System.Drawing.Point(564, 137);
             sortRichTextBox.Name = "sortRichTextBox";
-            sortRichTextBox.Size = new System.Drawing.Size(296, 87);
+            sortRichTextBox.Size = new System.Drawing.Size(412, 87);
             sortRichTextBox.TabIndex = 45;
             sortRichTextBox.Text = "";
             // 
             // sortButton
             // 
-            sortButton.Location = new System.Drawing.Point(714, 527);
+            sortButton.Location = new System.Drawing.Point(714, 536);
             sortButton.Name = "sortButton";
             sortButton.Size = new System.Drawing.Size(112, 34);
             sortButton.TabIndex = 43;
@@ -84,7 +84,7 @@
             // 
             // generateNumberButton
             // 
-            generateNumberButton.Location = new System.Drawing.Point(181, 527);
+            generateNumberButton.Location = new System.Drawing.Point(177, 536);
             generateNumberButton.Name = "generateNumberButton";
             generateNumberButton.Size = new System.Drawing.Size(112, 34);
             generateNumberButton.TabIndex = 42;
@@ -94,16 +94,16 @@
             // 
             // resultPanel
             // 
-            resultPanel.Location = new System.Drawing.Point(619, 221);
+            resultPanel.Location = new System.Drawing.Point(564, 230);
             resultPanel.Name = "resultPanel";
-            resultPanel.Size = new System.Drawing.Size(300, 300);
+            resultPanel.Size = new System.Drawing.Size(412, 300);
             resultPanel.TabIndex = 41;
             // 
             // givenNumberPanel
             // 
-            givenNumberPanel.Location = new System.Drawing.Point(121, 221);
+            givenNumberPanel.Location = new System.Drawing.Point(59, 230);
             givenNumberPanel.Name = "givenNumberPanel";
-            givenNumberPanel.Size = new System.Drawing.Size(300, 300);
+            givenNumberPanel.Size = new System.Drawing.Size(412, 300);
             givenNumberPanel.TabIndex = 40;
             // 
             // MergeSortForm

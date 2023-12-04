@@ -90,7 +90,7 @@ namespace VisualizationUI.Sorting
             {
                 Heapify(n, i);
             }
-                
+
 
             for (int i = n - 1; i > 0; i--)
             {

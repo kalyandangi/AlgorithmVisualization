@@ -40,7 +40,7 @@
             // 
             // sortButton
             // 
-            sortButton.Location = new System.Drawing.Point(645, 514);
+            sortButton.Location = new System.Drawing.Point(703, 514);
             sortButton.Name = "sortButton";
             sortButton.Size = new System.Drawing.Size(112, 34);
             sortButton.TabIndex = 23;
@@ -50,7 +50,7 @@
             // 
             // generateNumberButton
             // 
-            generateNumberButton.Location = new System.Drawing.Point(112, 523);
+            generateNumberButton.Location = new System.Drawing.Point(193, 523);
             generateNumberButton.Name = "generateNumberButton";
             generateNumberButton.Size = new System.Drawing.Size(112, 34);
             generateNumberButton.TabIndex = 22;
@@ -61,7 +61,7 @@
             // RadixSortLabel
             // 
             RadixSortLabel.AutoSize = true;
-            RadixSortLabel.Location = new System.Drawing.Point(645, 77);
+            RadixSortLabel.Location = new System.Drawing.Point(703, 87);
             RadixSortLabel.Name = "RadixSortLabel";
             RadixSortLabel.Size = new System.Drawing.Size(93, 25);
             RadixSortLabel.TabIndex = 21;
@@ -70,7 +70,7 @@
             // givenNumberLabel
             // 
             givenNumberLabel.AutoSize = true;
-            givenNumberLabel.Location = new System.Drawing.Point(112, 77);
+            givenNumberLabel.Location = new System.Drawing.Point(193, 87);
             givenNumberLabel.Name = "givenNumberLabel";
             givenNumberLabel.Size = new System.Drawing.Size(126, 25);
             givenNumberLabel.TabIndex = 20;
@@ -80,21 +80,21 @@
             // 
             resultPanel.Location = new System.Drawing.Point(546, 208);
             resultPanel.Name = "resultPanel";
-            resultPanel.Size = new System.Drawing.Size(300, 300);
+            resultPanel.Size = new System.Drawing.Size(412, 300);
             resultPanel.TabIndex = 19;
             // 
             // givenNumberPanel
             // 
             givenNumberPanel.Location = new System.Drawing.Point(52, 217);
             givenNumberPanel.Name = "givenNumberPanel";
-            givenNumberPanel.Size = new System.Drawing.Size(300, 300);
+            givenNumberPanel.Size = new System.Drawing.Size(412, 300);
             givenNumberPanel.TabIndex = 18;
             // 
             // givenNumberRichTextBox
             // 
             givenNumberRichTextBox.Location = new System.Drawing.Point(52, 124);
             givenNumberRichTextBox.Name = "givenNumberRichTextBox";
-            givenNumberRichTextBox.Size = new System.Drawing.Size(296, 87);
+            givenNumberRichTextBox.Size = new System.Drawing.Size(412, 87);
             givenNumberRichTextBox.TabIndex = 26;
             givenNumberRichTextBox.Text = "";
             // 
@@ -102,7 +102,7 @@
             // 
             sortRichTextBox.Location = new System.Drawing.Point(550, 115);
             sortRichTextBox.Name = "sortRichTextBox";
-            sortRichTextBox.Size = new System.Drawing.Size(296, 87);
+            sortRichTextBox.Size = new System.Drawing.Size(412, 87);
             sortRichTextBox.TabIndex = 27;
             sortRichTextBox.Text = "";
             // 

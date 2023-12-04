@@ -41,7 +41,7 @@
             // quickSortLabel
             // 
             quickSortLabel.AutoSize = true;
-            quickSortLabel.Location = new System.Drawing.Point(714, 88);
+            quickSortLabel.Location = new System.Drawing.Point(682, 91);
             quickSortLabel.Name = "quickSortLabel";
             quickSortLabel.Size = new System.Drawing.Size(95, 25);
             quickSortLabel.TabIndex = 15;
@@ -50,7 +50,7 @@
             // givenNumberLabel
             // 
             givenNumberLabel.AutoSize = true;
-            givenNumberLabel.Location = new System.Drawing.Point(210, 88);
+            givenNumberLabel.Location = new System.Drawing.Point(193, 91);
             givenNumberLabel.Name = "givenNumberLabel";
             givenNumberLabel.Size = new System.Drawing.Size(126, 25);
             givenNumberLabel.TabIndex = 14;
@@ -58,23 +58,23 @@
             // 
             // givenNumberRichTextBox
             // 
-            givenNumberRichTextBox.Location = new System.Drawing.Point(121, 128);
+            givenNumberRichTextBox.Location = new System.Drawing.Point(55, 131);
             givenNumberRichTextBox.Name = "givenNumberRichTextBox";
-            givenNumberRichTextBox.Size = new System.Drawing.Size(296, 87);
+            givenNumberRichTextBox.Size = new System.Drawing.Size(412, 87);
             givenNumberRichTextBox.TabIndex = 38;
             givenNumberRichTextBox.Text = "";
             // 
             // sortRichTextBox
             // 
-            sortRichTextBox.Location = new System.Drawing.Point(619, 119);
+            sortRichTextBox.Location = new System.Drawing.Point(553, 122);
             sortRichTextBox.Name = "sortRichTextBox";
-            sortRichTextBox.Size = new System.Drawing.Size(296, 87);
+            sortRichTextBox.Size = new System.Drawing.Size(412, 87);
             sortRichTextBox.TabIndex = 39;
             sortRichTextBox.Text = "";
             // 
             // sortButton
             // 
-            sortButton.Location = new System.Drawing.Point(714, 518);
+            sortButton.Location = new System.Drawing.Point(682, 530);
             sortButton.Name = "sortButton";
             sortButton.Size = new System.Drawing.Size(112, 34);
             sortButton.TabIndex = 37;
@@ -84,7 +84,7 @@
             // 
             // generateNumberButton
             // 
-            generateNumberButton.Location = new System.Drawing.Point(181, 527);
+            generateNumberButton.Location = new System.Drawing.Point(193, 530);
             generateNumberButton.Name = "generateNumberButton";
             generateNumberButton.Size = new System.Drawing.Size(112, 34);
             generateNumberButton.TabIndex = 36;
@@ -94,16 +94,16 @@
             // 
             // resultPanel
             // 
-            resultPanel.Location = new System.Drawing.Point(615, 212);
+            resultPanel.Location = new System.Drawing.Point(553, 224);
             resultPanel.Name = "resultPanel";
-            resultPanel.Size = new System.Drawing.Size(300, 300);
+            resultPanel.Size = new System.Drawing.Size(412, 300);
             resultPanel.TabIndex = 35;
             // 
             // givenNumberPanel
             // 
-            givenNumberPanel.Location = new System.Drawing.Point(121, 221);
+            givenNumberPanel.Location = new System.Drawing.Point(55, 224);
             givenNumberPanel.Name = "givenNumberPanel";
-            givenNumberPanel.Size = new System.Drawing.Size(300, 300);
+            givenNumberPanel.Size = new System.Drawing.Size(412, 300);
             givenNumberPanel.TabIndex = 34;
             // 
             // QuickSortForm

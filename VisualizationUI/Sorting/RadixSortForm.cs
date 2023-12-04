@@ -81,8 +81,8 @@ namespace VisualizationUI.Sorting
             sortingTimer.Enabled = true;
 
         }
-        
-      
+
+
 
         private void SortStep(object sender, EventArgs e)
         {
@@ -144,7 +144,7 @@ namespace VisualizationUI.Sorting
             return array.Max();
         }
 
-       
+
     }
 }
 

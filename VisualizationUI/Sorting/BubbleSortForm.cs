@@ -56,7 +56,7 @@ namespace VisualizationUI.Sorting
 
         public void StartSorting()
         {
-            
+
             visualizerHelper.StartSorting(sortModel.Data, resultPanel.CreateGraphics(), resultPanel.Width, resultPanel.Height, SortStep);
         }
         public void SortStep(object sender, EventArgs e)
@@ -81,7 +81,7 @@ namespace VisualizationUI.Sorting
                 {
                     // Sorting is complete
                     sortingTimer.Stop();
-                   // isSorting = false;
+                    // isSorting = false;
                     sortModel.IsSortingInProgress = false; // Set sorting as completed
                     ResultDrawData(sortModel.Data, resultPanel.CreateGraphics(), resultPanel.Width, resultPanel.Height);
 

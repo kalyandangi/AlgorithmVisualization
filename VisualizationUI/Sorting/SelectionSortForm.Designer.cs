@@ -40,23 +40,23 @@
             // 
             // givenNumberRichTextBox
             // 
-            givenNumberRichTextBox.Location = new System.Drawing.Point(121, 142);
+            givenNumberRichTextBox.Location = new System.Drawing.Point(63, 133);
             givenNumberRichTextBox.Name = "givenNumberRichTextBox";
-            givenNumberRichTextBox.Size = new System.Drawing.Size(296, 87);
+            givenNumberRichTextBox.Size = new System.Drawing.Size(412, 87);
             givenNumberRichTextBox.TabIndex = 40;
             givenNumberRichTextBox.Text = "";
             // 
             // sortRichTextBox
             // 
-            sortRichTextBox.Location = new System.Drawing.Point(615, 133);
+            sortRichTextBox.Location = new System.Drawing.Point(574, 133);
             sortRichTextBox.Name = "sortRichTextBox";
-            sortRichTextBox.Size = new System.Drawing.Size(296, 87);
+            sortRichTextBox.Size = new System.Drawing.Size(412, 87);
             sortRichTextBox.TabIndex = 41;
             sortRichTextBox.Text = "";
             // 
             // sortButton
             // 
-            sortButton.Location = new System.Drawing.Point(714, 532);
+            sortButton.Location = new System.Drawing.Point(737, 541);
             sortButton.Name = "sortButton";
             sortButton.Size = new System.Drawing.Size(112, 34);
             sortButton.TabIndex = 39;
@@ -66,7 +66,7 @@
             // 
             // generateNumberButton
             // 
-            generateNumberButton.Location = new System.Drawing.Point(181, 541);
+            generateNumberButton.Location = new System.Drawing.Point(196, 541);
             generateNumberButton.Name = "generateNumberButton";
             generateNumberButton.Size = new System.Drawing.Size(112, 34);
             generateNumberButton.TabIndex = 38;
@@ -76,22 +76,22 @@
             // 
             // resultPanel
             // 
-            resultPanel.Location = new System.Drawing.Point(615, 226);
+            resultPanel.Location = new System.Drawing.Point(574, 235);
             resultPanel.Name = "resultPanel";
-            resultPanel.Size = new System.Drawing.Size(300, 300);
+            resultPanel.Size = new System.Drawing.Size(412, 300);
             resultPanel.TabIndex = 37;
             // 
             // givenNumberPanel
             // 
-            givenNumberPanel.Location = new System.Drawing.Point(121, 235);
+            givenNumberPanel.Location = new System.Drawing.Point(63, 235);
             givenNumberPanel.Name = "givenNumberPanel";
-            givenNumberPanel.Size = new System.Drawing.Size(300, 300);
+            givenNumberPanel.Size = new System.Drawing.Size(412, 300);
             givenNumberPanel.TabIndex = 36;
             // 
             // selectionSortLabel
             // 
             selectionSortLabel.AutoSize = true;
-            selectionSortLabel.Location = new System.Drawing.Point(693, 105);
+            selectionSortLabel.Location = new System.Drawing.Point(737, 94);
             selectionSortLabel.Name = "selectionSortLabel";
             selectionSortLabel.Size = new System.Drawing.Size(121, 25);
             selectionSortLabel.TabIndex = 35;

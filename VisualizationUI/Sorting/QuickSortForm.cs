@@ -164,5 +164,7 @@ namespace VisualizationUI.Sorting
             sortingTimer.Enabled = true;
 
         }
+
+
     }
 }

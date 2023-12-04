@@ -84,7 +84,7 @@ namespace VisualizationUI
                 if (!SelectionSortStep())
                 {
                     sortingTimer.Stop();
-                   // isSorting = false;
+                    // isSorting = false;
                 }
             }
             ResultDrawData(sortModel.Data, resultPanel.CreateGraphics(), resultPanel.Width, resultPanel.Height);

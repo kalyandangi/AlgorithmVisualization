@@ -41,7 +41,7 @@
             // bubbleSortLabel
             // 
             bubbleSortLabel.AutoSize = true;
-            bubbleSortLabel.Location = new System.Drawing.Point(693, 91);
+            bubbleSortLabel.Location = new System.Drawing.Point(696, 83);
             bubbleSortLabel.Name = "bubbleSortLabel";
             bubbleSortLabel.Size = new System.Drawing.Size(105, 25);
             bubbleSortLabel.TabIndex = 9;
@@ -50,7 +50,7 @@
             // givenNumberLabel
             // 
             givenNumberLabel.AutoSize = true;
-            givenNumberLabel.Location = new System.Drawing.Point(196, 91);
+            givenNumberLabel.Location = new System.Drawing.Point(199, 83);
             givenNumberLabel.Name = "givenNumberLabel";
             givenNumberLabel.Size = new System.Drawing.Size(126, 25);
             givenNumberLabel.TabIndex = 8;
@@ -58,23 +58,23 @@
             // 
             // givenNumberRichTextBox
             // 
-            givenNumberRichTextBox.Location = new System.Drawing.Point(121, 128);
+            givenNumberRichTextBox.Location = new System.Drawing.Point(52, 120);
             givenNumberRichTextBox.Name = "givenNumberRichTextBox";
-            givenNumberRichTextBox.Size = new System.Drawing.Size(296, 87);
+            givenNumberRichTextBox.Size = new System.Drawing.Size(412, 87);
             givenNumberRichTextBox.TabIndex = 32;
             givenNumberRichTextBox.Text = "";
             // 
             // sortRichTextBox
             // 
-            sortRichTextBox.Location = new System.Drawing.Point(619, 119);
+            sortRichTextBox.Location = new System.Drawing.Point(550, 111);
             sortRichTextBox.Name = "sortRichTextBox";
-            sortRichTextBox.Size = new System.Drawing.Size(296, 87);
+            sortRichTextBox.Size = new System.Drawing.Size(406, 87);
             sortRichTextBox.TabIndex = 33;
             sortRichTextBox.Text = "";
             // 
             // sortButton
             // 
-            sortButton.Location = new System.Drawing.Point(714, 518);
+            sortButton.Location = new System.Drawing.Point(696, 510);
             sortButton.Name = "sortButton";
             sortButton.Size = new System.Drawing.Size(112, 34);
             sortButton.TabIndex = 31;
@@ -84,7 +84,7 @@
             // 
             // generateNumberButton
             // 
-            generateNumberButton.Location = new System.Drawing.Point(181, 527);
+            generateNumberButton.Location = new System.Drawing.Point(199, 519);
             generateNumberButton.Name = "generateNumberButton";
             generateNumberButton.Size = new System.Drawing.Size(112, 34);
             generateNumberButton.TabIndex = 30;
@@ -94,16 +94,16 @@
             // 
             // resultPanel
             // 
-            resultPanel.Location = new System.Drawing.Point(615, 212);
+            resultPanel.Location = new System.Drawing.Point(546, 204);
             resultPanel.Name = "resultPanel";
-            resultPanel.Size = new System.Drawing.Size(300, 300);
+            resultPanel.Size = new System.Drawing.Size(412, 300);
             resultPanel.TabIndex = 29;
             // 
             // givenNumberPanel
             // 
-            givenNumberPanel.Location = new System.Drawing.Point(121, 221);
+            givenNumberPanel.Location = new System.Drawing.Point(52, 213);
             givenNumberPanel.Name = "givenNumberPanel";
-            givenNumberPanel.Size = new System.Drawing.Size(300, 300);
+            givenNumberPanel.Size = new System.Drawing.Size(412, 300);
             givenNumberPanel.TabIndex = 28;
             // 
             // BubbleSortForm
