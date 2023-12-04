@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Windows;
+using System.Windows.Forms;
 
 namespace VisualizationLibrary.SearchVisualizer
 {
@@ -26,25 +25,9 @@ namespace VisualizationLibrary.SearchVisualizer
 
         public static void DisplayRepeatedNumberResult(List<int> data, Dictionary<int, List<int>> repeatedNumberPositions)
         {
-            StringBuilder summary = new StringBuilder();
-            int totalRepeatedValues = repeatedNumberPositions.Count;
-            int totalOccurrences = repeatedNumberPositions.Values.Sum(list => list.Count);
-            summary.AppendLine($"Total Number of Repeated Values: {totalRepeatedValues}");
-            summary.AppendLine($"Total Occurrences: {totalOccurrences}");
-
-            StringBuilder details = new StringBuilder();
-            details.AppendLine("Repeated Numbers, Counts, and Positions:");
-
-            int count = 1;
-            foreach (var pair in repeatedNumberPositions)
-            {
-                string positions = string.Join(", ", pair.Value.Select(pos => pos.ToString()));
-                details.AppendLine($"{count++}. {pair.Key}: {pair.Value.Count} times at positions {positions}");
-            }
-
-            MessageBox.Show($"{summary}\n{details}", "Repeated Numbers Report");
+            DisplayDataEventArgs displayEventArgs = new DisplayDataEventArgs(data.ToArray(), "Repeated Numbers Report", repeatedNumberPositions);
+            DisplayDataRequested?.Invoke(null, displayEventArgs);
         }
-
 
         public static int GetSearchValue(string searchText)
         {
@@ -64,11 +47,13 @@ namespace VisualizationLibrary.SearchVisualizer
     {
         public int[] Data { get; }
         public string DisplayText { get; }
+        public Dictionary<int, List<int>> RepeatedNumberPositions { get; }
 
-        public DisplayDataEventArgs(int[] data, string displayText)
+        public DisplayDataEventArgs(int[] data, string displayText, Dictionary<int, List<int>> repeatedNumberPositions)
         {
             Data = data;
             DisplayText = displayText;
+            RepeatedNumberPositions = repeatedNumberPositions;
         }
     }
 }

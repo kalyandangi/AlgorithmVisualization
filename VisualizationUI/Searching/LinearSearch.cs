@@ -39,16 +39,15 @@ namespace VisualizationUI.Searching
         {
             PerformSearch(numberSearch.FindLargestNumberIndices, "The largest number is");
         }
-        private Dictionary<int, List<int>> repeatedNumberPositions;
+
         private void repeatedNumberLinearSearchButton_Click(object sender, EventArgs e)
         {
             if (ValidateData())
             {
-                repeatedNumberPositions = numberSearch.FindRepeatedNumbersAndPositions(data.ToArray());
+                Dictionary<int, List<int>> repeatedNumberPositions = numberSearch.FindRepeatedNumbersAndPositions(data.ToArray());
                 DisplayRepeatedNumberResult(repeatedNumberPositions);
             }
         }
-
 
         private void totalNumberLinearSearchButton_Click(object sender, EventArgs e)
         {
@@ -108,11 +107,6 @@ namespace VisualizationUI.Searching
             SearchVisualizerHelper.DisplaySearchResult(data, message, positions);
         }
 
-        private void DisplayRepeatedNumberResult(Dictionary<int, List<int>> repeatedNumberPositions)
-        {
-            SearchVisualizerHelper.DisplayRepeatedNumberResult(data, repeatedNumberPositions);
-        }
-
         private bool ValidateData()
         {
             if (data != null && data.Count > 0)
@@ -131,13 +125,21 @@ namespace VisualizationUI.Searching
             if (ValidateData())
             {
                 List<int> resultIndices = searchFunction(data.ToArray());
-                DisplaySearchResult(message, resultIndices);
+                SearchVisualizerHelper.DisplaySearchResult(data, message, resultIndices);
             }
         }
 
         private int GetSearchValue()
         {
             return SearchVisualizerHelper.GetSearchValue(SearchLinearSearchTextBox.Text);
+        }
+
+        // Move this method to DisplaySearchForm
+        private void DisplayRepeatedNumberResult(Dictionary<int, List<int>> repeatedNumberPositions)
+        {
+            DisplaySearchForm displayForm = new DisplaySearchForm();
+            displayForm.DisplayRepeatedNumberResult(repeatedNumberPositions);
+            displayForm.Show();
         }
     }
 }
