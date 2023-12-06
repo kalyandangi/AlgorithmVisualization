@@ -47,6 +47,7 @@
             searchBinarySearchButton.TabIndex = 39;
             searchBinarySearchButton.Text = "Search";
             searchBinarySearchButton.UseVisualStyleBackColor = true;
+            searchBinarySearchButton.Click += searchBinarySearchButton_Click;
             // 
             // SearchBinarySearchTextBox
             // 
@@ -64,6 +65,7 @@
             repeatedNumberBinarySearchButton.TabIndex = 34;
             repeatedNumberBinarySearchButton.Text = "Repeated Number";
             repeatedNumberBinarySearchButton.UseVisualStyleBackColor = true;
+            repeatedNumberBinarySearchButton.Click += repeatedNumberBinarySearchButton_Click;
             // 
             // smallestNumberBinarySearchButton
             // 

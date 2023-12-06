@@ -105,5 +105,40 @@ namespace VisualizationUI.Searching
         {
             PerformSearch(operationBinarySearch.FindSmallestNumberIndices, "The smallest number is");
         }
+        private int GetSearchValue()
+        {
+            return SearchVisualizerHelper.GetSearchValue(SearchBinarySearchTextBox.Text);
+        }
+        private void DisplaySearchResult(string message, List<int> positions)
+        {
+            SearchVisualizerHelper.DisplaySearchResult(data, message, positions);
+        }
+        private void searchBinarySearchButton_Click(object sender, EventArgs e)
+        {
+            if (ValidateData())
+            {
+                int searchValue = GetSearchValue();
+                if (searchValue != int.MinValue)
+                {
+                    List<int> positions = operationBinarySearch.FindOccurrences(data.ToArray(), searchValue);
+                    DisplaySearchResult("Search Value Found", positions);
+                }
+            }
+        }
+
+        private void repeatedNumberBinarySearchButton_Click(object sender, EventArgs e)
+        {
+            if (ValidateData())
+            {
+                Dictionary<int, List<int>> repeatedNumberPositions = operationBinarySearch.FindRepeatedNumbersAndPositions(data.ToArray());
+                DisplayRepeatedNumberResult(repeatedNumberPositions);
+            }
+        }
+        private void DisplayRepeatedNumberResult(Dictionary<int, List<int>> repeatedNumberPositions)
+        {
+            DisplaySearchForm displayForm = new DisplaySearchForm();
+            displayForm.DisplayRepeatedNumberResult(repeatedNumberPositions);
+            displayForm.Show();
+        }
     }
 }
