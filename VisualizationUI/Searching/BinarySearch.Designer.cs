@@ -73,6 +73,7 @@
             smallestNumberBinarySearchButton.TabIndex = 32;
             smallestNumberBinarySearchButton.Text = "Smallest Number";
             smallestNumberBinarySearchButton.UseVisualStyleBackColor = true;
+            smallestNumberBinarySearchButton.Click += smallestNumberBinarySearchButton_Click;
             // 
             // genereatedNumbersBinarySearchPanel
             // 
@@ -100,6 +101,7 @@
             totalNumberBinarySearchButton.TabIndex = 35;
             totalNumberBinarySearchButton.Text = "Total Number";
             totalNumberBinarySearchButton.UseVisualStyleBackColor = true;
+            totalNumberBinarySearchButton.Click += totalNumberBinarySearchButton_Click;
             // 
             // largestNumberBinarySearchButton
             // 
@@ -109,6 +111,7 @@
             largestNumberBinarySearchButton.TabIndex = 33;
             largestNumberBinarySearchButton.Text = "Largest Number";
             largestNumberBinarySearchButton.UseVisualStyleBackColor = true;
+            largestNumberBinarySearchButton.Click += largestNumberBinarySearchButton_Click;
             // 
             // generateRandomNumbersBinarySearchButton
             // 
@@ -118,6 +121,7 @@
             generateRandomNumbersBinarySearchButton.TabIndex = 31;
             generateRandomNumbersBinarySearchButton.Text = "Generate";
             generateRandomNumbersBinarySearchButton.UseVisualStyleBackColor = true;
+            generateRandomNumbersBinarySearchButton.Click += generateRandomNumbersBinarySearchButton_Click;
             // 
             // BinarySearch
             // 

@@ -6,32 +6,9 @@ using System.Threading.Tasks;
 
 namespace VisualizationLibrary.SearchVisualizer
 {
-    public class NumberSearch: ISearchVisualizer
+    public class OperationLinearSearch: ISearchVisualizer
     {
-        private static Random random = new Random();
-
-        public int[] GenerateRandomNumbers(int arrayLength, int maxValue)
-        {
-            int[] data = new int[arrayLength];
-            for (int i = 0; i < arrayLength; i++)
-            {
-                data[i] = random.Next(1, maxValue);
-            }
-            return data;
-        }
-        public int FindSmallestNumber(int[] data)
-        {
-            int smallest = data[0];
-            for (int i = 1; i < data.Length; i++)
-            {
-                if (data[i] < smallest)
-                {
-                    smallest = data[i];
-                }
-            }
-
-            return smallest;
-        }
+        
         public List<int> FindSmallestNumberIndices(int[] data)
         {
             if (data.Length == 0)
@@ -57,19 +34,6 @@ namespace VisualizationLibrary.SearchVisualizer
             }
 
             return indices;
-        }
-        public int FindLargestNumber(int[] data)
-        {
-            int largest = data[0];
-            for (int i = 1; i < data.Length; i++)
-            {
-                if (data[i] > largest)
-                {
-                    largest = data[i];
-                }
-            }
-
-            return largest;
         }
 
         public List<int> FindLargestNumberIndices(int[] data)

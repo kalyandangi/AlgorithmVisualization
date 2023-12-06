@@ -5,8 +5,20 @@ using System.Windows.Forms;
 
 namespace VisualizationLibrary.SearchVisualizer
 {
-    public static class SearchVisualizerHelper
+    public  class SearchVisualizerHelper
     {
+
+        private static Random random = new Random();
+
+        public int[] GenerateRandomNumbers(int arrayLength, int maxValue)
+        {
+            int[] data = new int[arrayLength];
+            for (int i = 0; i < arrayLength; i++)
+            {
+                data[i] = random.Next(1, maxValue);
+            }
+            return data;
+        }
         public static event EventHandler<DisplayDataEventArgs> DisplayDataRequested;
 
         public static void DisplaySearchResult(List<int> data, string message, List<int> positions)

@@ -10,13 +10,14 @@ namespace VisualizationUI.Searching
     public partial class LinearSearch : Form
     {
         private readonly List<int> data;
-        private readonly NumberSearch numberSearch;
-
+        private readonly OperationLinearSearch operationLinearnumberSearch;
+        private readonly SearchVisualizerHelper searchVisualizerHelper;
         public LinearSearch()
         {
             InitializeComponent();
             data = new List<int>();
-            numberSearch = new NumberSearch();
+            operationLinearnumberSearch = new OperationLinearSearch();
+            searchVisualizerHelper = new SearchVisualizerHelper();
         }
 
         private void generateRandomNumbersLinearSearchButton_Click(object sender, EventArgs e)
@@ -24,7 +25,7 @@ namespace VisualizationUI.Searching
             int panelWidth = generatedNumbersLinearSearchPanel.Width;
             int panelHeight = generatedNumbersLinearSearchPanel.Height;
 
-            int[] generatedData = GenerateRandomNumbers(panelWidth, panelHeight);
+            int[] generatedData = searchVisualizerHelper.GenerateRandomNumbers(panelWidth, panelHeight);
             data.Clear(); // Clear the previous data
             data.AddRange(generatedData); // Add the newly generated data
             DrawDataOnPanel(generatedData);
@@ -32,19 +33,19 @@ namespace VisualizationUI.Searching
 
         private void smallestNumberLinearSearchButton_Click(object sender, EventArgs e)
         {
-            PerformSearch(numberSearch.FindSmallestNumberIndices, "The smallest number is");
+            PerformSearch(operationLinearnumberSearch.FindSmallestNumberIndices, "The smallest number is");
         }
 
         private void largestNumberLinearSearchButton_Click(object sender, EventArgs e)
         {
-            PerformSearch(numberSearch.FindLargestNumberIndices, "The largest number is");
+            PerformSearch(operationLinearnumberSearch.FindLargestNumberIndices, "The largest number is");
         }
 
         private void repeatedNumberLinearSearchButton_Click(object sender, EventArgs e)
         {
             if (ValidateData())
             {
-                Dictionary<int, List<int>> repeatedNumberPositions = numberSearch.FindRepeatedNumbersAndPositions(data.ToArray());
+                Dictionary<int, List<int>> repeatedNumberPositions = operationLinearnumberSearch.FindRepeatedNumbersAndPositions(data.ToArray());
                 DisplayRepeatedNumberResult(repeatedNumberPositions);
             }
         }
@@ -53,7 +54,7 @@ namespace VisualizationUI.Searching
         {
             if (ValidateData())
             {
-                int totalUniqueValues = numberSearch.CountTotalUniqueValues(data.ToArray());
+                int totalUniqueValues = operationLinearnumberSearch.CountTotalUniqueValues(data.ToArray());
                 MessageBox.Show($"Total Number of Unique Values: {totalUniqueValues}");
             }
         }
@@ -65,7 +66,7 @@ namespace VisualizationUI.Searching
                 int searchValue = GetSearchValue();
                 if (searchValue != int.MinValue)
                 {
-                    List<int> positions = numberSearch.FindOccurrences(data.ToArray(), searchValue);
+                    List<int> positions = operationLinearnumberSearch.FindOccurrences(data.ToArray(), searchValue);
                     DisplaySearchResult("Search Value Found", positions);
                 }
             }
@@ -95,11 +96,6 @@ namespace VisualizationUI.Searching
                     generatedNumbersLinearSearchPanel.Controls.Add(rectangle);
                 }
             }
-        }
-
-        private int[] GenerateRandomNumbers(int arrayLength, int maxValue)
-        {
-            return numberSearch.GenerateRandomNumbers(arrayLength, maxValue);
         }
 
         private void DisplaySearchResult(string message, List<int> positions)
