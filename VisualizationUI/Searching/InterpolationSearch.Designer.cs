@@ -32,7 +32,7 @@
             SearchInterpolationSearchTextBox = new System.Windows.Forms.TextBox();
             repeatedNumberInterpolationSearchButton = new System.Windows.Forms.Button();
             smallestNumberInterpolationSearchButton = new System.Windows.Forms.Button();
-            genereatedNumbersInterpolationSearchPanel = new System.Windows.Forms.Panel();
+            generatedNumbersInterpolationSearchPanel = new System.Windows.Forms.Panel();
             interpolationSearchLabel = new System.Windows.Forms.Label();
             totalNumberInterpolationSearchButton = new System.Windows.Forms.Button();
             largestNumberInterpolationSearchButton = new System.Windows.Forms.Button();
@@ -47,6 +47,7 @@
             searchInterpolationSearchButton.TabIndex = 39;
             searchInterpolationSearchButton.Text = "Search";
             searchInterpolationSearchButton.UseVisualStyleBackColor = true;
+            searchInterpolationSearchButton.Click += searchInterpolationSearchButton_Click;
             // 
             // SearchInterpolationSearchTextBox
             // 
@@ -64,6 +65,7 @@
             repeatedNumberInterpolationSearchButton.TabIndex = 34;
             repeatedNumberInterpolationSearchButton.Text = "Repeated Number";
             repeatedNumberInterpolationSearchButton.UseVisualStyleBackColor = true;
+            repeatedNumberInterpolationSearchButton.Click += repeatedNumberInterpolationSearchButton_Click;
             // 
             // smallestNumberInterpolationSearchButton
             // 
@@ -73,14 +75,15 @@
             smallestNumberInterpolationSearchButton.TabIndex = 32;
             smallestNumberInterpolationSearchButton.Text = "Smallest Number";
             smallestNumberInterpolationSearchButton.UseVisualStyleBackColor = true;
+            smallestNumberInterpolationSearchButton.Click += smallestNumberInterpolationSearchButton_Click;
             // 
-            // genereatedNumbersInterpolationSearchPanel
+            // generatedNumbersInterpolationSearchPanel
             // 
-            genereatedNumbersInterpolationSearchPanel.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            genereatedNumbersInterpolationSearchPanel.Location = new System.Drawing.Point(18, 95);
-            genereatedNumbersInterpolationSearchPanel.Name = "genereatedNumbersInterpolationSearchPanel";
-            genereatedNumbersInterpolationSearchPanel.Size = new System.Drawing.Size(531, 187);
-            genereatedNumbersInterpolationSearchPanel.TabIndex = 37;
+            generatedNumbersInterpolationSearchPanel.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            generatedNumbersInterpolationSearchPanel.Location = new System.Drawing.Point(18, 95);
+            generatedNumbersInterpolationSearchPanel.Name = "generatedNumbersInterpolationSearchPanel";
+            generatedNumbersInterpolationSearchPanel.Size = new System.Drawing.Size(531, 187);
+            generatedNumbersInterpolationSearchPanel.TabIndex = 37;
             // 
             // interpolationSearchLabel
             // 
@@ -100,6 +103,7 @@
             totalNumberInterpolationSearchButton.TabIndex = 35;
             totalNumberInterpolationSearchButton.Text = "Total Number";
             totalNumberInterpolationSearchButton.UseVisualStyleBackColor = true;
+            totalNumberInterpolationSearchButton.Click += totalNumberInterpolationSearchButton_Click;
             // 
             // largestNumberInterpolationSearchButton
             // 
@@ -109,6 +113,7 @@
             largestNumberInterpolationSearchButton.TabIndex = 33;
             largestNumberInterpolationSearchButton.Text = "Largest Number";
             largestNumberInterpolationSearchButton.UseVisualStyleBackColor = true;
+            largestNumberInterpolationSearchButton.Click += largestNumberInterpolationSearchButton_Click;
             // 
             // generateRandomNumbersInterpolationSearchButton
             // 
@@ -118,6 +123,7 @@
             generateRandomNumbersInterpolationSearchButton.TabIndex = 31;
             generateRandomNumbersInterpolationSearchButton.Text = "Generate";
             generateRandomNumbersInterpolationSearchButton.UseVisualStyleBackColor = true;
+            generateRandomNumbersInterpolationSearchButton.Click += generateRandomNumbersInterpolationSearchButton_Click;
             // 
             // InterpolationSearch
             // 
@@ -128,7 +134,7 @@
             Controls.Add(SearchInterpolationSearchTextBox);
             Controls.Add(repeatedNumberInterpolationSearchButton);
             Controls.Add(smallestNumberInterpolationSearchButton);
-            Controls.Add(genereatedNumbersInterpolationSearchPanel);
+            Controls.Add(generatedNumbersInterpolationSearchPanel);
             Controls.Add(interpolationSearchLabel);
             Controls.Add(totalNumberInterpolationSearchButton);
             Controls.Add(largestNumberInterpolationSearchButton);
@@ -146,7 +152,7 @@
         private System.Windows.Forms.TextBox SearchInterpolationSearchTextBox;
         private System.Windows.Forms.Button repeatedNumberInterpolationSearchButton;
         private System.Windows.Forms.Button smallestNumberInterpolationSearchButton;
-        private System.Windows.Forms.Panel genereatedNumbersInterpolationSearchPanel;
+        private System.Windows.Forms.Panel generatedNumbersInterpolationSearchPanel;
         private System.Windows.Forms.Label interpolationSearchLabel;
         private System.Windows.Forms.Button totalNumberInterpolationSearchButton;
         private System.Windows.Forms.Button largestNumberInterpolationSearchButton;
