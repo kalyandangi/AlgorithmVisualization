@@ -27,12 +27,15 @@ namespace VisualizationLibrary.SearchVisualizer
 
             // Perform interpolation search to find the largest value.
             int index = InterpolationSearch(data, maxValue);
-
-            for (int i = 0; i < data.Length; i++)
+            if (index != -1)
             {
-                if (data[i] == maxValue)
+
+                for (int i = 0; i < data.Length; i++)
                 {
-                    indices.Add(i);
+                    if (data[i] == maxValue)
+                    {
+                        indices.Add(i);
+                    }
                 }
             }
             return indices;
@@ -62,9 +65,20 @@ namespace VisualizationLibrary.SearchVisualizer
 
             return -1; // Not found
         }
+
         public List<int> FindOccurrences(int[] data, int searchValue)
         {
-            throw new NotImplementedException();
+            List<int> occurrences = new List<int>();
+
+            for (int i = 0; i < data.Length; i++)
+            {
+                if (data[i] == searchValue)
+                {
+                    occurrences.Add(i);
+                }
+
+            }
+            return occurrences;
         }
 
         public Dictionary<int, List<int>> FindRepeatedNumbersAndPositions(int[] data)
@@ -106,36 +120,22 @@ namespace VisualizationLibrary.SearchVisualizer
 
             int minValue = data.Min();
 
-            // Perform interpolation search to find the largest value.
+            // Perform interpolation search to find the smallest value.
             int index = InterpolationSearch(data, minValue);
 
-            for (int i = 0; i < data.Length; i++)
+            // Check if the interpolation search found the smallest value
+            if (index != -1)
             {
-                if (data[i] == minValue)
+                // Iterate through the array to find all occurrences of the smallest value
+                for (int i = 0; i < data.Length; i++)
                 {
-                    indices.Add(i);
+                    if (data[i] == minValue)
+                    {
+                        indices.Add(i);
+                    }
                 }
             }
             return indices;
-        }
-
-        public List<int> FindOccurances(int[] data, int searchValue)
-        {
-            List<int> occurances = new List<int>();
-            int[] sortedData = new int[data.Length];
-            Array.Copy(data, sortedData, data.Length);
-            Array.Sort (sortedData);
-            int index = InterpolationSearch(data, searchValue);
-
-            for (int i = 0; i < data.Length; i++)
-            {
-                if (data[i] == searchValue)
-                {
-                    occurances.Add (i);
-                }
-
-            }
-            return occurances;
         }
     }
 }

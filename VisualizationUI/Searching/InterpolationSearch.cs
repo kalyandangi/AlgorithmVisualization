@@ -95,7 +95,7 @@ namespace VisualizationUI.Searching
                 int searchValue = GetSearchValue();
                 if (searchValue != int.MinValue)
                 {
-                    List<int> positions = operationInterpolationSearch.FindOccurances(data.ToArray(), searchValue);
+                    List<int> positions = operationInterpolationSearch.FindOccurrences(data.ToArray(), searchValue);
                     DisplaySearchResult("Search Value Found", positions);
                 }
             }

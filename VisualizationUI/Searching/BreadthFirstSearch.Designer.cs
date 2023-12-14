@@ -32,7 +32,7 @@
             SearchBreadthFirstSearchTextBox = new System.Windows.Forms.TextBox();
             repeatedNumberBreadthFirstSearchButton = new System.Windows.Forms.Button();
             smallestNumberBreadthFirstSearchButton = new System.Windows.Forms.Button();
-            genereatedNumbersBreadthFirstSearchPanel = new System.Windows.Forms.Panel();
+            generatedNumbersBreadthFirstSearchPanel = new System.Windows.Forms.Panel();
             breadthFirstSearchLabel = new System.Windows.Forms.Label();
             totalNumberBreadthFirstSearchButton = new System.Windows.Forms.Button();
             largestNumberBreadthFirstSearchButton = new System.Windows.Forms.Button();
@@ -47,6 +47,7 @@
             searchBreadthFirstSearchButton.TabIndex = 39;
             searchBreadthFirstSearchButton.Text = "Search";
             searchBreadthFirstSearchButton.UseVisualStyleBackColor = true;
+            searchBreadthFirstSearchButton.Click += searchBreadthFirstSearchButton_Click;
             // 
             // SearchBreadthFirstSearchTextBox
             // 
@@ -64,6 +65,7 @@
             repeatedNumberBreadthFirstSearchButton.TabIndex = 34;
             repeatedNumberBreadthFirstSearchButton.Text = "Repeated Number";
             repeatedNumberBreadthFirstSearchButton.UseVisualStyleBackColor = true;
+            repeatedNumberBreadthFirstSearchButton.Click += repeatedNumberBreadthFirstSearchButton_Click;
             // 
             // smallestNumberBreadthFirstSearchButton
             // 
@@ -73,14 +75,15 @@
             smallestNumberBreadthFirstSearchButton.TabIndex = 32;
             smallestNumberBreadthFirstSearchButton.Text = "Smallest Number";
             smallestNumberBreadthFirstSearchButton.UseVisualStyleBackColor = true;
+            smallestNumberBreadthFirstSearchButton.Click += smallestNumberBreadthFirstSearchButton_Click;
             // 
-            // genereatedNumbersBreadthFirstSearchPanel
+            // generatedNumbersBreadthFirstSearchPanel
             // 
-            genereatedNumbersBreadthFirstSearchPanel.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            genereatedNumbersBreadthFirstSearchPanel.Location = new System.Drawing.Point(18, 95);
-            genereatedNumbersBreadthFirstSearchPanel.Name = "genereatedNumbersBreadthFirstSearchPanel";
-            genereatedNumbersBreadthFirstSearchPanel.Size = new System.Drawing.Size(531, 187);
-            genereatedNumbersBreadthFirstSearchPanel.TabIndex = 37;
+            generatedNumbersBreadthFirstSearchPanel.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            generatedNumbersBreadthFirstSearchPanel.Location = new System.Drawing.Point(18, 95);
+            generatedNumbersBreadthFirstSearchPanel.Name = "generatedNumbersBreadthFirstSearchPanel";
+            generatedNumbersBreadthFirstSearchPanel.Size = new System.Drawing.Size(531, 187);
+            generatedNumbersBreadthFirstSearchPanel.TabIndex = 37;
             // 
             // breadthFirstSearchLabel
             // 
@@ -100,6 +103,7 @@
             totalNumberBreadthFirstSearchButton.TabIndex = 35;
             totalNumberBreadthFirstSearchButton.Text = "Total Number";
             totalNumberBreadthFirstSearchButton.UseVisualStyleBackColor = true;
+            totalNumberBreadthFirstSearchButton.Click += totalNumberBreadthFirstSearchButton_Click;
             // 
             // largestNumberBreadthFirstSearchButton
             // 
@@ -109,6 +113,7 @@
             largestNumberBreadthFirstSearchButton.TabIndex = 33;
             largestNumberBreadthFirstSearchButton.Text = "Largest Number";
             largestNumberBreadthFirstSearchButton.UseVisualStyleBackColor = true;
+            largestNumberBreadthFirstSearchButton.Click += largestNumberBreadthFirstSearchButton_Click;
             // 
             // generateRandomNumbersBreadthFirstSearchButton
             // 
@@ -118,6 +123,7 @@
             generateRandomNumbersBreadthFirstSearchButton.TabIndex = 31;
             generateRandomNumbersBreadthFirstSearchButton.Text = "Generate";
             generateRandomNumbersBreadthFirstSearchButton.UseVisualStyleBackColor = true;
+            generateRandomNumbersBreadthFirstSearchButton.Click += generateRandomNumbersBreadthFirstSearchButton_Click;
             // 
             // BreadthFirstSearch
             // 
@@ -128,7 +134,7 @@
             Controls.Add(SearchBreadthFirstSearchTextBox);
             Controls.Add(repeatedNumberBreadthFirstSearchButton);
             Controls.Add(smallestNumberBreadthFirstSearchButton);
-            Controls.Add(genereatedNumbersBreadthFirstSearchPanel);
+            Controls.Add(generatedNumbersBreadthFirstSearchPanel);
             Controls.Add(breadthFirstSearchLabel);
             Controls.Add(totalNumberBreadthFirstSearchButton);
             Controls.Add(largestNumberBreadthFirstSearchButton);
@@ -146,7 +152,7 @@
         private System.Windows.Forms.TextBox SearchBreadthFirstSearchTextBox;
         private System.Windows.Forms.Button repeatedNumberBreadthFirstSearchButton;
         private System.Windows.Forms.Button smallestNumberBreadthFirstSearchButton;
-        private System.Windows.Forms.Panel genereatedNumbersBreadthFirstSearchPanel;
+        private System.Windows.Forms.Panel generatedNumbersBreadthFirstSearchPanel;
         private System.Windows.Forms.Label breadthFirstSearchLabel;
         private System.Windows.Forms.Button totalNumberBreadthFirstSearchButton;
         private System.Windows.Forms.Button largestNumberBreadthFirstSearchButton;
