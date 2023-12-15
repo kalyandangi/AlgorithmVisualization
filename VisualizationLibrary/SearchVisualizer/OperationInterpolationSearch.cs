@@ -19,13 +19,11 @@ namespace VisualizationLibrary.SearchVisualizer
 
             if (data == null || data.Length == 0)
             {
-                // Return an empty list if the array is null or empty.
                 return indices;
             }
 
             int maxValue = data.Max();
 
-            // Perform interpolation search to find the largest value.
             int index = InterpolationSearch(data, maxValue);
             if (index != -1)
             {
@@ -51,7 +49,6 @@ namespace VisualizationLibrary.SearchVisualizer
 
             while (low <= high && target >= sortedData[low] && target <= sortedData[high])
             {
-                // Interpolation formula
                 int pos = low + ((target - sortedData[low]) * (high - low) / (sortedData[high] - sortedData[low]));
 
                 if (sortedData[pos] == target)
@@ -63,23 +60,35 @@ namespace VisualizationLibrary.SearchVisualizer
                     high = pos - 1;
             }
 
-            return -1; // Not found
+            return -1; 
         }
 
         public List<int> FindOccurrences(int[] data, int searchValue)
         {
             List<int> occurrences = new List<int>();
 
-            for (int i = 0; i < data.Length; i++)
+            if (data == null || data.Length == 0)
             {
-                if (data[i] == searchValue)
-                {
-                    occurrences.Add(i);
-                }
+                return occurrences;
+            }
+            int index = InterpolationSearch(data, searchValue);
+            if (index != -1)
+            {
 
+                for (int i = 0; i < data.Length; i++)
+                {
+                    if (data[i] == searchValue)
+                    {
+                        occurrences.Add(i);
+                    }
+                }
             }
             return occurrences;
+
         }
+
+
+
 
         public Dictionary<int, List<int>> FindRepeatedNumbersAndPositions(int[] data)
         {
@@ -99,7 +108,6 @@ namespace VisualizationLibrary.SearchVisualizer
                 }
             }
 
-            // Exclude numbers that appear only once
             foreach (var kvp in numberPositions.Where(pair => pair.Value.Count == 1).ToList())
             {
                 numberPositions.Remove(kvp.Key);
@@ -114,19 +122,17 @@ namespace VisualizationLibrary.SearchVisualizer
 
             if (data == null || data.Length == 0)
             {
-                // Return an empty list if the array is null or empty.
                 return indices;
             }
 
             int minValue = data.Min();
 
-            // Perform interpolation search to find the smallest value.
             int index = InterpolationSearch(data, minValue);
 
-            // Check if the interpolation search found the smallest value
+
             if (index != -1)
             {
-                // Iterate through the array to find all occurrences of the smallest value
+ 
                 for (int i = 0; i < data.Length; i++)
                 {
                     if (data[i] == minValue)

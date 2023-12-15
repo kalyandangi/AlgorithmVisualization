@@ -40,8 +40,6 @@ namespace VisualizationLibrary.SearchVisualizer
                 }
             }
             int maxValue = sortedData[right];
-            //int minValue = data[left];
-         //   int value = data[mid];
             for(int i = 0; i< data.Length; i++)
             {
                 if (data[i] == maxValue)
@@ -70,7 +68,6 @@ namespace VisualizationLibrary.SearchVisualizer
 
                 if (sortedData[mid] == searchValue)
                 {
-                    // Find all occurrences in the original array
                     for (int i = 0; i < data.Length; i++)
                     {
                         if (data[i] == searchValue)
@@ -78,7 +75,7 @@ namespace VisualizationLibrary.SearchVisualizer
                             occurrences.Add(i);
                         }
                     }
-                    return occurrences; // Exit the function since all occurrences have been found
+                    return occurrences; 
                 }
                 else if (sortedData[mid] < searchValue)
                 {
@@ -90,12 +87,12 @@ namespace VisualizationLibrary.SearchVisualizer
                 }
             }
 
-            return occurrences; // Return an empty list if no occurrences are found
+            return occurrences; 
         }
 
 
 
-            public Dictionary<int, List<int>> FindRepeatedNumbersAndPositions(int[] data)
+       public Dictionary<int, List<int>> FindRepeatedNumbersAndPositions(int[] data)
         {
             Dictionary<int, List<int>> numberPositions = new Dictionary<int, List<int>>();
 
@@ -113,7 +110,6 @@ namespace VisualizationLibrary.SearchVisualizer
                 }
             }
 
-            // Exclude numbers that appear only once
             foreach (var kvp in numberPositions.Where(pair => pair.Value.Count == 1).ToList())
             {
                 numberPositions.Remove(kvp.Key);

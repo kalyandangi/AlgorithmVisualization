@@ -24,12 +24,12 @@ namespace VisualizationLibrary.SearchVisualizer
                 if (data[i] < smallest)
                 {
                     smallest = data[i];
-                    indices.Clear(); // Reset indices for the new smallest number
+                    indices.Clear(); 
                     indices.Add(i);
                 }
                 else if (data[i] == smallest)
                 {
-                    indices.Add(i); // Another occurrence of the smallest number
+                    indices.Add(i); 
                 }
             }
 
@@ -51,12 +51,12 @@ namespace VisualizationLibrary.SearchVisualizer
                 if (data[i] > largest)
                 {
                     largest = data[i];
-                    indices.Clear(); // Reset indices for the new smallest number
+                    indices.Clear(); 
                     indices.Add(i);
                 }
                 else if (data[i] == largest)
                 {
-                    indices.Add(i); // Another occurrence of the smallest number
+                    indices.Add(i); 
                 }
             }
 
